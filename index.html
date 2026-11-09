@@ -63,11 +63,13 @@
             <!-- Preset Views -->
             <div class="hidden xl:flex items-center space-x-1 bg-slate-800 px-2 py-1 rounded-lg border border-slate-700 text-xs">
                 <span class="text-slate-400 px-1 text-[11px]">Kamera:</span>
+                <button onclick="setFrontHeroView()" class="px-2 py-1 rounded bg-emerald-500/20 border border-emerald-500/40 hover:bg-emerald-500/30 text-emerald-300 font-semibold transition" title="Pandangan Fasad Hadapan seperti Video Dron">Fasad Hadapan (Video)</button>
+                <button onclick="setCanteenInteriorView('counter')" class="px-2 py-1 rounded bg-amber-500/20 border border-amber-500/40 hover:bg-amber-500/30 text-amber-300 font-semibold transition" title="Masuk ke Ruang Dalam Kantin (Kaunter & Tempat Makan)">Interior Kantin (3D)</button>
                 <button onclick="setCameraAngle(0, 52)" class="px-2 py-1 rounded hover:bg-slate-700 text-amber-300 font-medium transition" title="Pandangan Google Maps / Utara">Utara / Google Maps (0°)</button>
                 <button onclick="setCameraAngle(90, 45)" class="px-2 py-1 rounded hover:bg-slate-700 text-slate-200 transition" title="Pandangan Timur (Jalan 3/60a)">Timur (90°)</button>
                 <button onclick="setCameraAngle(180, 55)" class="px-2 py-1 rounded hover:bg-slate-700 text-slate-200 transition" title="Pandangan Selatan">Selatan (180°)</button>
                 <button onclick="setCameraAngle(270, 45)" class="px-2 py-1 rounded hover:bg-slate-700 text-slate-200 transition" title="Pandangan Barat">Barat (270°)</button>
-                <button onclick="setCameraAngle(0, 88)" class="px-2 py-1 rounded hover:bg-slate-700 text-emerald-300 font-medium transition" title="Pandangan Satelit Tegak 90°">Satelit Tegak (90°)</button>
+                <button onclick="setCameraAngle(0, 88)" class="px-2 py-1 rounded hover:bg-slate-700 text-sky-300 font-medium transition" title="Pandangan Satelit Tegak 90°">Satelit Tegak (90°)</button>
             </div>
 
             <!-- Emergency Route Button -->
@@ -104,7 +106,7 @@
                     <div>
                         <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Azimuth Kompas 360°</div>
                         <div class="text-lg font-bold font-mono text-amber-400" id="hud-azimuth">0° (UTARA)</div>
-                        <div class="text-[11px] text-slate-400" id="hud-pitch">Sudut Condong (Pitch): 55°</div>
+                        <div class="text-[11px] text-slate-400" id="hud-pitch">Sudut Condong (Pitch): 22°</div>
                     </div>
                 </div>
 
@@ -158,45 +160,58 @@
                         <!-- 2. SCHOOL COMPOUND BASE -->
                         <path d="M 120 260 Q 150 140 420 130 L 845 130 L 845 915 L 120 915 Z" fill="#3f6212" opacity="0.4" stroke="#84cc16" stroke-width="2.5" stroke-dasharray="6,4"/>
 
-                        <!-- Internal Asphalt Driveway, Parking & Perimeter Road -->
+                        <!-- Internal Smooth Curved Asphalt Driveway, Angled Parking & West Perimeter Road -->
                         <path id="zon-parkir" onclick="selectZone('parkir')" class="map-element"
-                              d="M 135 900 L 135 320 Q 155 180 410 155 L 570 155 L 570 220 Q 310 230 220 360 L 195 900 Z" 
+                              d="M 135 900 L 135 320 Q 155 175 410 155 L 570 155 L 570 225 Q 315 235 215 380 L 195 900 Z" 
                               fill="#475569" stroke="#64748b" stroke-width="2"/>
                         
-                        <g stroke="#cbd5e1" stroke-width="2" opacity="0.7" pointer-events="none">
-                            <line x1="270" y1="205" x2="290" y2="235"/>
-                            <line x1="245" y1="220" x2="268" y2="248"/>
-                            <line x1="222" y1="240" x2="248" y2="265"/>
-                            <line x1="200" y1="262" x2="230" y2="285"/>
-                            <line x1="182" y1="286" x2="215" y2="305"/>
-                            <line x1="168" y1="312" x2="202" y2="328"/>
-                            <line x1="155" y1="340" x2="192" y2="352"/>
+                        <!-- Angled Parking Bays & Cars matching Google Maps image_899b83.jpg -->
+                        <g stroke="#cbd5e1" stroke-width="2" opacity="0.85" pointer-events="none">
+                            <line x1="315" y1="182" x2="332" y2="212"/>
+                            <line x1="288" y1="194" x2="306" y2="224"/>
+                            <line x1="262" y1="208" x2="282" y2="238"/>
+                            <line x1="238" y1="225" x2="260" y2="254"/>
+                            <line x1="215" y1="245" x2="238" y2="272"/>
+                            <line x1="194" y1="268" x2="220" y2="292"/>
+                            <line x1="176" y1="292" x2="204" y2="314"/>
+                            <line x1="162" y1="318" x2="192" y2="336"/>
                         </g>
 
-                        <!-- 3. MAIN GATE & PORCH (MENGIKUT GOOGLE MAPS) -->
+                        <!-- 3. MAIN GATE, GUARDHOUSE, WELCOME WALKWAY & RED PORCH CANOPY (MENGIKUT VIDEO DRON HADAPAN) -->
                         <g id="zon-pintu" onclick="selectZone('pintu')" class="map-element">
-                            <rect x="415" y="138" width="55" height="28" rx="3" fill="#7c4d3a" stroke="#f59e0b" stroke-width="2"/>
-                            <rect x="488" y="168" width="54" height="44" rx="3" fill="#9a3412" stroke="#fb923c" stroke-width="2"/>
-                            <text x="515" y="158" fill="#fde047" font-size="11" font-weight="bold" text-anchor="middle" class="map-label">PINTU UTAMA</text>
+                            <!-- Pondok Pengawal Berdinding Hijau di Sebelah Barat Pintu Masuk -->
+                            <rect x="405" y="136" width="60" height="30" rx="3" fill="#6b4232" stroke="#84cc16" stroke-width="2.5"/>
+                            <!-- Kanopi Kereta Berbumbung Merah (Porch Terbuka) di Hadapan Gable Tengah -->
+                            <rect x="485" y="172" width="60" height="42" rx="3" fill="#991b1b" stroke="#f87171" stroke-width="2"/>
+                            <!-- Laluan Berbumbung & Tangga "Selamat Datang" di Sebelah Timur Pintu -->
+                            <polygon points="552,190 618,142 632,158 564,208" fill="#5c3a2b" stroke="#38bdf8" stroke-width="2"/>
+                            <text x="515" y="155" fill="#fde047" font-size="11" font-weight="bold" text-anchor="middle" class="map-label">PINTU UTAMA &amp; ANJUNG</text>
                         </g>
 
-                        <!-- 4. DOUBLE-CURVED RADIAL BLOCKS (EXACT GOOGLE MAPS GEOMETRY) -->
+                        <!-- 4. DOUBLE-CURVED RADIAL BLOCKS (EXACT GOOGLE MAPS & FRONT VIDEO GEOMETRY) -->
                         <g id="zon-melengkung-luar" onclick="selectZone('melengkung_luar')" class="map-element">
                             <!-- Main Smooth Curved Roof Band -->
                             <path d="M 235 385 Q 515 215 795 385 L 755 450 Q 515 295 275 450 Z" 
                                   fill="url(#roofPattern)" stroke="#a16207" stroke-width="3"/>
-                            <!-- 3 Integrated Radial Gable Projections Facing North + 1 Inner Central Gable -->
-                            <polygon points="355,315 382,252 425,295 398,350" fill="#7c4d3a" stroke="#d97706" stroke-width="2"/>
-                            <polygon points="485,280 485,212 545,212 545,280" fill="#7c4d3a" stroke="#d97706" stroke-width="2"/>
-                            <polygon points="605,295 648,252 675,315 632,350" fill="#7c4d3a" stroke="#d97706" stroke-width="2"/>
+                            <!-- Stepped Western Wing Extension & Hip End -->
+                            <polygon points="212,355 288,350 295,435 232,462 215,415" fill="#7c4d3a" stroke="#d97706" stroke-width="2"/>
+                            <!-- 3 Integrated Radial Gable Projections Facing North + Menara Jam Tengah -->
+                            <polygon points="355,315 382,252 425,295 398,350" fill="#7c4d3a" stroke="#f59e0b" stroke-width="2"/>
+                            <polygon points="485,280 485,212 545,212 545,280" fill="#7c4d3a" stroke="#84cc16" stroke-width="2.5"/>
+                            <!-- Menara Jam (Clock Tower) di Atas Perabung Tengah -->
+                            <rect x="501" y="232" width="28" height="26" rx="2" fill="#ea580c" stroke="#fde047" stroke-width="2"/>
+                            <polygon points="605,295 648,252 675,315 632,350" fill="#7c4d3a" stroke="#f59e0b" stroke-width="2"/>
                             <!-- Central Inner Triangle Gable Projection -->
                             <polygon points="480,335 515,385 550,335" fill="#7c4d3a" stroke="#d97706" stroke-width="2"/>
                             <!-- Continuous Ridge Line -->
-                            <path d="M 255 415 Q 515 255 775 415" fill="none" stroke="#fde047" stroke-width="2" opacity="0.75"/>
-                            <text x="515" y="325" fill="#fef3c7" font-size="13" font-weight="bold" text-anchor="middle" class="map-label">BLOK PENTADBIRAN (MELENGKUNG LUAR)</text>
+                            <path d="M 225 405 L 265 395 Q 515 255 775 415" fill="none" stroke="#fde047" stroke-width="2" opacity="0.75"/>
+                            <text x="515" y="325" fill="#fef3c7" font-size="13" font-weight="bold" text-anchor="middle" class="map-label">BLOK PENTADBIRAN &amp; MENARA JAM</text>
                         </g>
 
                         <g id="zon-melengkung-dalam" onclick="selectZone('melengkung_dalam')" class="map-element">
+                            <!-- White Covered Link Bridges between Outer & Inner Arc -->
+                            <polygon points="315,412 326,406 355,462 344,468" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+                            <polygon points="715,412 704,406 675,462 686,468" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
                             <!-- Inner Curved Roof Band Connected to North Quadrangle -->
                             <path d="M 355 445 Q 515 355 675 445 L 642 505 Q 515 425 388 505 Z" 
                                   fill="#7c4d3a" stroke="#b45309" stroke-width="3"/>
@@ -247,27 +262,54 @@
                             <text x="515" y="730" fill="#fef3c7" font-size="13" font-weight="bold" text-anchor="middle" class="map-label">BLOK AKADEMIK SELATAN</text>
                         </g>
 
-                        <!-- 7. SOUTHERN LINEAR BLOCK -->
+                        <!-- 7. SOUTHERN LINEAR BLOCK (KANTIN: KIRI 1/3 KAUNTER & DAPUR, KANAN 2/3 RUANG MAKAN & SINKI DI HUJUNG KANAN) -->
                         <g id="zon-selatan" onclick="selectZone('selatan')" class="map-element">
-                            <rect x="305" y="795" width="380" height="68" rx="2" fill="#6b4232" stroke="#a16207" stroke-width="3"/>
-                            <line x1="320" y1="829" x2="670" y2="829" stroke="#d97706" stroke-width="2"/>
-                            <text x="495" y="834" fill="#fde68a" font-size="12" font-weight="bold" text-anchor="middle" class="map-label">BLOK SOKONGAN / KANTIN (SELATAN)</text>
+                            <!-- Tapak Lantai Mozek Kantin -->
+                            <rect x="305" y="795" width="380" height="68" rx="2" fill="#e5d5c5" stroke="#a16207" stroke-width="3"/>
+                            <!-- 1/3 Tempat Penyediaan & Kaunter Jualan Makanan (Sebelah Kiri) -->
+                            <rect x="309" y="799" width="125" height="60" fill="#374151" stroke="#ec4899" stroke-width="2"/>
+                            <line x1="434" y1="808" x2="434" y2="850" stroke="#f472b6" stroke-width="4" stroke-dasharray="4,4"/>
+                            <!-- Palang Beratur Stainless Steel di Hadapan Kaunter -->
+                            <line x1="434" y1="818" x2="452" y2="818" stroke="#64748b" stroke-width="2.5"/>
+                            <line x1="434" y1="840" x2="452" y2="840" stroke="#64748b" stroke-width="2.5"/>
+                            <!-- 2/3 Ruang Makan Terbuka Murid (Sebelah Kanan) -->
+                            <rect x="434" y="799" width="246" height="60" fill="#fef3c7" opacity="0.85"/>
+                            <g fill="#dc2626" opacity="0.85">
+                                <rect x="460" y="806" width="195" height="8" rx="1"/>
+                                <rect x="460" y="820" width="195" height="8" rx="1"/>
+                            </g>
+                            <g fill="#78350f" opacity="0.85">
+                                <rect x="460" y="836" width="195" height="8" rx="1"/>
+                                <rect x="460" y="848" width="195" height="7" rx="1"/>
+                            </g>
+                            <!-- Tempat Basuh Tangan (Sinki) di Hujung Sekali Sebelah Kanan -->
+                            <rect x="670" y="805" width="8" height="48" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+                            <!-- Garisan Perabung Bumbung -->
+                            <line x1="320" y1="829" x2="670" y2="829" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,4"/>
+                            <text x="372" y="833" fill="#fbcfe8" font-size="9.5" font-weight="bold" text-anchor="middle" class="map-label">DAPUR &amp; KAUNTER (1/3)</text>
+                            <text x="555" y="833" fill="#451a03" font-size="10.5" font-weight="bold" text-anchor="middle" class="map-label">RUANG MAKAN &amp; SINKI (2/3)</text>
                         </g>
 
-                        <!-- 8. WESTERN OCTAGONAL PAVILIONS -->
+                        <!-- 8. WESTERN CONJOINED CROSS-GABLE PAVILION, RED CANOPY & PERIMETER WALKWAY -->
                         <g id="zon-oktagon" onclick="selectZone('oktagon')" class="map-element">
-                            <polygon points="185,465 225,450 255,480 240,520 195,530 170,500" fill="#7c4d3a" stroke="#d97706" stroke-width="2"/>
-                            <polygon points="190,545 230,535 255,565 240,600 200,605 175,580" fill="#7c4d3a" stroke="#d97706" stroke-width="2"/>
-                            <text x="215" y="538" fill="#fef3c7" font-size="10" font-weight="bold" text-anchor="middle" class="map-label">PAVILION BARAT</text>
+                            <polygon points="248,448 276,435 285,468 255,480" fill="#b45309" stroke="#f97316" stroke-width="1.8"/>
+                            <polygon points="182,475 218,452 255,475 278,510 250,545 258,595 215,618 182,592 192,542 162,512" fill="#7c4d3a" stroke="#d97706" stroke-width="2.2"/>
+                            <line x1="218" y1="455" x2="218" y2="612" stroke="#fde047" stroke-width="1.6" opacity="0.8"/>
+                            <line x1="166" y1="512" x2="274" y2="510" stroke="#fde047" stroke-width="1.6" opacity="0.8"/>
+                            <line x1="185" y1="478" x2="250" y2="542" stroke="#fde047" stroke-width="1.4" opacity="0.7"/>
+                            <polygon points="162,695 190,695 202,895 172,895" fill="#6b4232" stroke="#a16207" stroke-width="1.8"/>
+                            <text x="220" y="535" fill="#fef3c7" font-size="10" font-weight="bold" text-anchor="middle" class="map-label">BLOK KHAS BARAT</text>
                         </g>
 
                         <!-- 9. MATURE TREES WITHIN SCHOOL COMPOUND -->
                         <g id="zon-hijau" onclick="selectZone('hijau')" class="map-element" opacity="0.92">
-                            <circle cx="245" cy="395" r="32" fill="url(#treeGrad)"/>
-                            <circle cx="230" cy="435" r="28" fill="url(#treeGrad)"/>
-                            <circle cx="265" cy="595" r="34" fill="url(#treeGrad)"/>
-                            <circle cx="255" cy="645" r="38" fill="url(#treeGrad)"/>
-                            <circle cx="195" cy="665" r="30" fill="url(#treeGrad)"/>
+                            <circle cx="242" cy="345" r="28" fill="url(#treeGrad)"/>
+                            <circle cx="255" cy="402" r="32" fill="url(#treeGrad)"/>
+                            <circle cx="282" cy="512" r="22" fill="url(#treeGrad)"/>
+                            <circle cx="172" cy="625" r="28" fill="url(#treeGrad)"/>
+                            <circle cx="268" cy="615" r="32" fill="url(#treeGrad)"/>
+                            <circle cx="255" cy="675" r="38" fill="url(#treeGrad)"/>
+                            <circle cx="215" cy="705" r="34" fill="url(#treeGrad)"/>
                             <circle cx="240" cy="825" r="42" fill="url(#treeGrad)"/>
                             <circle cx="275" cy="865" r="36" fill="url(#treeGrad)"/>
                             <circle cx="220" cy="880" r="35" fill="url(#treeGrad)"/>
@@ -306,15 +348,15 @@
                 <!-- Pitch / Elevation Slider -->
                 <div class="flex items-center space-x-3 flex-1 min-w-[200px]" id="pitch-control-group">
                     <span class="text-xs font-semibold text-slate-300 whitespace-nowrap"><i class="fa-solid fa-video text-sky-400 mr-1"></i> Sudut Pandangan (Pitch):</span>
-                    <input id="slider-pitch" type="range" min="15" max="89" value="55" oninput="onSliderControl()" class="w-full">
-                    <span id="slider-pitch-val" class="text-xs font-mono text-sky-400 w-10 text-right">55°</span>
+                    <input id="slider-pitch" type="range" min="8" max="89" value="22" oninput="onSliderControl()" class="w-full">
+                    <span id="slider-pitch-val" class="text-xs font-mono text-sky-400 w-10 text-right">22°</span>
                 </div>
 
                 <!-- Quick Legend Pills -->
                 <div class="hidden xl:flex items-center space-x-3 text-[11px] text-slate-300">
-                    <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-sm bg-[#7c4d3a] inline-block mr-1.5 border border-amber-600"></span>Bumbung Sekolah</span>
-                    <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-sm bg-[#15803d] inline-block mr-1.5 border border-red-500"></span>Gelanggang Tengah</span>
-                    <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-sm bg-[#2563eb] inline-block mr-1.5 border border-yellow-400"></span>Koridor &amp; Bilik Darjah</span>
+                    <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-sm bg-[#84cc16] inline-block mr-1.5 border border-emerald-600"></span>Fasad Tiang Hijau</span>
+                    <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-sm bg-[#f59e0b] inline-block mr-1.5 border border-amber-600"></span>Menara Jam &amp; Sayap Jingga</span>
+                    <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-sm bg-[#991b1b] inline-block mr-1.5 border border-red-400"></span>Kanopi Porch Merah</span>
                 </div>
             </div>
         </div>
@@ -328,24 +370,46 @@
                     <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20" id="zone-badge">Zon Terpilih</span>
                     <span class="text-xs text-slate-400 font-mono" id="zone-code">GIS-ID: SKSM-03</span>
                 </div>
-                <h2 class="text-lg font-bold text-white mb-1.5" id="zone-title">Blok Pentadbiran &amp; Akademik (Melengkung Luar)</h2>
+                <h2 class="text-lg font-bold text-white mb-1.5" id="zone-title">Fasad Hadapan, Menara Jam &amp; Anjung Utama</h2>
                 <p class="text-xs text-slate-300 leading-relaxed mb-3.5" id="zone-desc">
-                    Bangunan utama di bahagian hadapan (Utara) SK Segambut Makmur yang mempunyai seni bina melengkung bersambung dengan 3 unjuran bumbung gable utama di sebelah luar dan 1 unjuran di tengah.
+                    Bahagian hadapan ikonik SK Segambut Makmur seperti dalam rakaman video dron: lengkap dengan tiang hijau limau &amp; jalur hijau tua, papan tanda hitam bertulis emas, Menara Jam di atas bumbung tengah, sayap kiri/kanan berwarna jingga, kanopi kereta merah terbuka, laluan tangga berbumbung serta pondok pengawal hijau.
                 </p>
 
                 <!-- Technical Specs Grid -->
                 <div class="grid grid-cols-2 gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs">
                     <div>
                         <span class="text-slate-400 block text-[11px]">Kedudukan Kompas:</span>
-                        <span class="font-semibold text-slate-200" id="zone-sector">Sektor Utara (Hadapan)</span>
+                        <span class="font-semibold text-slate-200" id="zone-sector">Utara - Fasad Hadapan (0°)</span>
                     </div>
                     <div>
-                        <span class="text-slate-400 block text-[11px]">Reka Bentuk Bumbung:</span>
-                        <span class="font-semibold text-slate-200" id="zone-morph">Melengkung + 3 Unjuran Gable</span>
+                        <span class="text-slate-400 block text-[11px]">Seni Bina Fasad:</span>
+                        <span class="font-semibold text-slate-200" id="zone-morph">Tiang Hijau + Menara Jam + Kanopi Merah</span>
                     </div>
                     <div class="col-span-2 pt-1.5 border-t border-slate-800/80">
                         <span class="text-slate-400 block text-[11px]">Fungsi Bangunan Sekolah:</span>
-                        <span class="font-semibold text-amber-300" id="zone-func">Pejabat Pentadbiran, Bilik Guru &amp; Bilik Darjah</span>
+                        <span class="font-semibold text-amber-300" id="zone-func">Anjung Utama, Pejabat Pentadbiran, Pondok Pengawal &amp; Laluan Murid</span>
+                    </div>
+                </div>
+
+                <!-- Sub-Camera Controls Khusus Untuk Ruang Dalaman Kantin 3D -->
+                <div id="canteen-pov-controls" class="mt-3 pt-3 border-t border-slate-800">
+                    <div class="text-[11px] font-bold text-amber-400 mb-2 flex items-center justify-between">
+                        <span><i class="fa-solid fa-vr-cardboard mr-1"></i> Kamera Dalaman Kantin (3D Blender/Unity POV):</span>
+                        <span class="text-[9px] bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded">Interaktif</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-1.5">
+                        <button onclick="setCanteenInteriorView('dining')" class="px-2 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 text-[10px] font-semibold border border-slate-700 transition flex flex-col items-center text-center">
+                            <i class="fa-solid fa-utensils mb-0.5 text-amber-400"></i>
+                            <span>Ruang Makan (Gambar 1)</span>
+                        </button>
+                        <button onclick="setCanteenInteriorView('counter')" class="px-2 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 text-[10px] font-semibold border border-slate-700 transition flex flex-col items-center text-center">
+                            <i class="fa-solid fa-store mb-0.5 text-pink-400"></i>
+                            <span>Kaunter Jualan (Gambar 2)</span>
+                        </button>
+                        <button onclick="setCanteenInteriorView('overview')" class="px-2 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 text-[10px] font-semibold border border-slate-700 transition flex flex-col items-center text-center">
+                            <i class="fa-solid fa-Maximize mb-0.5 text-sky-400"></i>
+                            <span>Perspektif Sisi Terbuka</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -358,7 +422,7 @@
                 </div>
                 <div class="space-y-1.5" id="zone-list">
                     <button onclick="selectZone('pintu')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 border border-slate-700/60 flex items-center justify-between transition text-xs">
-                        <span class="font-medium"><i class="fa-solid fa-archway text-amber-400 w-5"></i> 1. Pintu Utama &amp; Pondok Pengawal</span>
+                        <span class="font-medium"><i class="fa-solid fa-archway text-amber-400 w-5"></i> 1. Pintu Utama, Kanopi &amp; Pondok Pengawal</span>
                         <span class="text-[10px] font-mono text-slate-400">Utara</span>
                     </button>
                     <button onclick="selectZone('parkir')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 border border-slate-700/60 flex items-center justify-between transition text-xs">
@@ -366,7 +430,7 @@
                         <span class="text-[10px] font-mono text-slate-400">Barat Laut</span>
                     </button>
                     <button onclick="selectZone('melengkung_luar')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 border border-slate-700/60 flex items-center justify-between transition text-xs">
-                        <span class="font-medium"><i class="fa-solid fa-building text-amber-500 w-5"></i> 3. Blok Melengkung Luar (Pentadbiran)</span>
+                        <span class="font-medium"><i class="fa-solid fa-clock text-emerald-400 w-5"></i> 3. Fasad Hadapan &amp; Menara Jam (Luar)</span>
                         <span class="text-[10px] font-mono text-slate-400">Hadapan</span>
                     </button>
                     <button onclick="selectZone('melengkung_dalam')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 border border-slate-700/60 flex items-center justify-between transition text-xs">
@@ -386,7 +450,7 @@
                         <span class="text-[10px] font-mono text-slate-400">Selatan</span>
                     </button>
                     <button onclick="selectZone('oktagon')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 border border-slate-700/60 flex items-center justify-between transition text-xs">
-                        <span class="font-medium"><i class="fa-solid fa-shapes text-purple-400 w-5"></i> 8. Pavilion Bumbung Oktagon (Barat)</span>
+                        <span class="font-medium"><i class="fa-solid fa-shapes text-purple-400 w-5"></i> 8. Blok Khas Bumbung Bintang (Barat)</span>
                         <span class="text-[10px] font-mono text-slate-400">Barat</span>
                     </button>
                     <button onclick="selectZone('hijau')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/70 hover:bg-slate-800 border border-slate-700/60 flex items-center justify-between transition text-xs">
@@ -396,16 +460,16 @@
                 </div>
 
                 <!-- Reference Info Box -->
-                <div class="mt-4 bg-amber-950/30 border border-amber-700/40 rounded-xl p-3 text-[11px] text-amber-100/90 space-y-1.5">
-                    <div class="font-bold flex items-center space-x-1.5 text-amber-400">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>Rujukan Seni Bina Google Maps:</span>
+                <div class="mt-4 bg-emerald-950/30 border border-emerald-700/40 rounded-xl p-3 text-[11px] text-emerald-100/90 space-y-1.5">
+                    <div class="font-bold flex items-center space-x-1.5 text-emerald-400">
+                        <i class="fa-solid fa-cubes"></i>
+                        <span>Infrastruktur 3D Kantin &amp; Fasad Sekolah:</span>
                     </div>
                     <p class="leading-relaxed">
-                        <strong>1. Struktur Melengkung Padu:</strong> Bumbung melengkung luar dan dalam dibina bersambung secara menyeluruh bersama 3 unjuran bumbung gable hadapan dan jambatan penghubung seperti dalam imej satelit Google Maps.
+                        <strong>1. Kantin Terbuka (Bangunan Belakang):</strong> 1/3 bahagian untuk dapur &amp; kaunter jualan (jubin merah jambu/putih, dinding kelabu <em>"JAGA KEBERSIHAN KANTIN"</em> &amp; palang beratur besi) dan 2/3 ruang makan terbuka tanpa tingkap/pintu dengan kipas siling berputar.
                     </p>
                     <p class="leading-relaxed">
-                        <strong>2. Eksklusif SK Segambut Makmur:</strong> Semua bangunan perumahan dan kondominium luar telah dikeluarkan bagi memudahkan orang ramai mengenali bangunan sekolah sahaja.
+                        <strong>2. Fasad Hadapan &amp; Menara Jam:</strong> Tiang hijau limau, papan tanda rasmi sekolah, menara jam, kanopi merah serta pondok pengawal hijau.
                     </p>
                 </div>
             </div>
@@ -420,52 +484,56 @@
                 id: 'zon-pintu',
                 code: 'GIS-ID: SKSM-01',
                 badge: 'Akses Utama (Utara)',
-                title: 'Pintu Masuk Utama, Pondok Pengawal & Anjung',
-                desc: 'Terletak di bahagian Utara menghadap Jalan 2/60a. Merangkumi pondok pengawal keselamatan serta anjung bumbung merah bata yang bersambung terus dengan unjuran tengah Blok Pentadbiran.',
+                title: 'Pintu Masuk Utama, Kanopi Merah, Laluan Tangga & Pondok Pengawal',
+                desc: 'Bahagian hadapan jalan masuk sekolah seperti dalam video dron: merangkumi kanopi kereta berbumbung merah terbuka (dengan MPV putih di bawahnya), laluan berbumbung bertangga "Selamat Datang" di sebelah kiri, pondok pengawal berdinding hijau limau di sebelah kanan, serta pagar hijau/kuning dengan tiang bendera.',
                 sector: 'Utara (Azimuth 0°)',
-                morph: 'Anjung Berbumbung & Pondok Pengawal',
-                func: 'Kawalan Keselamatan, Laluan Masuk Utama & Zon Menunggu',
+                morph: 'Kanopi Terbuka Merah + Laluan Tangga + Pondok Pengawal Hijau',
+                func: 'Kawalan Keselamatan, Anjung Ketibaan Utama & Laluan Pejalan Kaki Murid',
                 camAzimuth: 0,
-                camPitch: 45,
-                target3D: { x: 0, z: -135 }
+                camPitch: 18,
+                camRadius: 195,
+                target3D: { x: 0, z: -120 }
             },
             parkir: {
                 id: 'zon-parkir',
                 code: 'GIS-ID: SKSM-02',
                 badge: 'Sirkulasi & Parkir Dalam',
-                title: 'Zon Parkir Melengkung & Laluan Barat Sekolah',
-                desc: 'Kawasan berturap di penjuru Barat Laut di dalam pagar sekolah yang mengikut lengkungan Blok Pentadbiran, lengkap dengan petak parkir kereta guru/kakitangan dan laluan ke bahagian belakang sekolah.',
+                title: 'Zon Parkir Serong Melengkung & Laluan Barat',
+                desc: 'Kawasan jalan berturap melengkung yang licin di penjuru Barat Laut di dalam pagar sekolah, lengkap dengan deretan petak parkir serong di bahagian luar serta parkir tepi bangunan.',
                 sector: 'Barat Laut (Azimuth 325°)',
-                morph: 'Dataran Berturap Melengkung',
+                morph: 'Jalan Melengkung Licin & Parkir Serong',
                 func: 'Parkir Guru & Kakitangan serta Laluan Kenderaan Sekolah',
-                camAzimuth: 330,
-                camPitch: 50,
-                target3D: { x: -95, z: -85 }
+                camAzimuth: 340,
+                camPitch: 55,
+                camRadius: 340,
+                target3D: { x: -105, z: -75 }
             },
             melengkung_luar: {
                 id: 'zon-melengkung-luar',
                 code: 'GIS-ID: SKSM-03',
-                badge: 'Blok Ikonik Hadapan',
-                title: 'Blok Pentadbiran & Akademik (Melengkung Luar)',
-                desc: 'Struktur melengkung utama di bahagian hadapan sekolah seperti dalam Google Maps. Bumbungnya bersambung secara licin dengan 3 unjuran bumbung gable/hip ke arah Utara (Kiri, Tengah, Kanan) dan 1 unjuran tengah ke arah dalam.',
+                badge: 'Fasad Ikonik Hadapan',
+                title: 'Blok Melengkung Luar (Tiang Hijau, Papan Tanda & Menara Jam)',
+                desc: 'Fasad hadapan utama SK Segambut Makmur seperti dalam video dron: mempunyai deretan tiang tegak hijau limau dengan jalur hijau tua, papan tanda hitam "SEKOLAH KEBANGSAAN SEGAMBUT MAKMUR KUALA LUMPUR", Menara Jam di puncak tengah, serta sayap kiri dan kanan berwarna jingga/pic.',
                 sector: 'Utara - Hadapan (Azimuth 0°)',
-                morph: 'Lengkungan Radial Padu + 3 Unjuran Gable',
-                func: 'Pejabat Pentadbiran, Bilik Guru & Bilik Darjah',
+                morph: 'Tiang Hijau Limau + Menara Jam + Sayap Jingga',
+                func: 'Pejabat Pentadbiran, Anjung Utama, Bilik Guru & Bilik Darjah',
                 camAzimuth: 0,
-                camPitch: 55,
-                target3D: { x: 0, z: -85 }
+                camPitch: 20,
+                camRadius: 210,
+                target3D: { x: 0, z: -105 }
             },
             melengkung_dalam: {
                 id: 'zon-melengkung-dalam',
                 code: 'GIS-ID: SKSM-04',
                 badge: 'Blok Tengah & Pentas',
-                title: 'Blok Melengkung Dalam & Pentas Perhimpunan',
-                desc: 'Lapisan kedua bangunan melengkung yang terletak di antara Blok Melengkung Luar dan Kuadrangel Gelanggang. Di bahagian tengahnya terdapat koridor melengkung serta pentas perhimpunan menghadap gelanggang.',
+                title: 'Blok Melengkung Dalam (Fasad Jingga Atas) & Pentas',
+                desc: 'Lapisan kedua bangunan melengkung yang kelihatan jelas di belakang Menara Jam dalam video dron (dinding tingkat atas berwarna jingga dengan deretan tingkap berpetak putih), dihubungkan melalui jambatan berbumbung putih serta Pentas Perhimpunan.',
                 sector: 'Tengah (Azimuth 0° / 180°)',
-                morph: 'Bumbung Melengkung Bersambung & Pentas',
-                func: 'Pentas Perhimpunan Rasmi, Ruang Legar & Laluan Penghubung',
+                morph: 'Bumbung Melengkung + Tingkat Atas Jingga Bertingkap Putih',
+                func: 'Pentas Perhimpunan Rasmi, Ruang Legar & Bilik Darjah',
                 camAzimuth: 0,
-                camPitch: 58,
+                camPitch: 48,
+                camRadius: 320,
                 target3D: { x: 0, z: -38 }
             },
             gelanggang: {
@@ -479,6 +547,7 @@
                 func: 'Tapak Perhimpunan Murid & Aktiviti Sukan / Kokurikulum',
                 camAzimuth: 0,
                 camPitch: 75,
+                camRadius: 350,
                 target3D: { x: 0, z: 30 }
             },
             kuadrangel: {
@@ -486,69 +555,73 @@
                 code: 'GIS-ID: SKSM-06',
                 badge: 'Blok Akademik 4 Tingkat',
                 title: 'Blok Akademik Kuadrangel (Sayap Barat, Timur & Selatan)',
-                desc: 'Bangunan akademik 4 tingkat berbentuk U yang mengelilingi gelanggang tengah, lengkap dengan bumbung limas bersambung serta dua menara tangga berbumbung piramid di penjuru Barat Daya dan Tenggara.',
+                desc: 'Bangunan akademik 4 tingkat berbentuk U yang mengelilingi gelanggang tengah, lengkap dengan bumbung limas bersambung serta dua menara tangga berbumbung piramid (perabung X) di penjuru Barat Daya dan Tenggara.',
                 sector: 'Barat, Timur & Selatan Gelanggang',
                 morph: 'Kuadrangel Bentuk-U (4 Tingkat)',
                 func: 'Bilik Darjah Murid, Bilik Khas, Makmal & Tangga Penjuru',
                 camAzimuth: 165,
                 camPitch: 50,
+                camRadius: 360,
                 target3D: { x: 0, z: 55 }
             },
             selatan: {
                 id: 'zon-selatan',
                 code: 'GIS-ID: SKSM-07',
-                badge: 'Fasiliti Sokongan Selatan',
-                title: 'Blok Sokongan & Kantin Sekolah (Selatan)',
-                desc: 'Blok bangunan memanjang berbumbung limas coklat di bahagian selatan kawasan sekolah, terletak bersebelahan dengan Blok Akademik Selatan.',
-                sector: 'Selatan (Azimuth 180°)',
-                morph: 'Blok Linear Memanjang',
-                func: 'Kantin Sekolah, Ruang Makan & Kemudahan Sokongan',
-                camAzimuth: 180,
-                camPitch: 45,
-                target3D: { x: -4, z: 140 }
+                badge: 'Infrastruktur 3D Kantin Sekolah',
+                title: 'Kantin Murid Terbuka (Kiri: 1/3 Kaunter, Kanan: 2/3 Ruang Makan & Sinki)',
+                desc: 'Bangunan belakang sekali dengan lantai mozek kuning air/krim penuh: 1/3 di sebelah kiri adalah tempat penyediaan & kaunter menjual makanan (dinding kelabu "JAGA KEBERSIHAN KANTIN", kaunter jubin merah jambu/putih, peti sejuk minuman & palang beratur besi). 2/3 di sebelah kanan adalah ruang makan terbuka tanpa tingkap/pintu dengan tempat basuh tangan (sinki bercermin) di hujung sekali sebelah kanan.',
+                sector: 'Selatan / Belakang Sekali (Azimuth 180° / Dalaman)',
+                morph: 'Lantai Mozek + Kiri 1/3 Kaunter + Kanan 2/3 Ruang Makan & Sinki Hujung Kanan',
+                func: 'Tempat Penyediaan Makanan (Kiri), Ruang Makan Terbuka & Tempat Basuh Tangan (Hujung Kanan)',
+                camAzimuth: 185,
+                camPitch: 15,
+                camRadius: 115,
+                target3D: { x: -4, y: 6.5, z: 142 }
             },
             oktagon: {
                 id: 'zon-oktagon',
                 code: 'GIS-ID: SKSM-08',
                 badge: 'Struktur Khas Barat',
-                title: 'Pavilion Bumbung Oktagon Berkembar',
-                desc: 'Dua binaan berbumbung oktagon/poligon di sebelah barat daya blok melengkung yang dihubungkan dengan laluan berbumbung di dalam kawasan sekolah.',
-                sector: 'Barat (Azimuth 270°)',
-                morph: 'Bumbung Oktagon Berkembar',
-                func: 'Pra-Sekolah / Pondok Ilmu / Ruang Aktiviti Khas',
-                camAzimuth: 270,
-                camPitch: 48,
-                target3D: { x: -122, z: 8 }
+                title: 'Blok Khas Barat (Bumbung Bintang Bercantum & Kanopi Merah)',
+                desc: 'Struktur bangunan di sebelah barat yang mempunyai bumbung perabung bersilang (bintang/cross-hip) yang bercantum dengan sayap selatan, dihubungkan ke blok melengkung melalui kanopi merah bata, serta laluan berbumbung di sepanjang pagar barat.',
+                sector: 'Barat (Azimuth 0° / 270°)',
+                morph: 'Bumbung Perabung Silang Bercantum + Kanopi Merah',
+                func: 'Pra-Sekolah / Surau / Ruang Aktiviti Khas & Laluan Berbumbung',
+                camAzimuth: 0,
+                camPitch: 68,
+                camRadius: 350,
+                target3D: { x: -115, z: 5 }
             },
             hijau: {
                 id: 'zon-hijau',
                 code: 'GIS-ID: SKSM-09',
                 badge: 'Landskap Dalam Sekolah',
                 title: 'Zon Landskap & Pokok Peneduh Sekolah',
-                desc: 'Kawasan rumput hijau dan pokok-pokok matang di dalam pagar SK Segambut Makmur yang memberikan suasana redup dan nyaman kepada warga sekolah.',
+                desc: 'Kawasan rumput hijau dan pokok-pokok matang di dalam pagar SK Segambut Makmur yang disusun mengikut kedudukan sebenar imej satelit Google Maps dan video dron.',
                 sector: 'Sekeliling Dalam Kawasan Sekolah',
                 morph: 'Landskap Hijau Kompaun Sekolah',
                 func: 'Kawasan Redup, Taman Sekolah & Zon Hijau',
-                camAzimuth: 45,
-                camPitch: 50,
-                target3D: { x: 0, z: 10 }
+                camAzimuth: 0,
+                camPitch: 55,
+                camRadius: 360,
+                target3D: { x: -95, z: 20 }
             }
         };
 
         // --- 2. STATE PENGURUSAN 360° & MOD ---
-        // Default currentAzimuth = 0° supaya pandangan pertama terus sama seperti orientasi Google Maps!
         let currentMode = '3d';
-        let isAutoOrbit = false; // Dimulakan pada sudut tetap Google Maps (0° Utara) supaya mudah dirujuk
+        let isAutoOrbit = false;
         let isEvacVisible = false;
-        let currentAzimuth = 0;  // 0° = Pandangan Utara (Sama seperti Google Maps)
-        let currentPitch = 56;   // Sudut condong satelit/dron yang jelas
-        let cameraRadius = 380;
+        let currentAzimuth = 0;   // 0° = Pandangan Hadapan / Utara
+        let currentPitch = 22;    // Sudut pandangan hadapan seperti dalam video dron
+        let cameraRadius = 215;
 
         // Three.js Global Variables
         let scene, camera, renderer, schoolGroup, evacGroup3D;
         let selectableMeshes = [];
-        let cameraLookAtTarget = new THREE.Vector3(0, 0, -10);
-        let desiredLookAtTarget = new THREE.Vector3(0, 0, -10);
+        let canteenCeilingFans = []; // Kipas siling kantin yang berputar secara masa nyata
+        let cameraLookAtTarget = new THREE.Vector3(0, 12, -105);
+        let desiredLookAtTarget = new THREE.Vector3(0, 12, -105);
 
         // --- 3. BINA KEMBAR DIGITAL 3D (THREE.JS) ---
         function initThreeJS() {
@@ -558,9 +631,9 @@
 
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0x0f172a);
-            scene.fog = new THREE.FogExp2(0x0f172a, 0.0008);
+            scene.fog = new THREE.FogExp2(0x0f172a, 0.00065);
 
-            camera = new THREE.PerspectiveCamera(40, width / height, 1, 2000);
+            camera = new THREE.PerspectiveCamera(40, width / height, 0.5, 2000);
 
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setSize(width, height);
@@ -569,12 +642,11 @@
             renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             container.appendChild(renderer.domElement);
 
-            // Pencahayaan Seimbang supaya semua cerun bumbung & perabung kelihatan jelas seperti Google Maps
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.72);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.78);
             scene.add(ambientLight);
 
-            const sunLight = new THREE.DirectionalLight(0xfffbeb, 0.88);
-            sunLight.position.set(140, 340, -120);
+            const sunLight = new THREE.DirectionalLight(0xfffbeb, 0.92);
+            sunLight.position.set(110, 320, -240);
             sunLight.castShadow = true;
             sunLight.shadow.mapSize.width = 2048;
             sunLight.shadow.mapSize.height = 2048;
@@ -602,7 +674,6 @@
             setupPointerInteractions(renderer.domElement);
             window.addEventListener('resize', onWindowResize);
 
-            // Set initial button state for Auto Orbit
             toggleAutoOrbit(false);
             animate3D();
         }
@@ -614,18 +685,15 @@
             canvas.height = 640;
             const ctx = canvas.getContext('2d');
 
-            // Terracotta / Red Brick Apron Border
             ctx.fillStyle = '#881d1d';
             ctx.fillRect(0, 0, 1024, 640);
 
-            // Inner Green Court Surface
             const padX = 70, padY = 55;
             const cw = 1024 - padX * 2;
             const ch = 640 - padY * 2;
             ctx.fillStyle = '#156d3b';
             ctx.fillRect(padX, padY, cw, ch);
 
-            // Subtle weathered green patches
             ctx.fillStyle = '#1e824c';
             for (let i = 0; i < 30; i++) {
                 ctx.beginPath();
@@ -633,12 +701,10 @@
                 ctx.fill();
             }
 
-            // White Main Court Lines
             ctx.strokeStyle = '#ffffff';
             ctx.lineWidth = 6;
             ctx.strokeRect(padX, padY, cw, ch);
 
-            // Center Line & Circle
             ctx.beginPath();
             ctx.moveTo(512, padY);
             ctx.lineTo(512, 640 - padY);
@@ -648,7 +714,6 @@
             ctx.arc(512, 320, 42, 0, Math.PI * 2);
             ctx.stroke();
 
-            // Left & Right Semicircles
             ctx.beginPath();
             ctx.arc(padX, 320, 145, -Math.PI / 2, Math.PI / 2);
             ctx.stroke();
@@ -657,7 +722,6 @@
             ctx.arc(1024 - padX, 320, 145, Math.PI / 2, -Math.PI / 2);
             ctx.stroke();
 
-            // 4 Yellow Badminton / Sepak Takraw Courts
             ctx.strokeStyle = '#facc15';
             ctx.lineWidth = 4;
             const qPositions = [
@@ -687,7 +751,7 @@
             return tex;
         }
 
-        // Helper: Facade Texture (Blue Parapet + Yellow Pillars)
+        // Helper: Facade Texture (Blue Parapet + Yellow Pillars for Inner Quadrangle)
         function createSchoolFacadeTexture() {
             const canvas = document.createElement('canvas');
             canvas.width = 512;
@@ -721,7 +785,211 @@
             return tex;
         }
 
-        // Helper: Textured Roof Tile Material (Matches brown tiled roof in Google Maps)
+        // Helper: Tekstur Fasad Jingga/Pic dengan Tingkap Berpetak Putih (Seperti Sayap Kiri/Kanan & Tingkat Atas dalam Video Dron)
+        function createOrangeWindowFacadeTexture(floors = 2, cols = 6) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 256;
+            const ctx = canvas.getContext('2d');
+
+            // Warna dinding jingga/pic lembut seperti dalam video
+            ctx.fillStyle = '#f3a661';
+            ctx.fillRect(0, 0, 512, 256);
+
+            // Jalur parapet krim/kuning muda
+            const fh = 256 / floors;
+            const cw = 512 / cols;
+
+            for (let f = 0; f < floors; f++) {
+                const y0 = f * fh;
+                ctx.fillStyle = '#fde68a';
+                ctx.fillRect(0, y0, 512, 6);
+
+                // Lukis tingkap berbingkai putih dengan kaca gelap
+                for (let c = 0; c < cols; c++) {
+                    const x0 = c * cw;
+                    // Tiang pemisah jingga tua
+                    ctx.fillStyle = '#e08e45';
+                    ctx.fillRect(x0, y0, 8, fh);
+
+                    // Bingkai putih tingkap berkembar
+                    const wx = x0 + 14;
+                    const wy = y0 + 14;
+                    const ww = cw - 24;
+                    const wh = fh * 0.56;
+
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(wx, wy, ww, wh);
+
+                    // Kaca gelap dalam bingkai (2x2 pane)
+                    const pw = (ww - 9) / 2;
+                    const ph = (wh - 9) / 2;
+                    ctx.fillStyle = '#1e293b';
+                    ctx.fillRect(wx + 3, wy + 3, pw, ph);
+                    ctx.fillRect(wx + 6 + pw, wy + 3, pw, ph);
+                    ctx.fillRect(wx + 3, wy + 6 + ph, pw, ph);
+                    ctx.fillRect(wx + 6 + pw, wy + 6 + ph, pw, ph);
+                }
+            }
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.ClampToEdgeWrapping;
+            return tex;
+        }
+
+        // Helper: Tekstur Fasad Koridor Hijau Limau & Hijau Tua untuk Dinding Melengkung Hadapan (Video Dron)
+        function createFrontGreenArcFacadeTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1024;
+            canvas.height = 256;
+            const ctx = canvas.getContext('2d');
+
+            // Latar belakang ruang koridor gelap/berbayang
+            ctx.fillStyle = '#1e293b';
+            ctx.fillRect(0, 0, 1024, 256);
+
+            // Dinding dalam dengan tingkap putih
+            for (let x = 20; x < 1024; x += 64) {
+                ctx.fillStyle = '#f8fafc';
+                ctx.fillRect(x, 30, 34, 52);
+                ctx.fillRect(x, 145, 34, 55);
+                ctx.fillStyle = '#0f172a';
+                ctx.fillRect(x + 4, 34, 12, 44);
+                ctx.fillRect(x + 18, 34, 12, 44);
+                ctx.fillRect(x + 4, 149, 12, 47);
+                ctx.fillRect(x + 18, 149, 12, 47);
+            }
+
+            // Jalur rasuk melintang hijau tua (Dark Green Horizontal Spandrel Beam)
+            ctx.fillStyle = '#15803d';
+            ctx.fillRect(0, 102, 1024, 32);
+            ctx.fillStyle = '#166534';
+            ctx.fillRect(0, 224, 1024, 32);
+
+            // Deretan Tiang Tegak Hijau Limau (Lime Green Vertical Fins/Pillars)
+            for (let x = 0; x < 1024; x += 64) {
+                ctx.fillStyle = '#84cc16';
+                ctx.fillRect(x, 0, 18, 256);
+                ctx.fillStyle = '#a3e635';
+                ctx.fillRect(x, 0, 5, 256);
+            }
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.ClampToEdgeWrapping;
+            tex.repeat.set(2, 1);
+            return tex;
+        }
+
+        // Helper: Tekstur Papan Tanda Hitam Bertulis Emas "SEKOLAH KEBANGSAAN SEGAMBUT MAKMUR KUALA LUMPUR"
+        function createSchoolSignboardTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1024;
+            canvas.height = 192;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = '#111827';
+            ctx.fillRect(0, 0, 1024, 192);
+
+            ctx.strokeStyle = '#374151';
+            ctx.lineWidth = 6;
+            ctx.strokeRect(4, 4, 1016, 184);
+
+            ctx.fillStyle = '#d4af37';
+            ctx.font = 'bold 42px Inter, Arial, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('SEKOLAH KEBANGSAAN SEGAMBUT MAKMUR', 512, 82);
+
+            ctx.font = 'bold 34px Inter, Arial, sans-serif';
+            ctx.fillText('KUALA LUMPUR', 512, 142);
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.anisotropy = 4;
+            return tex;
+        }
+
+        // Helper: Tekstur Jam Bulat untuk Menara Jam (Clock Tower)
+        function createClockFaceTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256;
+            canvas.height = 256;
+            const ctx = canvas.getContext('2d');
+
+            // Latar belakang panel putih menara jam dengan bingkai jingga
+            ctx.fillStyle = '#f3a661';
+            ctx.fillRect(0, 0, 256, 256);
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(22, 18, 212, 220);
+
+            // Bingkai bulat jam
+            ctx.beginPath();
+            ctx.arc(128, 105, 68, 0, Math.PI * 2);
+            ctx.fillStyle = '#e2e8f0';
+            ctx.fill();
+            ctx.lineWidth = 10;
+            ctx.strokeStyle = '#64748b';
+            ctx.stroke();
+
+            // Muka jam putih
+            ctx.beginPath();
+            ctx.arc(128, 105, 58, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
+
+            // Tanda jam 1-12
+            ctx.fillStyle = '#0f172a';
+            for (let i = 0; i < 12; i++) {
+                const ang = (i * Math.PI) / 6;
+                const tx = 128 + Math.sin(ang) * 46;
+                const ty = 105 - Math.cos(ang) * 46;
+                ctx.beginPath();
+                ctx.arc(tx, ty, 3.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Jarum jam (Pukul 11:30 seperti dalam video dron!)
+            ctx.strokeStyle = '#0f172a';
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            ctx.moveTo(128, 105);
+            ctx.lineTo(114, 72);
+            ctx.stroke();
+
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(128, 105);
+            ctx.lineTo(128, 148);
+            ctx.stroke();
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        // Helper: Tekstur Gerbang Laluan Tangga "SELAMAT DATANG KE SK SEGAMBUT MAKMUR"
+        function createWelcomeArchTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256;
+            canvas.height = 128;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, 0, 256, 128);
+            ctx.strokeStyle = '#0284c7';
+            ctx.lineWidth = 8;
+            ctx.strokeRect(4, 4, 248, 120);
+
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 18px Inter, Arial, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('SELAMAT DATANG', 128, 52);
+            ctx.fillText('KE', 128, 76);
+            ctx.fillStyle = '#15803d';
+            ctx.fillText('SK SEGAMBUT MAKMUR', 128, 102);
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        // Helper: Textured Roof Tile Material
         function createRoofTileTexture(baseHex, lineHex) {
             const canvas = document.createElement('canvas');
             canvas.width = 128;
@@ -750,7 +1018,6 @@
             return tex;
         }
 
-        // DOUBLE SIDE digunakan supaya tiada sebarang permukaan bumbung atau dinding yang hilang/lutsinar dari mana-mana sudut 360°
         const roofTileTex = createRoofTileTexture('#6e4736', '#543426');
         const roofMat = new THREE.MeshStandardMaterial({
             map: roofTileTex,
@@ -763,8 +1030,8 @@
             side: THREE.DoubleSide
         });
         const ridgeLineMat = new THREE.MeshStandardMaterial({
-            color: 0x8c5a44,
-            roughness: 0.7
+            color: 0x9a654c,
+            roughness: 0.65
         });
         const facadeTex = createSchoolFacadeTexture();
         const wallMat = new THREE.MeshStandardMaterial({
@@ -772,8 +1039,18 @@
             roughness: 0.65,
             side: THREE.DoubleSide
         });
+        const orangeFacadeMat = new THREE.MeshStandardMaterial({
+            map: createOrangeWindowFacadeTexture(2, 4),
+            roughness: 0.7,
+            side: THREE.DoubleSide
+        });
+        const frontGreenArcMat = new THREE.MeshStandardMaterial({
+            map: createFrontGreenArcFacadeTexture(),
+            roughness: 0.7,
+            side: THREE.DoubleSide
+        });
 
-        // Helper: Bina Bumbung Limas (Hip Roof) Tepat Tanpa Herotan
+        // Helper: Bina Bumbung Limas (Hip Roof) Tepat Tanpa Herotan + Garisan Tulang Perabung Serong (Hip Rafters)
         function createTrueHipRoof(width, length, height, material, overhang = 3.0) {
             const group = new THREE.Group();
             const w = (width + overhang * 2) / 2;
@@ -822,36 +1099,59 @@
             mesh.receiveShadow = true;
             group.add(mesh);
 
-            // Perabung (Ridge Cap)
+            // Perabung Utama (Main Ridge Cap)
             if (ridgeHalf > 0.5) {
                 const capGeo = isXLonger
-                    ? new THREE.BoxGeometry(ridgeHalf * 2, 1.0, 1.4)
-                    : new THREE.BoxGeometry(1.4, 1.0, ridgeHalf * 2);
+                    ? new THREE.BoxGeometry(ridgeHalf * 2, 0.9, 1.3)
+                    : new THREE.BoxGeometry(1.3, 0.9, ridgeHalf * 2);
                 const cap = new THREE.Mesh(capGeo, ridgeLineMat);
                 cap.position.y = h;
                 group.add(cap);
             }
 
+            // Garisan Tulang Bumbung Penjuru (Hip Rafters)
+            const corners = isXLonger
+                ? [
+                    { cx: -w, cz:  l, rx: -ridgeHalf, rz: 0 },
+                    { cx: -w, cz: -l, rx: -ridgeHalf, rz: 0 },
+                    { cx:  w, cz:  l, rx:  ridgeHalf, rz: 0 },
+                    { cx:  w, cz: -l, rx:  ridgeHalf, rz: 0 }
+                ]
+                : [
+                    { cx: -w, cz:  l, rx: 0, rz:  ridgeHalf },
+                    { cx:  w, cz:  l, rx: 0, rz:  ridgeHalf },
+                    { cx: -w, cz: -l, rx: 0, rz: -ridgeHalf },
+                    { cx:  w, cz: -l, rx: 0, rz: -ridgeHalf }
+                ];
+
+            corners.forEach(c => {
+                const startVec = new THREE.Vector3(c.cx, 0.2, c.cz);
+                const endVec = new THREE.Vector3(c.rx, h, c.rz);
+                const dist = startVec.distanceTo(endVec);
+                const hipBar = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.7, dist), ridgeLineMat);
+                hipBar.position.copy(startVec).add(endVec).multiplyScalar(0.5);
+                hipBar.lookAt(endVec);
+                group.add(hipBar);
+            });
+
             return group;
         }
 
-        // Helper: Bina Unjuran Gable/Hip Radial yang Bersambung Terus dengan Perabung Bumbung Melengkung (Seperti dalam Google Maps)
-        function createRadialGableSpur(width, length, wallHeight, roofHeight, material, ridgeHasCross = false) {
+        // Helper: Bina Unjuran Gable/Hip Radial (Sayap Kiri & Kanan Berdinding Jingga + Tingkap Putih Seperti Video Dron)
+        function createRadialGableSpur(width, length, wallHeight, roofHeight, roofMaterial, customWallMat = orangeFacadeMat) {
             const group = new THREE.Group();
             const hw = width / 2;
             const hl = length / 2;
 
-            // Dinding Bangunan Unjuran
-            const body = new THREE.Mesh(new THREE.BoxGeometry(width, wallHeight, length), wallMat);
+            const body = new THREE.Mesh(new THREE.BoxGeometry(width, wallHeight, length), customWallMat);
             body.position.y = wallHeight / 2;
             body.castShadow = true;
             body.receiveShadow = true;
             group.add(body);
 
-            // Bumbung Limas/Gable yang menyambung dari perabung utama ke hujung unjuran
             const rw = hw + 2.5;
             const rl = hl + 2.5;
-            const ridgeEndZ = -rl + rw * 0.75; // Hip end di bahagian luar
+            const ridgeEndZ = -rl + rw * 0.75;
 
             const geom = new THREE.BufferGeometry();
             const vertices = new Float32Array([
@@ -863,86 +1163,239 @@
                  rw, 0, -rl,    0, roofHeight, rl,          0, roofHeight, ridgeEndZ,
                 // Cerun Hip Hadapan (-Z)
                 -rw, 0, -rl,    rw, 0, -rl,    0, roofHeight, ridgeEndZ,
-                // Penutup Belakang (+Z, terbenam di dalam bumbung melengkung utama)
+                // Penutup Belakang (+Z)
                  rw, 0,  rl,   -rw, 0,  rl,    0, roofHeight, rl
             ]);
             geom.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
             geom.computeVertexNormals();
 
-            const roofMesh = new THREE.Mesh(geom, material);
+            const roofMesh = new THREE.Mesh(geom, roofMaterial);
             roofMesh.position.y = wallHeight;
             roofMesh.castShadow = true;
             roofMesh.receiveShadow = true;
             group.add(roofMesh);
 
-            // Perabung Atas Unjuran
+            // Kemasan Bibir Bumbung Putih (White Fascia Trim seperti dalam video)
+            const fascia = new THREE.Mesh(
+                new THREE.BoxGeometry(rw * 2, 0.9, 0.8),
+                new THREE.MeshStandardMaterial({ color: 0xf8fafc })
+            );
+            fascia.position.set(0, wallHeight + 0.2, -rl);
+            group.add(fascia);
+
             const rLen = Math.abs(rl - ridgeEndZ);
-            const ridgeCap = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.0, rLen), ridgeLineMat);
+            const ridgeCap = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.9, rLen), ridgeLineMat);
             ridgeCap.position.set(0, wallHeight + roofHeight, (rl + ridgeEndZ) / 2);
             group.add(ridgeCap);
-
-            // Jika unjuran tengah (mempunyai perabung silang 'X' kecil di hadapan seperti dalam Google Maps)
-            if (ridgeHasCross) {
-                const crossRoof = createTrueHipRoof(width + 3, 14, roofHeight * 0.88, material, 1.5);
-                crossRoof.position.set(0, wallHeight, -hl + 5);
-                group.add(crossRoof);
-            }
 
             return group;
         }
 
-        // Helper: Bina Bangunan & Bumbung Melengkung Padu Mengikut Google Maps (Dengan Hujung Hip Kemas & Perabung Melengkung)
-        function createSmoothArcBuilding(innerR, outerR, startAngle, endAngle, centerZ, wallHeight, roofHeight, segments = 56) {
+        // Helper: Bina Anjung Gable Utama Tengah + Tiang Hijau Limau + Papan Tanda Hitam Emas + Menara Jam (100% Mengikut Video Dron)
+        function createCentralEntranceGableAndClockTower(width, length, wallHeight, roofHeight) {
+            const group = new THREE.Group();
+            const hw = width / 2;
+            const hl = length / 2;
+
+            const limeGreenMat = new THREE.MeshStandardMaterial({ color: 0x84cc16, roughness: 0.6 });
+            const darkGreenMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.65 });
+            const whiteTrimMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.5 });
+            const orangeTowerMat = new THREE.MeshStandardMaterial({ color: 0xf3a661, roughness: 0.65 });
+
+            // 1. Teras Dalam & Tangga Masuk (Recessed Dark Lobby & Stairs)
+            const recessBody = new THREE.Mesh(
+                new THREE.BoxGeometry(width - 4, wallHeight, length - 4),
+                new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.8 })
+            );
+            recessBody.position.set(0, wallHeight / 2, 2);
+            group.add(recessBody);
+
+            // 2. Empat Tiang Tegak Hijau Limau di Hadapan (Lime Green Vertical Columns seperti dalam video saat 00:35-00:44)
+            const colXPositions = [-hw + 2.2, -4.5, 4.5, hw - 2.2];
+            colXPositions.forEach(cx => {
+                const col = new THREE.Mesh(new THREE.BoxGeometry(2.8, wallHeight, 3.2), limeGreenMat);
+                col.position.set(cx, wallHeight / 2, -hl + 1.6);
+                col.castShadow = true;
+                col.receiveShadow = true;
+                group.add(col);
+            });
+
+            //Tiang sisi di sepanjang unjuran tengah
+            [-hw + 1.5, hw - 1.5].forEach(sx => {
+                for (let sz = -hl + 8; sz <= hl - 2; sz += 7) {
+                    const sCol = new THREE.Mesh(new THREE.BoxGeometry(2.4, wallHeight, 2.4), limeGreenMat);
+                    sCol.position.set(sx, wallHeight / 2, sz);
+                    sCol.castShadow = true;
+                    group.add(sCol);
+                }
+            });
+
+            // 3. Rasuk Melintang Hijau Tua (Dark Green Horizontal Spandrel Beam & Balcony Railing)
+            const midBeam = new THREE.Mesh(new THREE.BoxGeometry(width + 0.6, 3.2, length), darkGreenMat);
+            midBeam.position.set(0, wallHeight * 0.46, 0);
+            group.add(midBeam);
+
+            const lowBeam = new THREE.Mesh(new THREE.BoxGeometry(width + 0.6, 2.2, length), darkGreenMat);
+            lowBeam.position.set(0, 1.1, 0);
+            group.add(lowBeam);
+
+            // 4. Papan Tanda Hitam Bertulis Emas "SEKOLAH KEBANGSAAN SEGAMBUT MAKMUR KUALA LUMPUR"
+            const signMat = new THREE.MeshStandardMaterial({
+                map: createSchoolSignboardTexture(),
+                roughness: 0.4
+            });
+            const signBoard = new THREE.Mesh(new THREE.BoxGeometry(width + 2.5, 4.6, 1.2), signMat);
+            signBoard.position.set(0, wallHeight - 1.8, -hl - 0.5);
+            signBoard.castShadow = true;
+            group.add(signBoard);
+
+            // 5. Segi Tiga Gable Hadapan (Pediment Hijau Limau di bawah bumbung)
+            const pedGeo = new THREE.BufferGeometry();
+            const rw = hw + 3.0;
+            const rl = hl + 2.5;
+            const pedVerts = new Float32Array([
+                -hw, wallHeight, -hl + 0.5,
+                 hw, wallHeight, -hl + 0.5,
+                  0, wallHeight + roofHeight * 0.92, -hl + 0.5
+            ]);
+            pedGeo.setAttribute('position', new THREE.BufferAttribute(pedVerts, 3));
+            pedGeo.computeVertexNormals();
+            const pedMesh = new THREE.Mesh(pedGeo, limeGreenMat);
+            group.add(pedMesh);
+
+            // 6. Bumbung Gable Terbuka Menghadap Hadapan (Open Front Gable Roof dengan Fascia Putih)
+            const roofGeo = new THREE.BufferGeometry();
+            const rVerts = new Float32Array([
+                // Cerun Kiri
+                -rw, wallHeight,  rl,   -rw, wallHeight, -rl,    0, wallHeight + roofHeight, -rl,
+                -rw, wallHeight,  rl,     0, wallHeight + roofHeight, -rl,   0, wallHeight + roofHeight, rl,
+                // Cerun Kanan
+                 rw, wallHeight, -rl,    rw, wallHeight,  rl,    0, wallHeight + roofHeight, rl,
+                 rw, wallHeight, -rl,     0, wallHeight + roofHeight, rl,    0, wallHeight + roofHeight, -rl
+            ]);
+            roofGeo.setAttribute('position', new THREE.BufferAttribute(rVerts, 3));
+            roofGeo.computeVertexNormals();
+            const gRoof = new THREE.Mesh(roofGeo, roofDarkMat);
+            gRoof.castShadow = true;
+            gRoof.receiveShadow = true;
+            group.add(gRoof);
+
+            // Kemasan Bibir Bumbung Putih (White Gable Bargeboards seperti dalam video saat 00:43)
+            const slopeLen = Math.hypot(rw, roofHeight);
+            const slopeAngle = Math.atan2(roofHeight, rw);
+            [-1, 1].forEach(dir => {
+                const barge = new THREE.Mesh(new THREE.BoxGeometry(slopeLen, 1.1, 1.2), whiteTrimMat);
+                barge.position.set(dir * (rw / 2), wallHeight + roofHeight / 2, -rl);
+                barge.rotation.z = -dir * slopeAngle;
+                group.add(barge);
+            });
+
+            // 7. MENARA JAM (CLOCK TOWER) DI ATAS BUMBUNG GABLE TENGAH (Sangat ikonik dalam video saat 00:35-00:44)
+            const towerGroup = new THREE.Group();
+            const towerW = 10.5;
+            const towerH = 11.5;
+            const towerD = 10.5;
+            const towerBaseY = wallHeight + roofHeight * 0.45;
+
+            // Badan Menara Jingga dengan Muka Jam di Hadapan
+            const clockFaceMat = new THREE.MeshStandardMaterial({ map: createClockFaceTexture(), roughness: 0.5 });
+            const towerMaterials = [
+                orangeTowerMat, // Kanan
+                orangeTowerMat, // Kiri
+                orangeTowerMat, // Atas
+                orangeTowerMat, // Bawah
+                clockFaceMat,   // Belakang (+Z)
+                clockFaceMat    // Hadapan (-Z menghadap Utara/Kamera)
+            ];
+            const towerBody = new THREE.Mesh(new THREE.BoxGeometry(towerW, towerH, towerD), towerMaterials);
+            towerBody.position.set(0, towerBaseY + towerH / 2, -rl + 7.5);
+            towerBody.castShadow = true;
+            towerGroup.add(towerBody);
+
+            // Dua Pilaster Hijau Limau di Kiri & Kanan Menara Jam (Seperti dalam video saat 00:42)
+            [-towerW / 2 + 0.8, towerW / 2 - 0.8].forEach(px => {
+                const pilaster = new THREE.Mesh(new THREE.BoxGeometry(2.2, towerH * 0.65, towerD + 0.6), limeGreenMat);
+                pilaster.position.set(px, towerBaseY + towerH * 0.32, -rl + 7.5);
+                towerGroup.add(pilaster);
+            });
+
+            // Bumbung Limas Kecil di Atas Menara Jam (Dengan Soffit Putih Lebar)
+            const towerSoffit = new THREE.Mesh(new THREE.BoxGeometry(towerW + 5.5, 0.9, towerD + 5.5), whiteTrimMat);
+            towerSoffit.position.set(0, towerBaseY + towerH, -rl + 7.5);
+            towerGroup.add(towerSoffit);
+
+            const towerRoof = createTrueHipRoof(towerW + 2, towerD + 2, 4.8, roofDarkMat, 2.2);
+            towerRoof.position.set(0, towerBaseY + towerH + 0.4, -rl + 7.5);
+            towerGroup.add(towerRoof);
+
+            group.add(towerGroup);
+
+            return group;
+        }
+
+        // Helper: Bina Bangunan & Bumbung Melengkung Padu Mengikut Google Maps & Video Dron
+        function createSmoothArcBuilding(innerR, outerR, startAngle, endAngle, centerZ, wallHeight, roofHeight, segments = 56, outerWallMaterial = wallMat) {
             const group = new THREE.Group();
             const midR = (innerR + outerR) / 2;
             const roofInnerR = innerR - 3.0;
             const roofOuterR = outerR + 3.0;
 
-            const wallPos = [];
+            const outerWallPos = [];
+            const outerWallUV = [];
+            const innerWallPos = [];
+            const innerWallUV = [];
             const roofPos = [];
             const ridgePoints = [];
 
-            // Segmen pertama dan terakhir meruncing (hip end) supaya bumbung melengkung tidak kelihatan terpotong rata
             const hipAngleSpan = (endAngle - startAngle) * 0.08;
 
             for (let i = 0; i < segments; i++) {
+                const u1 = (i / segments) * 6;
+                const u2 = ((i + 1) / segments) * 6;
                 const a1 = startAngle + (i / segments) * (endAngle - startAngle);
                 const a2 = startAngle + ((i + 1) / segments) * (endAngle - startAngle);
 
                 const s1 = Math.sin(a1), c1 = Math.cos(a1);
                 const s2 = Math.sin(a2), c2 = Math.cos(a2);
 
-                // Koordinat Dinding
                 const ix1 = s1 * innerR, iz1 = centerZ - c1 * innerR;
                 const ox1 = s1 * outerR, oz1 = centerZ - c1 * outerR;
                 const ix2 = s2 * innerR, iz2 = centerZ - c2 * innerR;
                 const ox2 = s2 * outerR, oz2 = centerZ - c2 * outerR;
 
-                // Dinding Luar
-                wallPos.push(
+                outerWallPos.push(
                     ox1, 0, oz1,  ox2, 0, oz2,  ox2, wallHeight, oz2,
                     ox1, 0, oz1,  ox2, wallHeight, oz2,  ox1, wallHeight, oz1
                 );
-                // Dinding Dalam
-                wallPos.push(
+                outerWallUV.push(
+                    u1, 0,  u2, 0,  u2, 1,
+                    u1, 0,  u2, 1,  u1, 1
+                );
+
+                innerWallPos.push(
                     ix2, 0, iz2,  ix1, 0, iz1,  ix1, wallHeight, iz1,
                     ix2, 0, iz2,  ix1, wallHeight, iz1,  ix2, wallHeight, iz2
                 );
-                // Penutup Dinding Hujung Kiri & Kanan
+                innerWallUV.push(
+                    u2, 0,  u1, 0,  u1, 1,
+                    u2, 0,  u1, 1,  u2, 1
+                );
+
                 if (i === 0) {
-                    wallPos.push(
+                    innerWallPos.push(
                         ix1, 0, iz1,  ox1, 0, oz1,  ox1, wallHeight, oz1,
                         ix1, 0, iz1,  ox1, wallHeight, oz1,  ix1, wallHeight, iz1
                     );
+                    innerWallUV.push(0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1);
                 }
                 if (i === segments - 1) {
-                    wallPos.push(
+                    innerWallPos.push(
                         ox2, 0, oz2,  ix2, 0, iz2,  ix2, wallHeight, iz2,
                         ox2, 0, oz2,  ix2, wallHeight, iz2,  ox2, wallHeight, oz2
                     );
+                    innerWallUV.push(0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1);
                 }
 
-                // Kira ketinggian puncak perabung (meruncing di kedua-dua hujung seperti bumbung limas dalam Google Maps)
                 let hFactor1 = 1.0;
                 let hFactor2 = 1.0;
                 if (a1 - startAngle < hipAngleSpan) hFactor1 = (a1 - startAngle) / hipAngleSpan;
@@ -954,7 +1407,6 @@
                 const yPeak1 = wallHeight + roofHeight * Math.max(0.05, hFactor1);
                 const yPeak2 = wallHeight + roofHeight * Math.max(0.05, hFactor2);
 
-                // Koordinat Bumbung Melengkung
                 const rix1 = s1 * roofInnerR, riz1 = centerZ - c1 * roofInnerR;
                 const rox1 = s1 * roofOuterR, roz1 = centerZ - c1 * roofOuterR;
                 const rmx1 = s1 * midR,       rmz1 = centerZ - c1 * midR;
@@ -963,35 +1415,41 @@
                 const rox2 = s2 * roofOuterR, roz2 = centerZ - c2 * roofOuterR;
                 const rmx2 = s2 * midR,       rmz2 = centerZ - c2 * midR;
 
-                // Cerun Luar Bumbung (Menghadap Utara)
                 roofPos.push(
                     rox1, yBase, roz1,  rmx1, yPeak1, rmz1,  rmx2, yPeak2, rmz2,
                     rox1, yBase, roz1,  rmx2, yPeak2, rmz2,  rox2, yBase, roz2
                 );
-                // Cerun Dalam Bumbung (Menghadap Selatan)
                 roofPos.push(
                     rix2, yBase, riz2,  rmx2, yPeak2, rmz2,  rmx1, yPeak1, rmz1,
                     rix2, yBase, riz2,  rmx1, yPeak1, rmz1,  rix1, yBase, riz1
                 );
-                // Soffit (Penutup Bawah Bumbung supaya tidak kelihatan berongga)
                 roofPos.push(
                     rix1, yBase, riz1,  rox1, yBase, roz1,  rox2, yBase, roz2,
                     rix1, yBase, riz1,  rox2, yBase, roz2,  rix2, yBase, riz2
                 );
 
-                // Simpan titik perabung untuk garisan tulang bumbung
                 if (hFactor1 >= 0.95 && hFactor2 >= 0.95) {
                     ridgePoints.push({ x1: rmx1, z1: rmz1, x2: rmx2, z2: rmz2, y: wallHeight + roofHeight });
                 }
             }
 
-            const wallGeo = new THREE.BufferGeometry();
-            wallGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(wallPos), 3));
-            wallGeo.computeVertexNormals();
-            const wallMesh = new THREE.Mesh(wallGeo, wallMat);
-            wallMesh.castShadow = true;
-            wallMesh.receiveShadow = true;
-            group.add(wallMesh);
+            const outerWallGeo = new THREE.BufferGeometry();
+            outerWallGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(outerWallPos), 3));
+            outerWallGeo.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(outerWallUV), 2));
+            outerWallGeo.computeVertexNormals();
+            const outerWallMesh = new THREE.Mesh(outerWallGeo, outerWallMaterial);
+            outerWallMesh.castShadow = true;
+            outerWallMesh.receiveShadow = true;
+            group.add(outerWallMesh);
+
+            const innerWallGeo = new THREE.BufferGeometry();
+            innerWallGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(innerWallPos), 3));
+            innerWallGeo.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(innerWallUV), 2));
+            innerWallGeo.computeVertexNormals();
+            const innerWallMesh = new THREE.Mesh(innerWallGeo, wallMat);
+            innerWallMesh.castShadow = true;
+            innerWallMesh.receiveShadow = true;
+            group.add(innerWallMesh);
 
             const roofGeo = new THREE.BufferGeometry();
             roofGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(roofPos), 3));
@@ -1001,18 +1459,45 @@
             roofMesh.receiveShadow = true;
             group.add(roofMesh);
 
-            // Bina Perabung Melengkung (Curved Ridge Cap) di sepanjang puncak bumbung
             ridgePoints.forEach(pt => {
                 const dx = pt.x2 - pt.x1;
                 const dz = pt.z2 - pt.z1;
                 const segLen = Math.hypot(dx, dz) + 0.4;
-                const cap = new THREE.Mesh(new THREE.BoxGeometry(segLen, 1.0, 1.5), ridgeLineMat);
+                const cap = new THREE.Mesh(new THREE.BoxGeometry(segLen, 0.9, 1.4), ridgeLineMat);
                 cap.position.set((pt.x1 + pt.x2) / 2, pt.y, (pt.z1 + pt.z2) / 2);
                 cap.rotation.y = -Math.atan2(dz, dx);
                 group.add(cap);
             });
 
             return group;
+        }
+
+        // Helper: Bina Jalan Melengkung Licin Tanpa Bergerigi (Smooth Curved Asphalt Mesh)
+        function createSmoothCurvedRoadMesh(innerR, outerR, startAngle, endAngle, centerX, centerZ, yPos, material, segments = 36) {
+            const pos = [];
+            for (let i = 0; i < segments; i++) {
+                const a1 = startAngle + (i / segments) * (endAngle - startAngle);
+                const a2 = startAngle + ((i + 1) / segments) * (endAngle - startAngle);
+
+                const s1 = Math.sin(a1), c1 = Math.cos(a1);
+                const s2 = Math.sin(a2), c2 = Math.cos(a2);
+
+                const ix1 = centerX + s1 * innerR, iz1 = centerZ - c1 * innerR;
+                const ox1 = centerX + s1 * outerR, oz1 = centerZ - c1 * outerR;
+                const ix2 = centerX + s2 * innerR, iz2 = centerZ - c2 * innerR;
+                const ox2 = centerX + s2 * outerR, oz2 = centerZ - c2 * outerR;
+
+                pos.push(
+                    ix1, yPos, iz1,  ox1, yPos, oz1,  ox2, yPos, oz2,
+                    ix1, yPos, iz1,  ox2, yPos, oz2,  ix2, yPos, iz2
+                );
+            }
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(pos), 3));
+            geo.computeVertexNormals();
+            const mesh = new THREE.Mesh(geo, material);
+            mesh.receiveShadow = true;
+            return mesh;
         }
 
         function registerZoneMesh(mesh, zoneKey) {
@@ -1039,14 +1524,14 @@
             schoolGroup.add(ground);
 
             // Tapak Hijau Kompaun Sekolah (Hanya Kawasan SK Segambut Makmur)
-            const turfGeo = new THREE.BoxGeometry(350, 1.5, 375);
+            const turfGeo = new THREE.BoxGeometry(355, 1.5, 375);
             const turfMat = new THREE.MeshStandardMaterial({ color: 0x2d4c1e, roughness: 0.9 });
             const turf = new THREE.Mesh(turfGeo, turfMat);
             turf.position.set(0, 0.75, 18);
             turf.receiveShadow = true;
             schoolGroup.add(turf);
 
-            // Jalan Akses Hadapan Sekolah (Jalan 2/60a - Tanpa Rumah Teres Luar)
+            // Jalan Akses Hadapan Sekolah (Jalan 2/60a - Dengan Garisan Kuning Seperti Video Dron)
             const northRoadGeo = new THREE.BoxGeometry(440, 1.8, 46);
             const roadMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.85 });
             const northRoad = new THREE.Mesh(northRoadGeo, roadMat);
@@ -1054,130 +1539,323 @@
             northRoad.receiveShadow = true;
             schoolGroup.add(northRoad);
 
-            // Garisan Kuning Lintasan Hadapan Pintu Sekolah
+            // Garisan Kuning Melintang & Petak Kuning di Jalan 2/60a (Seperti dalam video saat 00:08-00:15)
             const stripeMat = new THREE.MeshBasicMaterial({ color: 0xeab308 });
-            for (let sx = -60; sx <= 90; sx += 30) {
-                const stripe = new THREE.Mesh(new THREE.BoxGeometry(3.5, 2.1, 36), stripeMat);
-                stripe.position.set(sx, 1.1, -192);
+            for (let sx = -75; sx <= 95; sx += 16) {
+                const stripe = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.0, 38), stripeMat);
+                stripe.position.set(sx, 1.05, -192);
                 schoolGroup.add(stripe);
             }
 
-            // Jalan Sempadan Timur (Jalan 3/60a - Tanpa Bangunan Luar)
+            // Jalan Sempadan Timur (Jalan 3/60a)
             const eastRoad = new THREE.Mesh(new THREE.BoxGeometry(38, 1.8, 420), roadMat);
             eastRoad.position.set(194, 0.9, -5);
             eastRoad.receiveShadow = true;
             schoolGroup.add(eastRoad);
 
-            // Zon Parkir Melengkung Barat Laut & Laluan Dalam Sekolah (Ikut Google Maps)
+            // =========================================================================
+            // ZON PARKIR MELENGKUNG LICIN & LALUAN BARAT (MENGIKUT IMAGE_899B83.JPG)
+            // =========================================================================
             const parkGroup = new THREE.Group();
-            const westDrive = new THREE.Mesh(new THREE.BoxGeometry(30, 2, 320), new THREE.MeshStandardMaterial({ color: 0x475569 }));
-            westDrive.position.set(-152, 1, 35);
+            const asphaltMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.88, side: THREE.DoubleSide });
+
+            const westDrive = new THREE.Mesh(new THREE.BoxGeometry(28, 2.0, 290), asphaltMat);
+            westDrive.position.set(-154, 1.0, 50);
             westDrive.receiveShadow = true;
             parkGroup.add(westDrive);
 
-            // Lengkungan Parkir Berturap di Barat Laut (NW Asphalt Bay)
-            for (let i = 0; i < 9; i++) {
-                const angle = (Math.PI * 0.58) + (i / 8) * (Math.PI * 0.36);
-                const seg = new THREE.Mesh(new THREE.BoxGeometry(46, 2, 34), new THREE.MeshStandardMaterial({ color: 0x475569 }));
-                seg.position.set(Math.cos(angle) * 142, 1, -22 - Math.sin(angle) * 122);
-                seg.rotation.y = -angle;
-                seg.receiveShadow = true;
-                parkGroup.add(seg);
+            // Dataran Jalan Melengkung Licin di Penjuru Barat Laut + Ruang Masuk Kereta di Bawah Kanopi Merah
+            const curvedRoad = createSmoothCurvedRoadMesh(128, 182, -1.22, 0.16, 0, 22, 2.05, asphaltMat, 46);
+            parkGroup.add(curvedRoad);
 
-                // Kereta Guru / Kakitangan di Petak Parkir Melengkung (Seperti dalam Google Maps)
-                if (i >= 1 && i <= 7) {
-                    const carColors = [0xf8fafc, 0xcbd5e1, 0x991b1b, 0x475569, 0xf1f5f9, 0x64748b, 0xe2e8f0];
-                    const car = new THREE.Mesh(
-                        new THREE.BoxGeometry(10.5, 4.2, 5.2),
-                        new THREE.MeshStandardMaterial({ color: carColors[i - 1] })
-                    );
-                    car.position.set(Math.cos(angle) * 154, 3.1, -22 - Math.sin(angle) * 134);
-                    car.rotation.y = -angle;
-                    car.castShadow = true;
-                    parkGroup.add(car);
-                }
+            const outerCarColors = [0xf8fafc, 0x334155, 0x1e293b, 0xe2e8f0, 0xcbd5e1, 0x991b1b, 0xf1f5f9, 0xb45309];
+            const lineMat = new THREE.MeshBasicMaterial({ color: 0xcbd5e1 });
+
+            for (let i = 0; i < 8; i++) {
+                const ang = -1.04 + i * 0.082;
+                const rCar = 169;
+                const cx = Math.sin(ang) * rCar;
+                const cz = 22 - Math.cos(ang) * rCar;
+
+                const pLine = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.2, 13), lineMat);
+                pLine.position.set(Math.sin(ang - 0.04) * rCar, 2.1, 22 - Math.cos(ang - 0.04) * rCar);
+                pLine.rotation.y = -ang + 0.35;
+                parkGroup.add(pLine);
+
+                const car = new THREE.Mesh(
+                    new THREE.BoxGeometry(5.2, 3.8, 10.5),
+                    new THREE.MeshStandardMaterial({ color: outerCarColors[i] })
+                );
+                car.position.set(cx, 3.8, cz);
+                car.rotation.y = -ang + 0.35;
+                car.castShadow = true;
+                parkGroup.add(car);
             }
+
+            const innerAngles = [-0.90, -0.76, -0.60];
+            innerAngles.forEach((ang, idx) => {
+                const rIn = 138;
+                const icx = Math.sin(ang) * rIn;
+                const icz = 22 - Math.cos(ang) * rIn;
+                const innerCar = new THREE.Mesh(
+                    new THREE.BoxGeometry(5.0, 3.8, 10.0),
+                    new THREE.MeshStandardMaterial({ color: idx === 1 ? 0x94a3b8 : 0xf8fafc })
+                );
+                innerCar.position.set(icx, 3.8, icz);
+                innerCar.rotation.y = -ang + 0.2;
+                innerCar.castShadow = true;
+                parkGroup.add(innerCar);
+            });
+
             schoolGroup.add(parkGroup);
             parkGroup.children.forEach(c => registerZoneMesh(c, 'parkir'));
 
-            // Pintu Masuk Utama, Anjung & Pondok Pengawal (Sektor Utara - Ikut Google Maps)
+            // =========================================================================
+            // PINTU MASUK UTAMA, KANOPI MERAH TERBUKA, MPV PUTIH, LALUAN TANGGA
+            // "SELAMAT DATANG" & PONDOK PENGAWAL HIJAU (100% MENGIKUT VIDEO DRON)
+            // =========================================================================
             const gateGroup = new THREE.Group();
-            // Anjung Bumbung Merah Bata di hadapan Unjuran Tengah
-            const porch = new THREE.Mesh(new THREE.BoxGeometry(22, 11, 18), wallMat);
-            porch.position.set(0, 5.5, -144);
-            porch.castShadow = true;
-            const porchRoof = createTrueHipRoof(22, 18, 6.5, new THREE.MeshStandardMaterial({ color: 0x9a3412, side: THREE.DoubleSide }), 2);
-            porchRoof.position.set(0, 11, -144);
+            const limeWallMat = new THREE.MeshStandardMaterial({ color: 0x84cc16, roughness: 0.65 });
+            const darkGreenWallMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.7 });
+            const yellowWallMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.65 });
+            const pinkWallMat = new THREE.MeshStandardMaterial({ color: 0xdb2777, roughness: 0.65 });
+            const redCanopyMat = new THREE.MeshStandardMaterial({ color: 0x881d1d, roughness: 0.6, side: THREE.DoubleSide });
 
-            // Pondok Pengawal di sebelah kiri laluan masuk
-            const guardHouse = new THREE.Mesh(new THREE.BoxGeometry(24, 9, 14), wallMat);
-            guardHouse.position.set(-36, 4.5, -158);
-            const guardRoof = createTrueHipRoof(24, 14, 5.5, roofDarkMat, 1.5);
-            guardRoof.position.set(-36, 9, -158);
+            // 1. KANOPI KERETA BERBUMBUNG MERAH TERBUKA (OPEN RED PORCH CANOPY) DI HADAPAN GABLE TENGAH
+            // Dalam video dron (00:25-00:38), ini adalah bumbung merah bertiang besi dengan MPV putih di bawahnya (bukan bangunan berdinding biru!)
+            const canopyGroup = new THREE.Group();
+            canopyGroup.position.set(0, 0, -138);
 
-            gateGroup.add(porch, porchRoof, guardHouse, guardRoof);
+            // 4 Tiang Besi Nipis Kanopi Merah
+            const postMat = new THREE.MeshStandardMaterial({ color: 0x451a03, metalness: 0.4, roughness: 0.5 });
+            [
+                [-10, -8], [10, -8],
+                [-10,  8], [10,  8]
+            ].forEach(([px, pz]) => {
+                const post = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 11.5, 8), postMat);
+                post.position.set(px, 5.75, pz);
+                post.castShadow = true;
+                canopyGroup.add(post);
+            });
+
+            // Bumbung Gable/Hip Merah Gelap Kanopi
+            const canopyRoof = createTrueHipRoof(22, 18, 4.2, redCanopyMat, 1.5);
+            canopyRoof.position.y = 11.5;
+            canopyGroup.add(canopyRoof);
+
+            // Kenderaan MPV Putih yang diparkir di bawah kanopi merah (Seperti dalam video dron!)
+            const mpvGroup = new THREE.Group();
+            const mpvBody = new THREE.Mesh(
+                new THREE.BoxGeometry(11.5, 3.6, 5.2),
+                new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.3 })
+            );
+            mpvBody.position.y = 3.2;
+            mpvBody.castShadow = true;
+            const mpvCabin = new THREE.Mesh(
+                new THREE.BoxGeometry(7.2, 2.4, 4.8),
+                new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.2 })
+            );
+            mpvCabin.position.set(-0.6, 5.6, 0);
+            mpvGroup.add(mpvBody, mpvCabin);
+            mpvGroup.position.set(0, 0, -1);
+            canopyGroup.add(mpvGroup);
+
+            gateGroup.add(canopyGroup);
+
+            // 2. PONDOK PENGAWAL BERDINDING HIJAU LIMAU DI SEBELAH KANAN/BARAT (Video saat 00:15-00:25)
+            const guardGroup = new THREE.Group();
+            guardGroup.position.set(-38, 0, -154);
+
+            const guardBody = new THREE.Mesh(new THREE.BoxGeometry(22, 9.5, 13), limeWallMat);
+            guardBody.position.y = 4.75;
+            guardBody.castShadow = true;
+            guardBody.receiveShadow = true;
+
+            // Tingkap Gelap & Papan Tanda Pondok Pengawal
+            const guardWin = new THREE.Mesh(
+                new THREE.BoxGeometry(16, 3.2, 13.4),
+                new THREE.MeshStandardMaterial({ color: 0x1e293b })
+            );
+            guardWin.position.y = 5.5;
+
+            const guardSign = new THREE.Mesh(
+                new THREE.BoxGeometry(14, 2.2, 0.5),
+                new THREE.MeshStandardMaterial({ color: 0x0f172a })
+            );
+            guardSign.position.set(0, 3.2, -6.7);
+
+            const guardRoof = createTrueHipRoof(23, 14, 4.8, roofDarkMat, 2.0);
+            guardRoof.position.y = 9.5;
+
+            guardGroup.add(guardBody, guardWin, guardSign, guardRoof);
+            gateGroup.add(guardGroup);
+
+            // 3. LALUAN BERBUMBUNG & GERBANG TANGGA "SELAMAT DATANG" DI SEBELAH KIRI/TIMUR (Video saat 00:12-00:34)
+            const welcomeWalkway = new THREE.Group();
+            // Laluan berbumbung serong dari tepi gable tengah turun ke pintu pagar kiri
+            const walkLen = 34;
+            const walkAng = -0.52;
+            const walkMidX = 24;
+            const walkMidZ = -146;
+
+            const walkRoof = createTrueHipRoof(9.5, walkLen, 3.2, roofDarkMat, 1.2);
+            walkRoof.position.set(walkMidX, 9.8, walkMidZ);
+            walkRoof.rotation.y = walkAng;
+            welcomeWalkway.add(walkRoof);
+
+            // Tiang-tiang penyokong laluan berbumbung
+            [-12, 0, 12].forEach(offsetZ => {
+                const px = walkMidX + Math.sin(walkAng) * offsetZ;
+                const pz = walkMidZ + Math.cos(walkAng) * offsetZ;
+                [-3.2, 3.2].forEach(sideX => {
+                    const p = new THREE.Mesh(new THREE.BoxGeometry(1.1, 9.8, 1.1), pinkWallMat);
+                    p.position.set(px + sideX, 4.9, pz);
+                    welcomeWalkway.add(p);
+                });
+            });
+
+            // Gerbang Hadapan "SELAMAT DATANG KE SK SEGAMBUT MAKMUR" dengan Tangga Merah Jambu (Video saat 00:16-00:22)
+            const archGroup = new THREE.Group();
+            archGroup.position.set(34, 0, -162);
+
+            const archPillarL = new THREE.Mesh(new THREE.BoxGeometry(2.2, 9.5, 2.2), pinkWallMat);
+            archPillarL.position.set(-4.5, 4.75, 0);
+            const archPillarR = new THREE.Mesh(new THREE.BoxGeometry(2.2, 9.5, 2.2), pinkWallMat);
+            archPillarR.position.set(4.5, 4.75, 0);
+
+            const archSign = new THREE.Mesh(
+                new THREE.BoxGeometry(11, 4.2, 1.0),
+                new THREE.MeshStandardMaterial({ map: createWelcomeArchTexture() })
+            );
+            archSign.position.set(0, 8.2, -0.5);
+
+            const archRoof = createTrueHipRoof(11, 5, 3.0, new THREE.MeshStandardMaterial({ color: 0x0284c7 }), 1.0);
+            archRoof.position.set(0, 10.2, 0);
+
+            archGroup.add(archPillarL, archPillarR, archSign, archRoof);
+            welcomeWalkway.add(archGroup);
+
+            // Deretan Kedai/Wakaf Berbumbung Coklat di Sebelah Kiri Pintu (Video saat 00:08-00:16)
+            const leftShed = new THREE.Group();
+            leftShed.position.set(58, 0, -163);
+            const lsBody = new THREE.Mesh(new THREE.BoxGeometry(34, 7.5, 9), new THREE.MeshStandardMaterial({ color: 0xfde68a }));
+            lsBody.position.y = 3.75;
+            const lsRoof = createTrueHipRoof(35, 10, 3.5, roofDarkMat, 1.2);
+            lsRoof.position.y = 7.5;
+            leftShed.add(lsBody, lsRoof);
+            welcomeWalkway.add(leftShed);
+
+            gateGroup.add(welcomeWalkway);
+
+            // 4. TEMBOK PENAHAN HIJAU, PAGAR KUNING & TIANG BENDERA HADAPAN (Video saat 00:10-00:28)
+            const retainWall = new THREE.Mesh(new THREE.BoxGeometry(56, 4.2, 2.5), darkGreenWallMat);
+            retainWall.position.set(0, 2.1, -163);
+            gateGroup.add(retainWall);
+
+            // Pagar Kuning & Tiang Pagar di atas tembok penahan
+            for (let fx = -26; fx <= 26; fx += 8.5) {
+                const fPost = new THREE.Mesh(new THREE.BoxGeometry(1.4, 3.8, 1.4), yellowWallMat);
+                fPost.position.set(fx, 5.8, -163);
+                gateGroup.add(fPost);
+            }
+            const fenceRail = new THREE.Mesh(new THREE.BoxGeometry(54, 1.8, 0.8), limeWallMat);
+            fenceRail.position.set(0, 5.2, -163);
+            gateGroup.add(fenceRail);
+
+            // 3 Tiang Bendera di Sebelah Kanan Kanopi (Video saat 00:22-00:28)
+            const poleMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, metalness: 0.6 });
+            [-16, -20, -24].forEach(px => {
+                const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.35, 22, 8), poleMat);
+                pole.position.set(px, 11, -148);
+                gateGroup.add(pole);
+            });
+
             schoolGroup.add(gateGroup);
             registerZoneMesh(gateGroup, 'pintu');
         }
 
         function buildCurvedNorthBlocks() {
-            // Pusat lengkungan radial bagi kedua-dua blok melengkung
             const centerZ = 22;
 
             // =========================================================================
-            // 1. BLOK MELENGKUNG LUAR (EXACT GOOGLE MAPS: LENGKUNGAN PADU + 3 GABLE LUAR + 1 GABLE DALAM)
+            // 1. BLOK MELENGKUNG LUAR (FASAD TIANG HIJAU LIMAU + MENARA JAM + SAYAP JINGGA)
             // =========================================================================
             const outerGroup = new THREE.Group();
-            const outerArc = createSmoothArcBuilding(104, 134, -0.96, 0.96, centerZ, 24, 11.5, 60);
+            // Dinding melengkung luar menggunakan tekstur Koridor Tiang Hijau Limau & Hijau Tua seperti dalam video dron!
+            const outerArc = createSmoothArcBuilding(104, 134, -0.94, 0.94, centerZ, 24, 11.5, 60, frontGreenArcMat);
             outerGroup.add(outerArc);
 
-            // 3 Unjuran Bumbung Gable/Hip Radial Utama Menghadap Utara (Kiri, Tengah, Kanan)
-            // Dibina supaya bersambung terus (flush) dengan bumbung melengkung utama, bukan kotak terpisah!
-            const outerSpurs = [
-                { angle: -0.44, width: 25, len: 30, cross: false }, // Unjuran Kiri (Barat Laut)
-                { angle:  0.00, width: 26, len: 34, cross: true  }, // Unjuran Tengah (Menghadap Pintu Utama dengan perabung 'X')
-                { angle:  0.44, width: 25, len: 30, cross: false }  // Unjuran Kanan (Timur Laut)
-            ];
+            // Unjuran Sayap Bertangga di Hujung Barat Blok Melengkung Luar
+            const westEndSpur = new THREE.Group();
+            const weBody = new THREE.Mesh(new THREE.BoxGeometry(32, 23, 24), orangeFacadeMat);
+            weBody.position.y = 11.5;
+            weBody.castShadow = true;
+            const weRoof = createTrueHipRoof(32, 24, 10.8, roofMat, 2.5);
+            weRoof.position.y = 23;
+            westEndSpur.add(weBody, weRoof);
+            westEndSpur.position.set(-102, 0, -42);
+            westEndSpur.rotation.y = 0.22;
+            outerGroup.add(westEndSpur);
 
-            outerSpurs.forEach(cfg => {
-                const rad = 131; // Terbenam sedikit ke dalam lengkungan luar (104..134) supaya bumbung bercantum padu
-                const gx = Math.sin(cfg.angle) * rad;
-                const gz = centerZ - Math.cos(cfg.angle) * rad;
-                const spur = createRadialGableSpur(cfg.width, cfg.len, 24, 11.5, roofDarkMat, cfg.cross);
+            // Hujung Selatan Sayap Barat Melengkung Luar
+            const westTipWing = new THREE.Group();
+            const wtBody = new THREE.Mesh(new THREE.BoxGeometry(24, 22, 26), orangeFacadeMat);
+            wtBody.position.y = 11;
+            wtBody.castShadow = true;
+            const wtRoof = createTrueHipRoof(24, 26, 10.2, roofMat, 2.5);
+            wtRoof.position.y = 22;
+            westTipWing.add(wtBody, wtRoof);
+            westTipWing.position.set(-106, 0, -26);
+            westTipWing.rotation.y = -0.45;
+            outerGroup.add(westTipWing);
+
+            // 2 Unjuran Sayap Kiri & Kanan Menghadap Utara (Berdinding Jingga/Pic dengan Tingkap Putih seperti Video Dron!)
+            [-0.44, 0.44].forEach(ang => {
+                const rad = 131;
+                const gx = Math.sin(ang) * rad;
+                const gz = centerZ - Math.cos(ang) * rad;
+                const spur = createRadialGableSpur(25, 30, 24, 11.5, roofDarkMat, orangeFacadeMat);
                 spur.position.set(gx, 0, gz);
-                spur.rotation.y = -cfg.angle;
+                spur.rotation.y = -ang;
                 outerGroup.add(spur);
             });
 
-            // 1 Unjuran Gable Segi Tiga di Bahagian Tengah Dalam (Menghadap Selatan ke arah Blok Melengkung Dalam)
-            // Sangat jelas kelihatan di tengah-tengah lengkungan dalam imej Google Maps `image_8a0175.jpg`
-            const centerInnerSpur = createRadialGableSpur(26, 22, 24, 11.2, roofDarkMat, false);
+            // 1 UNJURAN GABLE UTAMA TENGAH + TIANG HIJAU + PAPAN TANDA HITAM EMAS + MENARA JAM (100% MENGIKUT VIDEO DRON)
+            const centerHeroGable = createCentralEntranceGableAndClockTower(27, 34, 24, 11.5);
+            centerHeroGable.position.set(0, 0, centerZ - 131);
+            outerGroup.add(centerHeroGable);
+
+            // 1 Unjuran Gable Segi Tiga di Bahagian Tengah Dalam
+            const centerInnerSpur = createRadialGableSpur(26, 22, 24, 11.2, roofDarkMat, orangeFacadeMat);
             centerInnerSpur.position.set(0, 0, centerZ - 105);
-            centerInnerSpur.rotation.y = Math.PI; // Menghadap ke dalam (+Z)
+            centerInnerSpur.rotation.y = Math.PI;
             outerGroup.add(centerInnerSpur);
 
             schoolGroup.add(outerGroup);
             registerZoneMesh(outerGroup, 'melengkung_luar');
 
             // =========================================================================
-            // 2. BLOK MELENGKUNG DALAM + JAMBATAN PENGHUBUNG + PENTAS PERHIMPUNAN
+            // 2. BLOK MELENGKUNG DALAM (TINGKAT ATAS BERDINDING JINGGA & TINGKAP PUTIH)
+            // Kelihatan jelas di belakang Menara Jam dalam Video Dron!
             // =========================================================================
             const innerGroup = new THREE.Group();
-            // Lapisan kedua bumbung melengkung yang tebal dan padu (Radius 64 ke 90)
-            const innerArc = createSmoothArcBuilding(64, 90, -0.66, 0.66, centerZ, 23, 10.5, 48);
+            // Dibina sedikit lebih tinggi (wallHeight = 31) dengan fasad Jingga supaya kelihatan di belakang Menara Jam seperti dalam video!
+            const innerArc = createSmoothArcBuilding(64, 90, -0.66, 0.66, centerZ, 30, 11.0, 48, orangeFacadeMat);
             innerGroup.add(innerArc);
 
-            // 2 Laluan Berbumbung (Linkways) di Kiri & Kanan yang menyambungkan Blok Luar dan Blok Dalam
-            [-0.48, 0.48].forEach(ang => {
-                const midLinkR = 97;
+            // 2 Laluan Jambatan Berbumbung Putih Nipis antara Blok Luar & Dalam
+            const whiteRoofMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.5 });
+            [-0.56, 0.56].forEach(ang => {
+                const midLinkR = 96;
                 const lx = Math.sin(ang) * midLinkR;
                 const lz = centerZ - Math.cos(ang) * midLinkR;
                 const link = new THREE.Group();
 
-                const lBody = new THREE.Mesh(new THREE.BoxGeometry(14, 21, 20), wallMat);
-                lBody.position.y = 10.5;
-                const lRoof = createTrueHipRoof(14, 20, 7.5, roofDarkMat, 1.5);
-                lRoof.position.y = 21;
+                const lBody = new THREE.Mesh(new THREE.BoxGeometry(6.5, 16, 22), wallMat);
+                lBody.position.y = 8;
+                const lRoof = new THREE.Mesh(new THREE.BoxGeometry(8.5, 1.8, 24), whiteRoofMat);
+                lRoof.position.y = 16.8;
+                lRoof.castShadow = true;
 
                 link.add(lBody, lRoof);
                 link.position.set(lx, 0, lz);
@@ -1185,19 +1863,19 @@
                 innerGroup.add(link);
             });
 
-            // 2 Sayap Penyambung (Connecting Wings) dari hujung Blok Melengkung Dalam terus ke Blok Kuadrangel Utara
+            // 2 Sayap Penyambung dari hujung Blok Melengkung Dalam terus ke Blok Kuadrangel Utara
             [-48, 48].forEach(cx => {
                 const connGroup = new THREE.Group();
-                const cBody = new THREE.Mesh(new THREE.BoxGeometry(26, 23, 24), wallMat);
-                cBody.position.set(cx, 11.5, -28);
+                const cBody = new THREE.Mesh(new THREE.BoxGeometry(26, 25, 24), wallMat);
+                cBody.position.set(cx, 12.5, -28);
                 cBody.castShadow = true;
                 const cRoof = createTrueHipRoof(26, 24, 10.0, roofMat, 2.5);
-                cRoof.position.set(cx, 23, -28);
+                cRoof.position.set(cx, 25, -28);
                 connGroup.add(cBody, cRoof);
                 innerGroup.add(connGroup);
             });
 
-            // Pentas Perhimpunan (Berwarna Coklat Kemerahan Terakota di hadapan gelanggang seperti dalam Google Maps)
+            // Pentas Perhimpunan
             const stageGroup = new THREE.Group();
             const stageMat = new THREE.MeshStandardMaterial({ color: 0xb86b52, roughness: 0.8 });
 
@@ -1271,7 +1949,6 @@
             const southRoof = createTrueHipRoof(196, 36, 11.0, roofMat, 3.2);
             southRoof.position.set(0, 25, 90);
 
-            // Sengkuap (Awning) Merah di Koridor Selatan Gelanggang
             const awning = new THREE.Mesh(
                 new THREE.BoxGeometry(128, 1.5, 6),
                 new THREE.MeshStandardMaterial({ color: 0x991b1b })
@@ -1279,13 +1956,14 @@
             awning.position.set(0, 8, 70);
             quadGroup.add(awning);
 
-            // 5. Menara Tangga Penjuru (SW & SE Corners - Bumbung Piramid Segi Empat Tepat)
+            // 5. Menara Tangga Penjuru (SW & SE Corners)
+            const terraRoofMat = new THREE.MeshStandardMaterial({ color: 0x7c4a38, roughness: 0.8, side: THREE.DoubleSide });
             [-94, 94].forEach(tx => {
                 const tower = new THREE.Mesh(new THREE.BoxGeometry(30, 27, 30), wallMat);
                 tower.position.set(tx, 13.5, 96);
                 tower.castShadow = true;
 
-                const pyramidRoof = createTrueHipRoof(30, 30, 11.5, roofDarkMat, 3);
+                const pyramidRoof = createTrueHipRoof(30, 30, 11.5, terraRoofMat, 3);
                 pyramidRoof.position.set(tx, 27, 96);
 
                 quadGroup.add(tower, pyramidRoof);
@@ -1296,39 +1974,626 @@
             registerZoneMesh(quadGroup, 'kuadrangel');
         }
 
+        // =========================================================================================
+        // HELPER TEKSTUR KHAS KANTIN (SETARAF 3D BLENDER / UNITY ARCHITECTURAL VISUALIZATION)
+        // Berdasarkan KANTIN MURID 01.jpg & KANTIN MURID 02.jpg
+        // =========================================================================================
+        function createCanteenFloorTileTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+
+            // Latar grout coklat kelabu jelas supaya petak mozek nampak ketara
+            ctx.fillStyle = '#786b59';
+            ctx.fillRect(0, 0, 512, 512);
+
+            const step = 64;
+            for (let y = 0; y < 512; y += step) {
+                for (let x = 0; x < 512; x += step) {
+                    // Variasi tona mozek seramik krim/kuning air seperti dalam gambar kantin sebenar
+                    const isAlt = ((x / step) + (y / step)) % 2 === 0;
+                    ctx.fillStyle = isAlt ? '#e3d5c1' : '#d8c8b2';
+                    ctx.fillRect(x + 3, y + 3, step - 6, step - 6);
+
+                    // Kilauan halus tepi kepingan mozek (Bevel highlight)
+                    ctx.strokeStyle = '#efe5d6';
+                    ctx.lineWidth = 1.5;
+                    ctx.strokeRect(x + 4, y + 4, step - 8, step - 8);
+                }
+            }
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.RepeatWrapping;
+            tex.repeat.set(28, 6);
+            tex.anisotropy = 4;
+            return tex;
+        }
+
+        function createPinkWhiteCheckerTileTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 256;
+            canvas.height = 256;
+            const ctx = canvas.getContext('2d');
+
+            const sq = 32;
+            for (let y = 0; y < 256; y += sq) {
+                for (let x = 0; x < 256; x += sq) {
+                    const isPink = ((x / sq) + (y / sq)) % 2 === 0;
+                    ctx.fillStyle = isPink ? '#eabec3' : '#f8fafc';
+                    ctx.fillRect(x, y, sq, sq);
+                    ctx.strokeStyle = '#cbd5e1';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(x, y, sq, sq);
+                }
+            }
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.RepeatWrapping;
+            tex.repeat.set(4, 1.5);
+            return tex;
+        }
+
+        function createBeamTextTexture(textWords, fontSize = 44) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1024;
+            canvas.height = 128;
+            const ctx = canvas.getContext('2d');
+
+            // Rasuk konkrit putih krim
+            ctx.fillStyle = '#f1f5f9';
+            ctx.fillRect(0, 0, 1024, 128);
+            ctx.strokeStyle = '#cbd5e1';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(0, 0, 1024, 128);
+
+            // Tulisan hitam tebal ("JAGA   KEBERSIHAN   KANTIN" atau "UTAMAKAN   KEBERSIHAN")
+            ctx.fillStyle = '#0f172a';
+            ctx.font = `900 ${fontSize}px Inter, Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(textWords, 512, 68);
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.anisotropy = 4;
+            return tex;
+        }
+
+        function createCeilingGridTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, 0, 512, 512);
+            ctx.strokeStyle = '#cbd5e1';
+            ctx.lineWidth = 4;
+            for (let x = 0; x <= 512; x += 64) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 512); ctx.stroke();
+            }
+            for (let y = 0; y <= 512; y += 128) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(512, y); ctx.stroke();
+            }
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.RepeatWrapping;
+            tex.repeat.set(12, 3);
+            return tex;
+        }
+
+        // =========================================================================================
+        // 7. PEMBINAAN BLOK KANTIN 3D (BANGUNAN BELAKANG SEKALI / SELATAN)
+        // Mengikut Pembetulan:
+        // - Lantai Mozek Krim/Beige di atas paras rumput (Tidak lagi tenggelam dalam warna hijau!)
+        // - Sebelah Kiri (1/3 Bahagian): Tempat Penyediaan Makanan & Kaunter Jualan (KANTIN MURID 02.jpg)
+        // - Sebelah Kanan (2/3 Bahagian): Ruang Makan Terbuka Murid + Tempat Basuh Tangan di Hujung Sekali Sebelah Kanan (KANTIN MURID 01.jpg)
+        // =========================================================================================
         function buildSouthernSupportBlock() {
             const southGroup = new THREE.Group();
-            const body = new THREE.Mesh(new THREE.BoxGeometry(172, 16, 28), wallMat);
-            body.position.set(-4, 8, 142);
-            body.castShadow = true;
-            body.receiveShadow = true;
+            canteenCeilingFans = [];
 
-            const roof = createTrueHipRoof(172, 28, 8.5, roofMat, 3);
-            roof.position.set(-4, 16, 142);
+            const centerX = -4;
+            const centerZ = 142;
+            const totalW = 174; // Panjang kantin (x dari -91 hingga +83)
+            const totalD = 30;  // Lebar kantin (z dari 127 hingga 157)
+            const wallH = 16;   // Tinggi siling kantin
 
-            southGroup.add(body, roof);
+            // Nota Orientasi Paparan (Apabila dilihat dari belakang/Selatan seperti dalam image_1b3c2a.png):
+            // - Sebelah KIRI skrin ialah X Positif (+83 hingga +25) -> 1/3 Tempat Penyediaan & Kaunter Jualan Makanan
+            // - Sebelah KANAN skrin ialah X Negatif (+25 hingga -91) -> 2/3 Ruang Makan Murid
+            // - Hujung Sekali Sebelah KANAN ialah X = -91 -> Tempat Basuh Tangan (Sinki)
+            // Sebaliknya jika dilihat dari Utara, kita terbalikkan supaya mengikut orientasi gambar user (`image_1b3c2a.png` diambil dari arah Selatan menghadap Utara, di mana kiri gambar = Barat (`x = -91`), kanan gambar = Timur (`x = +83`)!).
+            // Mari semak `image_1b3c2a.png`:
+            // Dalam `image_1b3c2a.png`, di sebelah KIRI gambar kelihatan sinki basuh tangan (`x = -91`), dan di sebelah KANAN gambar kelihatan bangunan putih tertutup (`x = +83`)!
+            // Ini bermakna kamera user dalam `image_1b3c2a.png` sedang memandang dari arah SELATAN ke UTARA:
+            // - Sebelah KIRI gambar user = Barat (`x` dari `-91` hingga `-33`)
+            // - Sebelah KANAN gambar user = Timur (`x` dari `-33` hingga `+83`)
+            // - Hujung sekali sebelah KANAN gambar user = `x = +83`!
+
+            const leftEndX = centerX - totalW / 2;        // -91 (Hujung Kiri dalam gambar image_1b3c2a.png)
+            const rightEndX = centerX + totalW / 2;       // +83 (Hujung Sekali Sebelah Kanan dalam gambar image_1b3c2a.png)
+            const counterX = leftEndX + totalW / 3;       // -33 (Garisan Kaunter: 1/3 di sebelah Kiri [-91 ke -33], 2/3 di sebelah Kanan [-33 ke +83])
+
+            // 1. LANTAI MOZEK KANTIN PENUH (Dinaikkan ke y = 1.65 supaya berada DI ATAS rumput hijau y=1.50 dan mozek kelihatan jelas!)
+            const floorTileMat = new THREE.MeshStandardMaterial({
+                map: createCanteenFloorTileTexture(),
+                roughness: 0.3,
+                metalness: 0.05
+            });
+            // Tapak konkrit tepi lantai
+            const floorSlab = new THREE.Mesh(
+                new THREE.BoxGeometry(totalW + 4, 0.8, totalD + 4),
+                new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.8 })
+            );
+            floorSlab.position.set(centerX, 1.55, centerZ);
+            floorSlab.receiveShadow = true;
+            southGroup.add(floorSlab);
+
+            // Permukaan Lantai Mozek Berpetak di atas tapak (y = 1.98, bebas sepenuhnya daripada rumput hijau)
+            const mosaicFloor = new THREE.Mesh(new THREE.BoxGeometry(totalW + 2.5, 0.15, totalD + 2.5), floorTileMat);
+            mosaicFloor.position.set(centerX, 1.98, centerZ);
+            mosaicFloor.receiveShadow = true;
+            southGroup.add(mosaicFloor);
+
+            // Kaki lima mozek di sekeliling luar kantin
+            const apronFloor = new THREE.Mesh(new THREE.BoxGeometry(totalW + 6, 0.12, totalD + 6), floorTileMat);
+            apronFloor.position.set(centerX, 1.62, centerZ);
+            apronFloor.receiveShadow = true;
+            southGroup.add(apronFloor);
+
+            // 2. SILING PLASTER GRID PUTIH & PENCAHAYAAN DALAMAN KANTIN
+            const ceilingMat = new THREE.MeshStandardMaterial({
+                map: createCeilingGridTexture(),
+                roughness: 0.7,
+                side: THREE.DoubleSide
+            });
+            const ceilingSlab = new THREE.Mesh(new THREE.BoxGeometry(totalW, 0.6, totalD), ceilingMat);
+            ceilingSlab.position.set(centerX, wallH - 0.3, centerZ);
+            southGroup.add(ceilingSlab);
+
+            // Lampu PointLight Dalaman
+            [-20, 20, 58].forEach(lx => {
+                const warmLight = new THREE.PointLight(0xfffbeb, 0.65, 65);
+                warmLight.position.set(lx, wallH - 2.2, centerZ);
+                southGroup.add(warmLight);
+            });
+
+            // =====================================================================================
+            // BAHAGIAN A: 1/3 TEMPAT PENYEDIAAN MAKANAN & KAUNTER JUALAN (SEBELAH KIRI: X = -91 hingga -33)
+            // Menghadap ke arah Ruang Makan di Sebelah Kanan (+X)
+            // =====================================================================================
+            const kitchenGroup = new THREE.Group();
+            const kitchenW = counterX - leftEndX; // 58 unit (1/3 di sebelah kiri)
+            const kitchenMidX = leftEndX + kitchenW / 2; // -62
+
+            const darkGreyWallMat = new THREE.MeshStandardMaterial({ color: 0x4b5257, roughness: 0.75 });
+            const pinkCheckerMat = new THREE.MeshStandardMaterial({
+                map: createPinkWhiteCheckerTileTexture(),
+                roughness: 0.4
+            });
+            const creamWallMat = new THREE.MeshStandardMaterial({ color: 0xf1f5f9, roughness: 0.65 });
+            const stainlessMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.85, roughness: 0.2 });
+
+            // Dinding Luar Dapur (Utara, Selatan & Hujung Kiri untuk 1/3 bahagian penyediaan makanan)
+            const kNorthWall = new THREE.Mesh(new THREE.BoxGeometry(kitchenW, wallH, 1.2), creamWallMat);
+            kNorthWall.position.set(kitchenMidX, wallH / 2 + 1.0, centerZ - totalD / 2 + 0.6);
+            const kSouthWall = new THREE.Mesh(new THREE.BoxGeometry(kitchenW, wallH, 1.2), creamWallMat);
+            kSouthWall.position.set(kitchenMidX, wallH / 2 + 1.0, centerZ + totalD / 2 - 0.6);
+            const kLeftWall = new THREE.Mesh(new THREE.BoxGeometry(1.2, wallH, totalD), creamWallMat);
+            kLeftWall.position.set(leftEndX + 0.6, wallH / 2 + 1.0, centerZ);
+            kitchenGroup.add(kNorthWall, kSouthWall, kLeftWall);
+
+            // DINDING FASAD KAUNTER KELABU GELAP (DI X = counterX = -33, MENGHADAP KE KANAN +X)
+            // 1. Bahagian Atas Dinding Kelabu Gelap
+            const upperGreyWall = new THREE.Mesh(new THREE.BoxGeometry(1.2, 4.6, totalD - 1.5), darkGreyWallMat);
+            upperGreyWall.position.set(counterX, 11.7, centerZ);
+            kitchenGroup.add(upperGreyWall);
+
+            // 2. Rasuk Putih di Atas Dinding Kelabu dengan Tulisan "JAGA   KEBERSIHAN   KANTIN" (Menghadap +X ke arah Ruang Makan)
+            const jagaBeamMat = new THREE.MeshStandardMaterial({
+                map: createBeamTextTexture('JAGA          KEBERSIHAN          KANTIN', 42),
+                roughness: 0.5
+            });
+            const jagaBeamMats = [
+                jagaBeamMat, creamWallMat, // +X menghadap terus ke arah murid di ruang makan sebelah kanan!
+                creamWallMat, creamWallMat, creamWallMat, creamWallMat
+            ];
+            const jagaBeam = new THREE.Mesh(new THREE.BoxGeometry(1.6, 2.1, totalD - 1.0), jagaBeamMats);
+            jagaBeam.position.set(counterX + 1.5, wallH - 1.3, centerZ);
+            kitchenGroup.add(jagaBeam);
+
+            // 3. Tiang Sisi Kelabu Gelap Kiri & Kanan Pintu Masuk Dapur (Lengkap dengan Poster Kuning "Sila Beratur")
+            const leftPillar = new THREE.Mesh(new THREE.BoxGeometry(1.2, 9.5, 3.2), darkGreyWallMat);
+            leftPillar.position.set(counterX, 5.2, centerZ + 12.8);
+            const rightPillar = new THREE.Mesh(new THREE.BoxGeometry(1.2, 9.5, 3.2), darkGreyWallMat);
+            rightPillar.position.set(counterX, 5.2, centerZ - 12.8);
+            kitchenGroup.add(leftPillar, rightPillar);
+
+            const posterMat = new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.5 });
+            const posterL = new THREE.Mesh(new THREE.BoxGeometry(0.15, 3.6, 1.4), posterMat);
+            posterL.position.set(counterX + 0.65, 5.6, centerZ + 12.8);
+            const posterR = new THREE.Mesh(new THREE.BoxGeometry(0.15, 4.2, 1.4), posterMat);
+            posterR.position.set(counterX + 0.65, 5.4, centerZ - 12.8);
+            kitchenGroup.add(posterL, posterR);
+
+            // 4. Dinding Kaunter Bawah Berjubin Dam Merah Jambu & Putih
+            const counterBaseWall = new THREE.Mesh(new THREE.BoxGeometry(1.8, 3.2, 16.4), pinkCheckerMat);
+            counterBaseWall.position.set(counterX, 3.6, centerZ);
+            kitchenGroup.add(counterBaseWall);
+
+            // Permukaan Meja Kaunter (Countertop putih berjubin)
+            const counterTop = new THREE.Mesh(new THREE.BoxGeometry(2.6, 0.35, 16.6), creamWallMat);
+            counterTop.position.set(counterX, 5.25, centerZ);
+            kitchenGroup.add(counterTop);
+
+            // Tiang Pembahagi Tengah Bukaan Kaunter & Roller Shutter Berkembar
+            const centerMullion = new THREE.Mesh(new THREE.BoxGeometry(0.6, 4.4, 0.6), new THREE.MeshStandardMaterial({ color: 0x334155 }));
+            centerMullion.position.set(counterX, 7.4, centerZ);
+            const rollerShutter = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.9, 16.4), new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.5 }));
+            rollerShutter.position.set(counterX, 9.3, centerZ);
+            kitchenGroup.add(centerMullion, rollerShutter);
+
+            // Daun Pintu Kanan Terbuka Separuh
+            const doorFrameMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.3 });
+            const doorLeafRight = new THREE.Mesh(new THREE.BoxGeometry(3.0, 7.6, 0.25), doorFrameMat);
+            doorLeafRight.position.set(counterX - 1.4, 5.8, centerZ - 11.0);
+            doorLeafRight.rotation.y = 0.35;
+            kitchenGroup.add(doorLeafRight);
+
+            // 5. RUANG DALAM TEMPAT PENYEDIAAN MAKANAN (Dinding Belakang Berjubin Merah Jambu/Putih, Peti Sejuk & Bekas Air)
+            const innerBackWall = new THREE.Mesh(new THREE.BoxGeometry(0.8, wallH - 2, 24), pinkCheckerMat);
+            innerBackWall.position.set(counterX - 11, wallH / 2 + 1.0, centerZ);
+            kitchenGroup.add(innerBackWall);
+
+            // Peti Sejuk Minuman Berpintu Kaca Bercahaya
+            const fridgeGroup = new THREE.Group();
+            const fridgeBody = new THREE.Mesh(new THREE.BoxGeometry(3.2, 7.8, 4.2), new THREE.MeshStandardMaterial({ color: 0xf8fafc }));
+            fridgeBody.position.y = 5.6;
+            const fridgeGlass = new THREE.Mesh(
+                new THREE.BoxGeometry(0.2, 6.2, 3.6),
+                new THREE.MeshBasicMaterial({ color: 0xe0f2fe })
+            );
+            fridgeGlass.position.set(1.62, 5.4, 0);
+            const fridgeHeader = new THREE.Mesh(
+                new THREE.BoxGeometry(0.25, 1.0, 3.8),
+                new THREE.MeshBasicMaterial({ color: 0x22c55e })
+            );
+            fridgeHeader.position.set(1.62, 9.0, 0);
+            fridgeGroup.add(fridgeBody, fridgeGlass, fridgeHeader);
+            fridgeGroup.position.set(counterX - 8.5, 0, centerZ + 4.2);
+            kitchenGroup.add(fridgeGroup);
+
+            // Meja Penyediaan Dalam & Tong Air Biru / Hijau
+            const innerCounter = new THREE.Mesh(new THREE.BoxGeometry(3.0, 3.2, 12), pinkCheckerMat);
+            innerCounter.position.set(counterX - 8.8, 3.6, centerZ - 3.5);
+            const blueUrn = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.75, 2.1, 14), new THREE.MeshStandardMaterial({ color: 0x1d4ed8, roughness: 0.3 }));
+            blueUrn.position.set(counterX - 8.5, 6.2, centerZ - 2.2);
+            const greenUrn = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.75, 2.1, 14), new THREE.MeshStandardMaterial({ color: 0x16a34a, roughness: 0.3 }));
+            greenUrn.position.set(counterX - 8.5, 6.2, centerZ - 4.2);
+            kitchenGroup.add(innerCounter, blueUrn, greenUrn);
+
+            // Bekas/Dulang Lauk Stainless Steel di atas Kaunter Jualan
+            [-5.5, -3.2, -1.2, 1.8, 4.0, 6.2].forEach(tz => {
+                const tray = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.5, 1.8), stainlessMat);
+                tray.position.set(counterX, 5.6, centerZ + tz);
+                kitchenGroup.add(tray);
+            });
+
+            // 6. PERALATAN DI HADAPAN KAUNTER (MENGHADAP KE KANAN +X):
+            // - Dua Laluan Palang Besi Beratur (Stainless Steel Queue Rails)
+            [-2.2, 2.2].forEach(rz => {
+                const railLen = 7.5;
+                const railH = 4.2;
+                const startX = counterX + 1.5;
+                const endX = counterX + 1.5 + railLen;
+
+                const topBar = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, railLen, 12), stainlessMat);
+                topBar.rotation.z = Math.PI / 2;
+                topBar.position.set((startX + endX) / 2, railH, centerZ + rz);
+
+                const postFront = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 2.2, 12), stainlessMat);
+                postFront.position.set(endX, 3.1, centerZ + rz);
+                const postBack = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 2.2, 12), stainlessMat);
+                postBack.position.set(startX, 3.1, centerZ + rz);
+
+                const basePlate = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.15, 12), stainlessMat);
+                basePlate.position.set(endX, 2.08, centerZ + rz);
+
+                kitchenGroup.add(topBar, postFront, postBack, basePlate);
+            });
+
+            // - Meja dengan Alas Kain Hitam & Lapik Biru Muda di Hadapan Kaunter
+            const condimentTable = new THREE.Group();
+            const blackSkirt = new THREE.Mesh(
+                new THREE.BoxGeometry(3.4, 2.4, 5.2),
+                new THREE.MeshStandardMaterial({ color: 0x111827, roughness: 0.9 })
+            );
+            blackSkirt.position.y = 3.2;
+            const blueTopCloth = new THREE.Mesh(
+                new THREE.BoxGeometry(3.6, 0.35, 5.4),
+                new THREE.MeshStandardMaterial({ color: 0x93c5fd, roughness: 0.7 })
+            );
+            blueTopCloth.position.y = 4.55;
+            const sauceBottle = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.9, 8), new THREE.MeshStandardMaterial({ color: 0xdc2626 }));
+            sauceBottle.position.set(0, 5.1, -0.8);
+            const utensilBasket = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.5, 1.4), creamWallMat);
+            utensilBasket.position.set(0, 5.0, 0.8);
+            condimentTable.add(blackSkirt, blueTopCloth, sauceBottle, utensilBasket);
+            condimentTable.position.set(counterX + 4.2, 0, centerZ - 5.8);
+            kitchenGroup.add(condimentTable);
+
+            // - Meja dengan Tong Ais Jingga Besar & Dulang Kuning di Hadapan Kaunter
+            const leftPrepTable = new THREE.Group();
+            const orangeCooler = new THREE.Mesh(
+                new THREE.BoxGeometry(2.8, 2.6, 3.8),
+                new THREE.MeshStandardMaterial({ color: 0xea580c, roughness: 0.4 })
+            );
+            orangeCooler.position.set(counterX + 2.2, 4.9, centerZ + 9.2);
+            const yellowTray1 = new THREE.Mesh(
+                new THREE.BoxGeometry(2.6, 0.45, 3.2),
+                new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.4 })
+            );
+            yellowTray1.position.set(counterX + 5.2, 4.6, centerZ + 9.5);
+            const redPrepTop = new THREE.Mesh(
+                new THREE.BoxGeometry(7.5, 0.25, 3.2),
+                new THREE.MeshStandardMaterial({ color: 0xdc2626 })
+            );
+            redPrepTop.position.set(counterX + 5.8, 4.3, centerZ + 9.5);
+            leftPrepTable.add(orangeCooler, yellowTray1, redPrepTop);
+            kitchenGroup.add(leftPrepTable);
+
+            southGroup.add(kitchenGroup);
+
+            // =====================================================================================
+            // BAHAGIAN B: 2/3 RUANG MAKAN TERBUKA MURID (SEBELAH KANAN: X = -33 hingga +83)
+            // + TEMPAT BASUH TANGAN (SINKI) DI HUJUNG SEKALI SEBELAH KANAN (X = +83)
+            // =====================================================================================
+            const diningGroup = new THREE.Group();
+
+            // 1. DERETAN TIANG TERBUKA (SEPARUH JUBIN PUTIH DI BAWAH, KELABU GELAP DI ATAS)
+            const whiteTilePillarMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.35 });
+            const darkTopPillarMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.7 });
+
+            for (let px = counterX + 12; px <= rightEndX - 2; px += 16) {
+                [centerZ - totalD / 2 + 1.2, centerZ + totalD / 2 - 1.2].forEach(pz => {
+                    const pGroup = new THREE.Group();
+                    const lowerWhite = new THREE.Mesh(new THREE.BoxGeometry(2.1, 7.0, 2.1), whiteTilePillarMat);
+                    lowerWhite.position.y = 5.5;
+                    lowerWhite.castShadow = true;
+                    lowerWhite.receiveShadow = true;
+
+                    const upperDark = new THREE.Mesh(new THREE.BoxGeometry(1.95, 6.6, 1.95), darkTopPillarMat);
+                    upperDark.position.y = 12.3;
+                    upperDark.castShadow = true;
+
+                    pGroup.add(lowerWhite, upperDark);
+                    pGroup.position.set(px, 0, pz);
+                    diningGroup.add(pGroup);
+                });
+
+                // Rasuk Melintang Putih Merentasi Siling
+                const crossBeam = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.5, totalD - 0.5), creamWallMat);
+                crossBeam.position.set(px, wallH - 1.1, centerZ);
+                diningGroup.add(crossBeam);
+            }
+
+            // Rasuk Khas di Tengah Ruang Makan dengan Tulisan "UTAMAKAN   KEBERSIHAN"
+            const utamakanBeamMat = new THREE.MeshStandardMaterial({
+                map: createBeamTextTexture('UTAMAKAN          KEBERSIHAN', 38),
+                roughness: 0.5
+            });
+            const utamakanBeam = new THREE.Mesh(
+                new THREE.BoxGeometry(1.6, 1.8, totalD - 0.5),
+                [utamakanBeamMat, utamakanBeamMat, creamWallMat, creamWallMat, creamWallMat, creamWallMat]
+            );
+            utamakanBeam.position.set(33, wallH - 1.2, centerZ);
+            diningGroup.add(utamakanBeam);
+
+            // 2. TEMPAT BASUH TANGAN (SINKI BERJUBIN PUTIH & CERMIN) DI HUJUNG SEKALI SEBELAH KANAN (X = rightEndX = +83)
+            const sinkWallGroup = new THREE.Group();
+            const sinkBackWall = new THREE.Mesh(new THREE.BoxGeometry(1.4, 7.8, 20), whiteTilePillarMat);
+            sinkBackWall.position.set(rightEndX - 2.0, 5.9, centerZ);
+            const sinkTrough = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.2, 18), stainlessMat);
+            sinkTrough.position.set(rightEndX - 3.2, 4.7, centerZ);
+            sinkWallGroup.add(sinkBackWall, sinkTrough);
+
+            // 5 Cermin Muka di Dinding Sinki Hujung Kanan (Menghadap ke arah Ruang Makan -X)
+            const mirrorMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, metalness: 0.9, roughness: 0.1 });
+            [-6.5, -3.2, 0, 3.2, 6.5].forEach(mz => {
+                const mirror = new THREE.Mesh(new THREE.BoxGeometry(0.15, 1.8, 1.3), mirrorMat);
+                mirror.position.set(rightEndX - 2.75, 7.2, centerZ + mz);
+                sinkWallGroup.add(mirror);
+            });
+            diningGroup.add(sinkWallGroup);
+
+            // 3. BARISAN MEJA MAKAN & KERUSI MURID DI SEBELAH KANAN (X dari -14 hingga +70)
+            const redTableMat = new THREE.MeshStandardMaterial({ color: 0xb91c1c, roughness: 0.4 });
+            const woodTableMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.55 });
+            const yellowSeatMat = new THREE.MeshStandardMaterial({ color: 0xeab308, roughness: 0.4 });
+            const blackFrameMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.5, roughness: 0.5 });
+
+            for (let tx = -14; tx <= 70; tx += 12) {
+                // --- Set Meja Merah + Kerusi Kuning ---
+                const rTableGroup = new THREE.Group();
+                const rTop = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.25, 9.8), redTableMat);
+                rTop.position.y = 3.85;
+                rTop.castShadow = true;
+                rTableGroup.add(rTop);
+
+                [[-1.6, -4.2], [1.6, -4.2], [-1.6, 4.2], [1.6, 4.2]].forEach(([lx, lz]) => {
+                    const leg = new THREE.Mesh(new THREE.BoxGeometry(0.22, 1.8, 0.22), blackFrameMat);
+                    leg.position.set(lx, 2.95, lz);
+                    rTableGroup.add(leg);
+                });
+
+                [-3.2, 0, 3.2].forEach(sz => {
+                    [-2.6, 2.6].forEach(sx => {
+                        const stool = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.65, 0.2, 12), yellowSeatMat);
+                        stool.position.set(sx, 3.05, sz);
+                        const backRest = new THREE.Mesh(new THREE.BoxGeometry(0.15, 1.1, 1.1), blackFrameMat);
+                        backRest.position.set(sx + (sx > 0 ? 0.55 : -0.55), 3.6, sz);
+                        rTableGroup.add(stool, backRest);
+                    });
+                });
+
+                rTableGroup.position.set(tx, 0, centerZ + 5.6);
+                diningGroup.add(rTableGroup);
+
+                // --- Set Meja Kayu + Bangku Panjang ---
+                const wTableGroup = new THREE.Group();
+                const wTop = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.25, 9.8), woodTableMat);
+                wTop.position.y = 3.85;
+                wTop.castShadow = true;
+                const benchL = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.2, 9.4), woodTableMat);
+                benchL.position.set(-2.7, 3.0, 0);
+                const benchR = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.2, 9.4), woodTableMat);
+                benchR.position.set(2.7, 3.0, 0);
+                wTableGroup.add(wTop, benchL, benchR);
+
+                wTableGroup.position.set(tx, 0, centerZ - 5.8);
+                diningGroup.add(wTableGroup);
+            }
+
+            // Meja Agihan Dulang Plastik Merah & Hijau
+            const trayStation = new THREE.Group();
+            const tsTop = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.25, 7.5), new THREE.MeshStandardMaterial({ color: 0x2563eb }));
+            tsTop.position.y = 3.95;
+            const redStack = new THREE.Mesh(new THREE.BoxGeometry(1.4, 2.2, 1.4), new THREE.MeshStandardMaterial({ color: 0xdc2626 }));
+            redStack.position.set(-0.5, 5.15, -1.8);
+            const greenStack = new THREE.Mesh(new THREE.BoxGeometry(1.4, 2.2, 1.4), new THREE.MeshStandardMaterial({ color: 0x16a34a }));
+            greenStack.position.set(0.8, 5.15, -1.8);
+            trayStation.add(tsTop, redStack, greenStack);
+            trayStation.position.set(-22, 0, centerZ - 6.5);
+            diningGroup.add(trayStation);
+
+            // Besen Biru Besar & Tong Sampah Hitam
+            const blueBasin1 = new THREE.Mesh(new THREE.CylinderGeometry(1.3, 1.0, 1.1, 14), new THREE.MeshStandardMaterial({ color: 0x1d4ed8 }));
+            blueBasin1.position.set(-6, 3.8, centerZ + 12.2);
+            const blackBin = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 0.85, 2.2, 14), new THREE.MeshStandardMaterial({ color: 0x1e293b }));
+            blackBin.position.set(-9.2, 3.15, centerZ + 12.2);
+            diningGroup.add(blueBasin1, blackBin);
+
+            // 4. KIPAS SILING PUTIH 3-BILAH BERPUTAR & LAMPU KALIMANTANG DI SILING
+            const fanMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.4 });
+            const lampMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+
+            for (let fx = -24; fx <= 64; fx += 22) {
+                [-5.5, 5.5].forEach(fz => {
+                    const fanGroup = new THREE.Group();
+                    fanGroup.position.set(fx, wallH - 1.6, centerZ + fz);
+
+                    const rod = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 1.2, 8), fanMat);
+                    rod.position.y = 0.6;
+                    const motor = new THREE.Mesh(new THREE.CylinderGeometry(0.65, 0.65, 0.3, 12), fanMat);
+
+                    const bladesGroup = new THREE.Group();
+                    for (let b = 0; b < 3; b++) {
+                        const blade = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.08, 0.45), fanMat);
+                        blade.position.x = 2.0;
+                        const pivot = new THREE.Group();
+                        pivot.rotation.y = (b * Math.PI * 2) / 3;
+                        pivot.add(blade);
+                        bladesGroup.add(pivot);
+                    }
+                    fanGroup.add(rod, motor, bladesGroup);
+                    diningGroup.add(fanGroup);
+                    canteenCeilingFans.push(bladesGroup);
+
+                    const tube = new THREE.Mesh(new THREE.BoxGeometry(3.6, 0.18, 0.4), lampMat);
+                    tube.position.set(fx + 8, wallH - 0.65, centerZ + fz);
+                    diningGroup.add(tube);
+                });
+            }
+
+            southGroup.add(diningGroup);
+
+            // 5. BUMBUNG LIMAS ATAS BLOK KANTIN
+            const roof = createTrueHipRoof(totalW, totalD, 8.5, roofMat, 3.2);
+            roof.position.set(centerX, wallH, centerZ);
+            southGroup.add(roof);
+
             schoolGroup.add(southGroup);
             registerZoneMesh(southGroup, 'selatan');
         }
 
+        // =========================================================================
+        // 8. STRUKTUR BANGUNAN KHAS BARAT MENGIKUT GOOGLE MAPS (IMAGE_899B83.JPG)
+        // =========================================================================
         function buildWesternOctagons() {
-            const octGroup = new THREE.Group();
-            [-12, 28].forEach(zPos => {
-                const body = new THREE.Mesh(
-                    new THREE.CylinderGeometry(16, 16, 11, 8),
-                    new THREE.MeshStandardMaterial({ color: 0xfef3c7 })
-                );
-                body.position.set(-125, 5.5, zPos);
-                body.castShadow = true;
+            const westSpecialGroup = new THREE.Group();
+            const pavWallMat = new THREE.MeshStandardMaterial({ color: 0xfef3c7, roughness: 0.75 });
 
-                const roof = new THREE.Mesh(new THREE.ConeGeometry(19, 9, 8), roofDarkMat);
-                roof.position.set(-125, 15.5, zPos);
-                roof.castShadow = true;
+            // 1. Kompleks Utama Bumbung Bintang / Perabung Silang (Utara)
+            const starCluster = new THREE.Group();
+            starCluster.position.set(-122, 0, 2);
 
-                octGroup.add(body, roof);
+            [0, Math.PI / 3, -Math.PI / 3].forEach((rotAngle, idx) => {
+                const len = idx === 0 ? 40 : 36;
+                const wid = idx === 0 ? 18 : 16;
+                const wBody = new THREE.Mesh(new THREE.BoxGeometry(wid, 13, len), pavWallMat);
+                wBody.position.y = 6.5;
+                wBody.rotation.y = rotAngle;
+                wBody.castShadow = true;
+                wBody.receiveShadow = true;
+
+                const wRoof = createTrueHipRoof(wid, len, 8.5, roofMat, 2.2);
+                wRoof.position.y = 13;
+                wRoof.rotation.y = rotAngle;
+
+                starCluster.add(wBody, wRoof);
             });
-            schoolGroup.add(octGroup);
-            octGroup.children.forEach(c => registerZoneMesh(c, 'oktagon'));
+            westSpecialGroup.add(starCluster);
+
+            // 2. Sayap Selatan Bercantum Terus
+            const southSubWing = new THREE.Group();
+            southSubWing.position.set(-120, 0, 28);
+            southSubWing.rotation.y = -0.15;
+
+            const sBody = new THREE.Mesh(new THREE.BoxGeometry(20, 12.5, 32), pavWallMat);
+            sBody.position.y = 6.25;
+            sBody.castShadow = true;
+            sBody.receiveShadow = true;
+            const sRoof = createTrueHipRoof(20, 32, 8.0, roofMat, 2.2);
+            sRoof.position.y = 12.5;
+            southSubWing.add(sBody, sRoof);
+
+            const sCrossBody = new THREE.Mesh(new THREE.BoxGeometry(28, 12.5, 15), pavWallMat);
+            sCrossBody.position.y = 6.25;
+            const sCrossRoof = createTrueHipRoof(28, 15, 7.5, roofDarkMat, 2.0);
+            sCrossRoof.position.y = 12.5;
+            southSubWing.add(sCrossBody, sCrossRoof);
+
+            westSpecialGroup.add(southSubWing);
+
+            // 3. Kanopi / Bumbung Penghubung Berwarna Merah Bata
+            const redCanopyGroup = new THREE.Group();
+            const redRoofMat = new THREE.MeshStandardMaterial({ color: 0xb84a39, roughness: 0.7, side: THREE.DoubleSide });
+            const rcBody = new THREE.Mesh(new THREE.BoxGeometry(10, 10, 16), pavWallMat);
+            rcBody.position.y = 5;
+            const rcRoof = createTrueHipRoof(12, 18, 5.0, redRoofMat, 1.5);
+            rcRoof.position.y = 10;
+            redCanopyGroup.add(rcBody, rcRoof);
+            redCanopyGroup.position.set(-108, 0, -16);
+            redCanopyGroup.rotation.y = 0.48;
+            westSpecialGroup.add(redCanopyGroup);
+
+            // 4. Laluan Berbumbung Panjang di Sepanjang Tembok/Pagar Barat
+            const westWalkway = new THREE.Group();
+            const wwPillar = new THREE.Mesh(new THREE.BoxGeometry(8, 9, 78), pavWallMat);
+            wwPillar.position.y = 4.5;
+            const wwRoof = createTrueHipRoof(11, 80, 4.5, roofDarkMat, 1.5);
+            wwRoof.position.y = 9;
+            westWalkway.add(wwPillar, wwRoof);
+            westWalkway.position.set(-134, 0, 108);
+            westWalkway.rotation.y = -0.05;
+            westSpecialGroup.add(westWalkway);
+
+            schoolGroup.add(westSpecialGroup);
+            registerZoneMesh(westSpecialGroup, 'oktagon');
         }
 
         function buildTreesAndLandscape() {
@@ -1336,20 +2601,27 @@
             const trunkMat = new THREE.MeshStandardMaterial({ color: 0x451a03 });
             const foliageMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.85 });
 
-            // Hanya pokok-pokok di dalam dan sekitar pagar SK Segambut Makmur (Mengikut Google Maps)
             const treeCoords = [
-                [-112, -32, 13], [-122, -52, 12], [-115, 55, 15], [-125, 85, 16],
-                [-140, 125, 18], [-115, 145, 16], [-90, 155, 14],
+                [-122, -46, 12.5],
+                [-116, -26, 13.5],
+                [-98, 4, 9.5],
+                [-136, 40, 11.5],
+                [-105, 42, 13.0],
+                [-108, 62, 14.5],
+                [-124, 72, 13.5],
+                [-122, 122, 16.5],
+                [-105, 138, 15.0],
+                [-132, 145, 14.5],
                 [115, 140, 17], [135, 150, 19], [148, 115, 15],
-                [145, 55, 16], [138, -15, 14], [75, -135, 13], [125, -115, 15]
+                [145, 55, 16], [138, -15, 14], [82, -135, 11], [125, -115, 15]
             ];
 
             treeCoords.forEach(([tx, tz, rad]) => {
-                const trunk = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 3, 12, 7), trunkMat);
-                trunk.position.set(tx, 6, tz);
-                const crown = new THREE.Mesh(new THREE.SphereGeometry(rad, 12, 10), foliageMat);
+                const trunk = new THREE.Mesh(new THREE.CylinderGeometry(2.0, 2.8, 11, 7), trunkMat);
+                trunk.position.set(tx, 5.5, tz);
+                const crown = new THREE.Mesh(new THREE.SphereGeometry(rad, 14, 12), foliageMat);
                 crown.scale.y = 0.82;
-                crown.position.set(tx, 16 + rad * 0.4, tz);
+                crown.position.set(tx, 14 + rad * 0.38, tz);
                 crown.castShadow = true;
                 treeGroup.add(trunk, crown);
             });
@@ -1411,7 +2683,7 @@
                 startY = e.clientY;
 
                 currentAzimuth = (currentAzimuth - dx * 0.45 + 360) % 360;
-                currentPitch = Math.max(15, Math.min(89, currentPitch + dy * 0.35));
+                currentPitch = Math.max(8, Math.min(89, currentPitch + dy * 0.35));
                 syncUIControls();
             });
 
@@ -1434,7 +2706,7 @@
 
             domElement.addEventListener('wheel', (e) => {
                 e.preventDefault();
-                cameraRadius = Math.max(150, Math.min(620, cameraRadius + e.deltaY * 0.25));
+                cameraRadius = Math.max(110, Math.min(620, cameraRadius + e.deltaY * 0.25));
             }, { passive: false });
         }
 
@@ -1489,7 +2761,47 @@
             if (isAutoOrbit) toggleAutoOrbit(false);
             currentAzimuth = azimuth;
             currentPitch = pitch;
-            desiredLookAtTarget.set(0, 0, -10);
+            cameraRadius = 360;
+            desiredLookAtTarget.set(0, 8, -5);
+            syncUIControls();
+        }
+
+        function setFrontHeroView() {
+            if (isAutoOrbit) toggleAutoOrbit(false);
+            currentAzimuth = 0;
+            currentPitch = 20;
+            cameraRadius = 205;
+            desiredLookAtTarget.set(0, 14, -105);
+            syncUIControls();
+        }
+
+        // Fungsi Kamera Dalaman Khas Kantin 3D (Sudut Pandangan Sebenar Gambar 1 & Gambar 2)
+        function setCanteenInteriorView(viewType = 'counter') {
+            if (currentMode !== '3d') switchMode('3d');
+            if (isAutoOrbit) toggleAutoOrbit(false);
+
+            // Kemas kini maklumat panel sisi kepada Zon Kantin (Selatan)
+            selectZone('selatan', false);
+
+            if (viewType === 'dining') {
+                // Pandangan KANTIN MURID 01.jpg: Berdiri di hadapan palang beratur (kiri) menghadap ke arah Ruang Makan Terbuka & Tempat Basuh Tangan di hujung sebelah kanan
+                currentAzimuth = 268;
+                currentPitch = 8;
+                cameraRadius = 38;
+                desiredLookAtTarget.set(16, 5.8, 142);
+            } else if (viewType === 'counter') {
+                // Pandangan KANTIN MURID 02.jpg: Menghadap terus ke arah Kaunter Jualan (di sebelah kiri) & tulisan "JAGA KEBERSIHAN KANTIN"
+                currentAzimuth = 90;
+                currentPitch = 8;
+                cameraRadius = 28;
+                desiredLookAtTarget.set(-30, 6.0, 142);
+            } else {
+                // Pandangan Sisi Perspektif Terbuka (Menunjukkan Kiri = Kaunter Beli Makanan, Kanan = Ruang Makan, Hujung Kanan = Tempat Basuh Tangan, Lantai = Mozek)
+                currentAzimuth = 185;
+                currentPitch = 14;
+                cameraRadius = 115;
+                desiredLookAtTarget.set(-4, 6.0, 142);
+            }
             syncUIControls();
         }
 
@@ -1554,12 +2866,17 @@
             document.getElementById('zone-func').textContent = data.func;
 
             if (data.target3D) {
-                desiredLookAtTarget.set(data.target3D.x, 8, data.target3D.z);
+                desiredLookAtTarget.set(
+                    data.target3D.x,
+                    typeof data.target3D.y === 'number' ? data.target3D.y : 12,
+                    data.target3D.z
+                );
             }
             if (rotateToZone && typeof data.camAzimuth === 'number') {
                 toggleAutoOrbit(false);
                 currentAzimuth = data.camAzimuth;
-                currentPitch = data.camPitch || 52;
+                currentPitch = data.camPitch || 45;
+                if (data.camRadius) cameraRadius = data.camRadius;
                 syncUIControls();
             }
         }
@@ -1594,6 +2911,13 @@
         function animate3D() {
             requestAnimationFrame(animate3D);
 
+            // Putaran Kipas Siling Kantin Secara Masa Nyata (3D Unity/Blender Realism)
+            if (canteenCeilingFans.length > 0) {
+                for (let i = 0; i < canteenCeilingFans.length; i++) {
+                    canteenCeilingFans[i].rotation.y += 0.085;
+                }
+            }
+
             if (isAutoOrbit) {
                 currentAzimuth = (currentAzimuth + 0.18) % 360;
                 syncUIControls();
@@ -1607,7 +2931,7 @@
             const horizDist = cameraRadius * Math.cos(pitchRad);
             const camX = cameraLookAtTarget.x + Math.sin(azRad) * horizDist;
             const camZ = cameraLookAtTarget.z - Math.cos(azRad) * horizDist;
-            const camY = Math.max(20, cameraRadius * Math.sin(pitchRad));
+            const camY = Math.max(4.8, cameraLookAtTarget.y + cameraRadius * Math.sin(pitchRad) * 0.65);
 
             camera.position.set(camX, camY, camZ);
             camera.lookAt(cameraLookAtTarget);
@@ -1615,10 +2939,10 @@
             renderer.render(scene, camera);
         }
 
-        // Initialize on Window Load
+        // Initialize on Window Load - Terus fokus pada Fasad Hadapan seperti dalam Video Dron
         window.onload = function () {
             initThreeJS();
-            selectZone('melengkung_luar', false);
+            selectZone('melengkung_luar', true);
             syncUIControls();
         };
     </script>
