@@ -75,9 +75,22 @@
                 <i class="fa-solid fa-person-running text-red-400"></i>
                 <span class="hidden sm:inline">Evakuasi</span>
             </button>
+
+            <!-- School Song Control -->
+<button id="btn-school-song"
+        type="button"
+        class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs px-3 py-2 rounded-lg border border-emerald-400 flex items-center space-x-1.5 transition shadow">
+    <i class="fa-solid fa-music" id="school-song-icon"></i>
+    <span id="school-song-text">Lagu Sekolah</span>
+</button>
         </div>
     </header>
-
+<!-- School Song Audio -->
+<audio id="school-song-audio"
+       src="roar-tiger.mp3"
+       loop
+       preload="none">
+</audio>
     <!-- Main Workspace -->
     <div class="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
         
@@ -1372,7 +1385,44 @@
 
             renderer.render(scene, camera);
         }
+// --- SCHOOL SONG PLAYER ---
+const schoolSongAudio = document.getElementById('school-song-audio');
+const schoolSongButton = document.getElementById('btn-school-song');
+const schoolSongText = document.getElementById('school-song-text');
+const schoolSongIcon = document.getElementById('school-song-icon');
 
+schoolSongButton.addEventListener('click', async function () {
+
+    if (schoolSongAudio.paused) {
+
+        try {
+            await schoolSongAudio.play();
+
+            schoolSongText.textContent = 'Hentikan Lagu';
+            schoolSongIcon.className = 'fa-solid fa-pause';
+
+        } catch (error) {
+
+            console.error('Lagu sekolah gagal dimainkan:', error);
+
+            schoolSongText.textContent = 'Cuba Lagi';
+            schoolSongIcon.className = 'fa-solid fa-circle-exclamation';
+        }
+
+    } else {
+
+        schoolSongAudio.pause();
+
+        schoolSongText.textContent = 'Lagu Sekolah';
+        schoolSongIcon.className = 'fa-solid fa-music';
+    }
+});
+
+// Kembalikan paparan butang apabila lagu tamat atau audio dihentikan
+schoolSongAudio.addEventListener('ended', function () {
+    schoolSongText.textContent = 'Lagu Sekolah';
+    schoolSongIcon.className = 'fa-solid fa-music';
+});
         // Initialize on Window Load
         window.onload = function () {
             initThreeJS();
