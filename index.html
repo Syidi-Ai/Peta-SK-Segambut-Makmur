@@ -268,12 +268,18 @@
                         <g id="zon-parkir" onclick="selectZone('parkir')" class="map-element">
                             <path d="M 135 900 L 135 320 Q 155 175 410 155 L 570 155 L 570 225 Q 315 235 215 380 L 195 900 Z" 
                                   fill="#475569" stroke="#64748b" stroke-width="2"/>
-                            <!-- Longkang Konkrit Melengkung & Platform Parkir Motor di Penjuru Barat Laut (Video Baharu 00:12-00:36) -->
-                            <path d="M 142 305 Q 165 182 355 152" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="10,2"/>
-                            <polygon points="142,215 225,168 248,192 162,255" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+                            <!-- Tapak Rumput Hijau Terang & Rumpun Serai di Penjuru Barat Laut -->
+                            <polygon points="125,140 350,140 245,195 140,305 125,305" fill="#4d9c22" opacity="0.75"/>
+                            <!-- Longkang Konkrit Melengkung & Bebendul Hitam-Kuning -->
+                            <path d="M 142 305 Q 165 182 355 152" fill="none" stroke="#facc15" stroke-width="4" stroke-dasharray="8,6"/>
+                            <!-- Platform Parkir Motor & Saluran Longkang Putih -->
+                            <polygon points="142,215 225,168 248,192 162,255" fill="#94a3b8" stroke="#cbd5e1" stroke-width="2"/>
                             <text x="195" y="212" fill="#0f172a" font-size="8" font-weight="bold" text-anchor="middle" class="map-label">PARKIR MOTOR</text>
-                            <!-- Batas Tanah Bujur & Rumpun Serai di Tepi Pagar Utama Biru -->
-                            <ellipse cx="295" cy="158" rx="18" ry="8" fill="#855832" stroke="#a16207" stroke-width="1.2"/>
+                            <!-- Batas Tanah Bujur Berpancang 2 Kayu, Tiang Lampu Hitam & Rumpun Serai -->
+                            <ellipse cx="295" cy="158" rx="18" ry="8" fill="#9a6b3b" stroke="#78350f" stroke-width="1.2"/>
+                            <circle cx="290" cy="158" r="2" fill="#78350f"/>
+                            <circle cx="300" cy="158" r="2" fill="#78350f"/>
+                            <circle cx="272" cy="148" r="3" fill="#111827" stroke="#f8fafc" stroke-width="1"/>
                         </g>
                         
                         <!-- Angled Parking Bays & Cars matching Google Maps image_899b83.jpg -->
@@ -299,17 +305,20 @@
                             <rect x="405" y="136" width="60" height="30" rx="3" fill="#6b4232" stroke="#84cc16" stroke-width="2.5"/>
                             <!-- Benteng Penahan Hijau Tua & Pagar Kuning di Tengah -->
                             <rect x="468" y="138" width="84" height="12" rx="2" fill="#15803d" stroke="#facc15" stroke-width="2"/>
-                            <!-- Kanopi Kereta Berbumbung Merah (Di Sebelah Kiri/Timur Anjung Lobi seperti dalam Gambar Real) -->
-                            <rect x="524" y="176" width="56" height="38" rx="3" fill="#991b1b" stroke="#f87171" stroke-width="2"/>
+                            <!-- Khemah Merah Parkir GPK / Pentadbir (Betul-Betul di Hadapan Anjung Menara Jam, Terpisah daripada Laluan Murid!) -->
+                            <rect x="484" y="172" width="46" height="38" rx="3" fill="#991b1b" stroke="#f87171" stroke-width="2"/>
+                            <text x="507" y="194" fill="#fde047" font-size="6.5" font-weight="bold" text-anchor="middle" class="map-label">PARKING GPK</text>
+                            <!-- Kawasan Parkir Motosikal (Ruang Terbuka di Antara Parkir GPK & Laluan Murid) -->
+                            <rect x="534" y="182" width="22" height="32" rx="2" fill="#334155" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2"/>
                             <!-- Pulau Taman Bunga Melengkung dengan Bebendul Belang Hitam-Kuning di Sebelah Kanan Lobi -->
                             <path d="M 418 228 Q 452 212 482 225 L 472 252 Q 442 242 415 248 Z" fill="#15803d" stroke="#eab308" stroke-width="2" stroke-dasharray="5,3"/>
                             <!-- Laluan Menunggu Murid Berwarna Pink, Pintu Kecil "Selamat Datang", Pagar Putih & Benteng Belakang -->
                             <rect x="556" y="136" width="135" height="22" rx="3" fill="#be185d" stroke="#f472b6" stroke-width="2"/>
                             <line x1="560" y1="134" x2="688" y2="134" stroke="#f8fafc" stroke-width="3" stroke-dasharray="6,3"/>
                             <line x1="558" y1="162" x2="690" y2="162" stroke="#166534" stroke-width="4"/>
-                            <!-- Laluan Berbumbung Masuk ke Bangunan Sekolah -->
-                            <polygon points="552,190 582,152 598,162 564,208" fill="#5c3a2b" stroke="#f472b6" stroke-width="2"/>
-                            <text x="515" y="128" fill="#fde047" font-size="10.5" font-weight="bold" text-anchor="middle" class="map-label">PINTU UTAMA BIRU, LOBI &amp; LALUAN PINK</text>
+                            <!-- Laluan Berbumbung Murid Lurus ke Koridor Bangunan Sekolah (Tidak Bersambung dengan Parkir Kereta GPK!) -->
+                            <rect x="558" y="156" width="20" height="66" rx="2" fill="#5c3a2b" stroke="#f472b6" stroke-width="2"/>
+                            <text x="515" y="128" fill="#fde047" font-size="10.5" font-weight="bold" text-anchor="middle" class="map-label">PINTU UTAMA BIRU, PARKIR GPK &amp; LALUAN MURID</text>
                         </g>
 
                         <!-- 4. DOUBLE-CURVED RADIAL BLOCKS (EXACT GOOGLE MAPS & FRONT VIDEO GEOMETRY) -->
@@ -388,10 +397,10 @@
 
                         <!-- 7. SOUTHERN LINEAR BLOCK (KANTIN: KIRI 1/3 KAUNTER & DAPUR, KANAN 2/3 RUANG MAKAN & SINKI DI HUJUNG KANAN) -->
                         <g id="zon-selatan" onclick="selectZone('selatan')" class="map-element">
-                            <!-- Jalan Tar Belakang Kantin & Pagar Sempadan Belakang yang Berbelok dari Pintu Pagar Belakang Biru kemudian Lurus ke Hujung Kantin -->
+                            <!-- Jalan Tar Belakang Kantin & Pagar Sempadan Belakang yang Berbelok dari Pintu Pagar Belakang Biru kemudian Lurus & Bersambung dengan Pagar Padang Mini -->
                             <polygon points="282,902 282,866 750,866 750,892 336,892 318,902" fill="#475569" stroke="#64748b" stroke-width="1.5"/>
-                            <!-- Garisan Tembok Pagar Belakang Berbelok (Dari Pintu Pagar Belakang Biru -> Belok -> Lurus Sepanjang Laluan Kantin) -->
-                            <polyline points="318,904 336,892 752,892" fill="none" stroke="#fde047" stroke-width="3.5"/>
+                            <!-- Garisan Tembok Pagar Belakang Berbelok & Bersambung Terus dengan Pagar Padang Mini di Sebelah Timur -->
+                            <polyline points="318,904 336,892 845,892 845,130" fill="none" stroke="#fde047" stroke-width="3.5"/>
                             <!-- Sengkuap Hijau (Green Awning) di Belakang Dapur Kantin -->
                             <rect x="372" y="858" width="56" height="12" rx="1" fill="#15803d" stroke="#4ade80" stroke-width="1.5"/>
                             <!-- Kereta Putih Berbumbung Hitam di Laluan Belakang Kantin -->
@@ -718,28 +727,28 @@
                 code: 'GIS-ID: SKSM-02',
                 badge: 'Parkir Terbuka & Parkir Motor',
                 title: 'Parkir Kereta Tidak Beratap, Parkir Motosikal, Landskap Serai & Pagar Barat Laut',
-                desc: 'Dibina 100% mengikut video 360° di bahagian hadapan sebelah kanan sekolah: merangkumi Pagar Sempadan berwarna kuning-hijau bertiang hijau & berjeriji besi hitam yang tertutup penuh sehingga ke Pintu Pagar Utama Biru, Longkang Konkrit Melengkung & bebendul hitam-kuning, Platform Parkir Motosikal bertingkat berserta laluan masuknya, landskap rumpun serai & batas tanah, serta deretan kereta di kawasan parkir tidak beratap.',
+                desc: 'Dibina 100% mengikut gambar rujukan di bahagian hadapan sebelah kanan sekolah: merangkumi Pagar Sempadan berwarna kuning-hijau bertiang hijau bertopi putih & berjeriji besi hitam, kawasan rumput dengan rumpun serai, batas tanah berpancang & tiang lampu hitam, Platform Parkir Motosikal dengan longkang konkrit, serta barisan kereta parkir tidak beratap yang tersusun kemas di luar bangunan.',
                 sector: 'Barat Laut / Sebelah Kanan Pintu Depan',
-                morph: 'Parkir Kereta Terbuka + Platform Parkir Motor + Longkang Melengkung + Pagar Kuning-Hijau',
+                morph: 'Parkir Kereta Terbuka + Platform Parkir Motor + Landskap Serai + Pagar Kuning-Hijau',
                 func: 'Parkir Kereta Guru (Tidak Beratap), Parkir Motosikal, Laluan Masuk & Tempat Berkumpul',
-                camAzimuth: 145,
-                camPitch: 12,
-                camRadius: 58,
-                target3D: { x: -118, y: 6.5, z: -102 }
+                camAzimuth: 322,
+                camPitch: 16,
+                camRadius: 152,
+                target3D: { x: -88, y: 8.0, z: -78 }
             },
             melengkung_luar: {
                 id: 'zon-melengkung-luar',
                 code: 'GIS-ID: SKSM-03',
-                badge: 'Lobi Utama & Menara Jam',
-                title: 'Ruang Lobi Utama Hadapan, Tiang Bulat Hijau Limau, Tangga Biru & Menara Jam',
-                desc: 'Dibina 100% mengikut gambar sebenar Lobi Hadapan: Anjung Utama berlantai konkrit terbuka tanpa dinding penghalang bawah, disokong oleh tiang bulat hijau limau & rasuk melintang hijau tua (dengan plat kuning), saluran paip hujan putih, tangga dalaman berjeriji biru muda, papan tanda berdiri "I" & "T", papan kenyataan sekolah, kanopi kereta merah di sebelah kiri (dengan SUV perak SYD 3875), serta pulau taman bunga melengkung berbebendul belang hitam-kuning di sebelah kanan.',
-                sector: 'Utara - Lobi Hadapan (Azimuth 342°)',
-                morph: 'Tiang Bulat Hijau + Lobi Terbuka + Tangga Biru + Pulau Bunga Hitam-Kuning',
-                func: 'Ruang Lobi Utama, Tangga Lobi, Anjung Ketibaan, Pejabat Pentadbiran & Bilik Guru',
-                camAzimuth: 338,
-                camPitch: 9,
-                camRadius: 56,
-                target3D: { x: -4, y: 7.5, z: -116 }
+                badge: 'Lobi, Parkir GPK & Laluan Murid',
+                title: 'Anjung Lobi Menara Jam, Khemah Merah Parkir GPK, Parkir Motor & Laluan Murid',
+                desc: 'Dibina 100% mengikut video sebenar di bawah Menara Jam: Khemah Merah Parkir Guru Penolong Kanan (GPK) terletak betul-betul di hadapan tiang bulat hijau limau Anjung Lobi (dengan SUV Merah VEG 9357 & SUV Perak SYD 3875 menghadap laluan jalan masuk), manakala Atap Laluan Murid terletak berasingan di sebelah timur/belakang kawasan parkir motosikal (dinding merah jambu "MELENTUR BULUH BIARLAH DARI REBUNGNYA" & tangga biru) tanpa bersambung dengan parkir kereta.',
+                sector: 'Utara - Lobi Hadapan (Azimuth 275°)',
+                morph: 'Khemah GPK di Depan Lobi + Parkir Motor + Laluan Murid Terpisah',
+                func: 'Anjung Lobi Utama, Parkir GPK/Pentadbir, Parkir Motosikal & Laluan Masuk Murid',
+                camAzimuth: 274,
+                camPitch: 8,
+                camRadius: 44,
+                target3D: { x: 2, y: 6.5, z: -129 }
             },
             melengkung_dalam: {
                 id: 'zon-melengkung-dalam',
@@ -2139,488 +2148,9 @@
             schoolGroup.add(eastRoad);
 
             // =========================================================================
-            // ZON PARKIR MELENGKUNG LICIN & LALUAN BARAT (MENGIKUT IMAGE_899B83.JPG)
-            // =========================================================================
-            const parkGroup = new THREE.Group();
-            const asphaltMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.88, side: THREE.DoubleSide });
-
-            // Lebarkan jalan barat & dataran jalan belakang supaya memuatkan bangunan utiliti secara mendatar di selatan (bulatan merah)
-            const westDrive = new THREE.Mesh(new THREE.BoxGeometry(52, 2.0, 315), asphaltMat);
-            westDrive.position.set(-148, 1.0, 52);
-            westDrive.receiveShadow = true;
-            parkGroup.add(westDrive);
-
-            // Dataran Jalan Belakang Sekolah: Merentang penuh di sepanjang belakang Kantin sehingga ke Jalan Mati & Petak Rumput di hadapan Padang Mini (Video 2 saat 00:24-00:46!)
-            const backServiceRoad = new THREE.Mesh(new THREE.BoxGeometry(294, 2.0, 32), asphaltMat);
-            backServiceRoad.position.set(-27, 1.0, 172);
-            backServiceRoad.receiveShadow = true;
-            parkGroup.add(backServiceRoad);
-
-            // Garisan Putus-Putus Putih di Tengah Jalan Belakang Kantin menuju ke Jalan Mati Padang Mini (Video 2 saat 00:35-00:42)
-            const whiteRoadLineMat = new THREE.MeshBasicMaterial({ color: 0xe2e8f0 });
-            for (let lx = -55; lx <= 95; lx += 22) {
-                const dashLine = new THREE.Mesh(new THREE.BoxGeometry(9.5, 0.15, 0.45), whiteRoadLineMat);
-                dashLine.position.set(lx, 2.04, 172);
-                parkGroup.add(dashLine);
-            }
-
-            // Petak Rumput Hijau Berbebendul Konkrit di Hujung Jalan Mati (Sudut Tenggara Jalan Belakang Kantin seperti dalam Video 2 saat 00:41-00:46!)
-            const deadEndGrassCurb = new THREE.Mesh(
-                new THREE.BoxGeometry(36, 0.85, 16),
-                new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.85 })
-            );
-            deadEndGrassCurb.position.set(136, 2.0, 179);
-            const deadEndGrassPlot = new THREE.Mesh(
-                new THREE.BoxGeometry(34.2, 0.95, 14.2),
-                new THREE.MeshStandardMaterial({ color: 0x4d7c0f, roughness: 0.9 })
-            );
-            deadEndGrassPlot.position.set(136, 2.05, 179);
-            parkGroup.add(deadEndGrassCurb, deadEndGrassPlot);
-
-            // Longkang Konkrit Terbuka & Bebendul Jalan (Curb) di Sepanjang Hadapan Kantin & Tepi Padang Mini (Video Baharu saat 00:04-00:33)
-            const drainWallMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.85 });
-            const drainBottomMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.9 });
-            const canteenDrainChannel = new THREE.Mesh(new THREE.BoxGeometry(195, 0.3, 1.8), drainBottomMat);
-            canteenDrainChannel.position.set(2, 1.92, 157.8);
-            const canteenDrainCurb = new THREE.Mesh(new THREE.BoxGeometry(195, 0.65, 0.55), drainWallMat);
-            canteenDrainCurb.position.set(2, 2.05, 158.8);
-            parkGroup.add(canteenDrainChannel, canteenDrainCurb);
-
-            // =========================================================================
-            // PAGAR SEMPADAN SEBELAH KANAN HADAPAN (BARAT LAUT & BARAT) DITUTUP PENUH
-            // 100% Mengikut Video Baharu (00:10 - 00:25) & Membetulkan image_a3f3a0.png:
-            // - Tembok bawah berwarna kuning-hijau terang (#c5d82d)
-            // - Tiang konkrit berwarna hijau zaitun (#7c9c16) dengan topi konkrit rata
-            // - Jeriji besi menegak berwarna hitam (#18181b) di atas tembok
-            // - Bersambung rapat tanpa ruang kosong dari Pintu Pagar Utama Biru (x = -77.5, z = -156)
-            //   terus ke Penjuru Barat Laut (x = -174, z = -156) dan sepanjang Tembok Barat!
-            // =========================================================================
-            const perimeterWallMat = new THREE.MeshStandardMaterial({ color: 0xe5d5b5, roughness: 0.8 });
-            const yellowPillarMat = new THREE.MeshStandardMaterial({ color: 0xd9a05b, roughness: 0.75 });
-            const greyGrilleMat = new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.6, roughness: 0.4 });
-
-            const nwFenceYellowGreenMat = new THREE.MeshStandardMaterial({ color: 0xc5d82d, roughness: 0.72 });
-            const nwFencePillarGreenMat = new THREE.MeshStandardMaterial({ color: 0x7c9c16, roughness: 0.68 });
-            const nwFenceCapMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.7 });
-            const nwBlackGrilleMat = new THREE.MeshStandardMaterial({ color: 0x18181b, metalness: 0.5, roughness: 0.4 });
-
-            // 1) PAGAR HADAPAN SEBELAH KANAN (UTARA BARAT LAUT: dari Pintu Pagar Utama Biru x = -77.5 hingga Bucu Barat Laut x = -174 pada z = -156)
-            const nwNorthWallLen = 96.5;
-            const nwNorthWallMidX = (-77.5 + -174.0) / 2; // -125.75
-            const nwNorthLowWall = new THREE.Mesh(new THREE.BoxGeometry(nwNorthWallLen, 4.2, 1.3), nwFenceYellowGreenMat);
-            nwNorthLowWall.position.set(nwNorthWallMidX, 3.6, -156.0);
-            nwNorthLowWall.castShadow = true;
-            nwNorthLowWall.receiveShadow = true;
-            parkGroup.add(nwNorthLowWall);
-
-            // Palang Besi Hitam & Jeriji Menegak Hitam di Atas Tembok Pagar Utara Barat Laut (Video saat 00:16 - 00:25)
-            const nwNorthTopRail = new THREE.Mesh(new THREE.BoxGeometry(nwNorthWallLen, 0.25, 0.35), nwBlackGrilleMat);
-            nwNorthTopRail.position.set(nwNorthWallMidX, 8.7, -156.0);
-            const nwNorthBotRail = new THREE.Mesh(new THREE.BoxGeometry(nwNorthWallLen, 0.22, 0.35), nwBlackGrilleMat);
-            nwNorthBotRail.position.set(nwNorthWallMidX, 6.0, -156.0);
-            parkGroup.add(nwNorthTopRail, nwNorthBotRail);
-
-            for (let gx = -173.0; gx <= -78.5; gx += 1.4) {
-                const bar = new THREE.Mesh(new THREE.BoxGeometry(0.16, 3.1, 0.22), nwBlackGrilleMat);
-                bar.position.set(gx, 7.35, -156.0);
-                parkGroup.add(bar);
-            }
-
-            for (let px = -174.0; px <= -77.5; px += 10.7) {
-                const nPillar = new THREE.Mesh(new THREE.BoxGeometry(1.9, 7.8, 1.9), nwFencePillarGreenMat);
-                nPillar.position.set(px, 5.4, -156.0);
-                nPillar.castShadow = true;
-                const nCap = new THREE.Mesh(new THREE.BoxGeometry(2.35, 0.45, 2.35), nwFenceCapMat);
-                nCap.position.set(px, 9.45, -156.0);
-                parkGroup.add(nPillar, nCap);
-            }
-
-            // 2) PAGAR SEMPADAN BARAT (Dari Bucu Barat Laut z = -156 terus ke Selatan z = 189 pada x = -174)
-            const westFullLen = 345; // Merentang penuh dari z = -156 hingga z = 189 tanpa sebarang ruang terbuka!
-            const westFullMidZ = (-156 + 189) / 2; // 16.5
-            const westPerimeterWall = new THREE.Mesh(new THREE.BoxGeometry(1.3, 4.2, westFullLen), nwFenceYellowGreenMat);
-            westPerimeterWall.position.set(-174.0, 3.6, westFullMidZ);
-            westPerimeterWall.castShadow = true;
-            westPerimeterWall.receiveShadow = true;
-
-            const westTopRail = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.25, westFullLen), nwBlackGrilleMat);
-            westTopRail.position.set(-174.0, 8.7, westFullMidZ);
-            const westBotRail = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.22, westFullLen), nwBlackGrilleMat);
-            westBotRail.position.set(-174.0, 6.0, westFullMidZ);
-            parkGroup.add(westPerimeterWall, westTopRail, westBotRail);
-
-            for (let gz = -155.0; gz <= 188.0; gz += 1.6) {
-                const wBar = new THREE.Mesh(new THREE.BoxGeometry(0.22, 3.1, 0.16), nwBlackGrilleMat);
-                wBar.position.set(-174.0, 7.35, gz);
-                parkGroup.add(wBar);
-            }
-
-            for (let wz = -156.0; wz <= 189.0; wz += 11.5) {
-                const wPillar = new THREE.Mesh(new THREE.BoxGeometry(1.9, 7.8, 1.9), nwFencePillarGreenMat);
-                wPillar.position.set(-174.0, 5.4, wz);
-                wPillar.castShadow = true;
-                const wCap = new THREE.Mesh(new THREE.BoxGeometry(2.35, 0.45, 2.35), nwFenceCapMat);
-                wCap.position.set(-174.0, 9.45, wz);
-                parkGroup.add(wPillar, wCap);
-            }
-
-            // =========================================================================
-            // 3) PAGAR SEMPADAN BELAKANG (SELATAN) YANG BERBELOK MENGIKUT VIDEO (`WhatsApp Video 2026-11-12 at 8.38.57 AM.mp4`)
-            //    Tiada lagi pagar berlapis di luar pintu pagar belakang!
-            //    Jajaran sebenar mengikut video (saat 00:13 - 00:42):
-            //    - Segmen A (Belakang TNB, Loji Air & Rumah Sampah): dari x = -174 hingga Tiang Kanan Pintu Pagar Belakang Biru (x = -86.5) pada z = 188.5.
-            //    - Bukaan Pintu Pagar Belakang Biru Muda: dari x = -86.5 hingga x = -69.5 pada z = 188.5 (Tiada pagar lain di belakangnya!).
-            //    - Segmen B (Dari Tiang Kiri Pintu Pagar Belakang menuju ke hadapan/utara-timur bersama kerusi biru):
-            //      dari (x = -69.5, z = 188.5) masuk ke titik belok (x = -56.0, z = 178.5).
-            //    - Segmen C (Selepas belok, baru lurus selari dengan laluan belakang kantin sehingga ke Jalan Mati Padang Mini):
-            //      dari (x = -56.0, z = 178.5) lurus ke Timur sehingga (x = 162.0, z = 178.5)!
-            // =========================================================================
-            const weatheredWhiteWallMat = new THREE.MeshStandardMaterial({ color: 0xd6d3c9, roughness: 0.88 });
-            const weatheredBaseStainMat = new THREE.MeshStandardMaterial({ color: 0x44403c, roughness: 0.92 });
-
-            // Segmen A: Tembok Pagar di Belakang TNB, Loji Air & Rumah Sampah (x = -174 hingga -86.5, z = 188.5)
-            const segALen = 87.5;
-            const segAMidX = (-174.0 + -86.5) / 2; // -130.25
-            const segAWall = new THREE.Mesh(new THREE.BoxGeometry(segALen, 4.0, 1.3), weatheredWhiteWallMat);
-            segAWall.position.set(segAMidX, 3.5, 188.5);
-            const segAGrille = new THREE.Mesh(new THREE.BoxGeometry(segALen, 3.4, 0.35), greyGrilleMat);
-            segAGrille.position.set(segAMidX, 7.1, 188.5);
-            parkGroup.add(segAWall, segAGrille);
-
-            for (let px = -174.0; px <= -86.5; px += 12.5) {
-                const pA = new THREE.Mesh(new THREE.BoxGeometry(1.9, 8.2, 1.9), yellowPillarMat);
-                pA.position.set(px, 5.6, 188.5);
-                pA.castShadow = true;
-                parkGroup.add(pA);
-            }
-
-            // Segmen B: Tembok Pagar Berbelok dari Tiang Kiri Pintu Pagar Belakang (-69.5, 188.5) ke Sudut Belok (-56.0, 178.5) (Video saat 00:18 - 00:25!)
-            const bendDx = -56.0 - (-69.5); // 13.5
-            const bendDz = 178.5 - 188.5;   // -10.0
-            const segBLen = Math.hypot(bendDx, bendDz);
-            const segBAng = -Math.atan2(bendDz, bendDx);
-            const segBMidX = (-69.5 + -56.0) / 2; // -62.75
-            const segBMidZ = (188.5 + 178.5) / 2; // 183.5
-
-            const segBWall = new THREE.Mesh(new THREE.BoxGeometry(segBLen, 4.2, 1.35), weatheredWhiteWallMat);
-            segBWall.position.set(segBMidX, 3.6, segBMidZ);
-            segBWall.rotation.y = segBAng;
-            const segBStain = new THREE.Mesh(new THREE.BoxGeometry(segBLen, 1.1, 1.42), weatheredBaseStainMat);
-            segBStain.position.set(segBMidX, 2.2, segBMidZ);
-            segBStain.rotation.y = segBAng;
-            const segBGrille = new THREE.Mesh(new THREE.BoxGeometry(segBLen, 3.4, 0.35), greyGrilleMat);
-            segBGrille.position.set(segBMidX, 7.2, segBMidZ);
-            segBGrille.rotation.y = segBAng;
-            parkGroup.add(segBWall, segBStain, segBGrille);
-
-            // Tiang Pagar pada Segmen Berbelok (Termasuk Tiang Sudut Belok di x = -56.0, z = 178.5)
-            [[-69.5, 188.5], [-62.75, 183.5], [-56.0, 178.5]].forEach(([bpx, bpz]) => {
-                const pB = new THREE.Mesh(new THREE.BoxGeometry(2.0, 8.4, 2.0), yellowPillarMat);
-                pB.position.set(bpx, 5.7, bpz);
-                pB.castShadow = true;
-                parkGroup.add(pB);
-            });
-
-            // Segmen C: Selepas Belok, Tembok Pagar Lurus Sepanjang Laluan Belakang Kantin sehingga ke Hujung Padang Mini (x = -56.0 hingga 162.0 pada z = 178.5) (Video saat 00:25 - 00:42!)
-            const segCLen = 162.0 - (-56.0); // 218.0
-            const segCMidX = (-56.0 + 162.0) / 2; // 53.0
-            const segCWall = new THREE.Mesh(new THREE.BoxGeometry(segCLen, 4.0, 1.35), weatheredWhiteWallMat);
-            segCWall.position.set(segCMidX, 3.5, 178.5);
-            const segCStain = new THREE.Mesh(new THREE.BoxGeometry(segCLen, 1.0, 1.42), weatheredBaseStainMat);
-            segCStain.position.set(segCMidX, 2.15, 178.5);
-            const segCGrille = new THREE.Mesh(new THREE.BoxGeometry(segCLen, 3.4, 0.35), greyGrilleMat);
-            segCGrille.position.set(segCMidX, 7.1, 178.5);
-            parkGroup.add(segCWall, segCStain, segCGrille);
-
-            // Jeriji Besi Menegak & Tiang Kuning di Sepanjang Pagar Lurus Laluan Belakang Kantin (Video saat 00:29 - 00:42)
-            for (let gx = -54.0; gx <= 160.0; gx += 2.2) {
-                const gBar = new THREE.Mesh(new THREE.BoxGeometry(0.18, 3.3, 0.42), greyGrilleMat);
-                gBar.position.set(gx, 7.1, 178.5);
-                parkGroup.add(gBar);
-            }
-            for (let sx = -44.0; sx <= 162.0; sx += 11.5) {
-                const sPillar = new THREE.Mesh(new THREE.BoxGeometry(2.0, 8.2, 2.0), yellowPillarMat);
-                sPillar.position.set(sx, 5.6, 178.5);
-                sPillar.castShadow = true;
-                parkGroup.add(sPillar);
-            }
-
-            // Longkang Konkrit & Paip Putih di Kaki Pagar Belakang (Dari Pintu Pagar Belakang ikut belok sehingga ke laluan kantin - Video saat 00:18 - 00:35)
-            const rearFencePipeB = new THREE.Mesh(
-                new THREE.CylinderGeometry(0.18, 0.18, segBLen, 8),
-                new THREE.MeshStandardMaterial({ color: 0xf8fafc })
-            );
-            rearFencePipeB.rotation.z = Math.PI / 2;
-            rearFencePipeB.rotation.y = segBAng;
-            rearFencePipeB.position.set(segBMidX, 2.35, segBMidZ - 0.85);
-            parkGroup.add(rearFencePipeB);
-
-            // Sambungan Pagar Sempadan di Sebelah Timur Padang Mini & Taman Permainan (x = 162, dari z = -161.5 hingga 178.5)
-            const eastFieldLowWall = new THREE.Mesh(new THREE.BoxGeometry(1.4, 3.8, 340), perimeterWallMat);
-            eastFieldLowWall.position.set(162, 3.4, 8.5);
-            const eastFieldGrille = new THREE.Mesh(new THREE.BoxGeometry(0.4, 3.6, 340), greyGrilleMat);
-            eastFieldGrille.position.set(162, 7.1, 8.5);
-            parkGroup.add(eastFieldLowWall, eastFieldGrille);
-
-            for (let ez = -162; ez <= 178; ez += 12) {
-                const ePillar = new THREE.Mesh(new THREE.BoxGeometry(2.0, 8.2, 2.0), yellowPillarMat);
-                ePillar.position.set(162, 5.6, ez);
-                ePillar.castShadow = true;
-                parkGroup.add(ePillar);
-            }
-
-            // =========================================================================
-            // DATARAN PARKIR KERETA TIDAK BERATAP, BEBENDUL HITAM-KUNING, LONGKANG KONKRIT
-            // MELENGKUNG, PLATFORM PARKIR MOTOR & LANDSKAP RUMPUN SERAI (VIDEO BAHARU 00:00 - 00:37)
-            // =========================================================================
-            const curvedRoad = createSmoothCurvedRoadMesh(124, 180, -1.24, 0.16, 0, 22, 2.05, asphaltMat, 48);
-            parkGroup.add(curvedRoad);
-
-            // 1. BEBENDUL JALAN BERBELANG HITAM-KUNING & LONGKANG KONKRIT DALAM MELENGKUNG (00:11 - 00:14 & 00:24 - 00:37)
-            const drainConcreteMat = new THREE.MeshStandardMaterial({ color: 0xb8b5ad, roughness: 0.88, side: THREE.DoubleSide });
-            const drainDarkChannelMat = new THREE.MeshStandardMaterial({ color: 0x27272a, roughness: 0.95, side: THREE.DoubleSide });
-            const yellowCurbMat = new THREE.MeshStandardMaterial({ color: 0xeab308, roughness: 0.6 });
-            const blackCurbMat = new THREE.MeshStandardMaterial({ color: 0x18181b, roughness: 0.7 });
-
-            // Longkang Konkrit Melengkung di Tepi Luar Parkir Kereta (jejari 180 hingga 184.5)
-            const outerDrainWall1 = createSmoothCurvedRoadMesh(179.5, 180.6, -1.16, -0.45, 0, 22, 2.45, drainConcreteMat, 36);
-            const outerDrainBottom = createSmoothCurvedRoadMesh(180.6, 183.4, -1.16, -0.45, 0, 22, 1.85, drainDarkChannelMat, 36);
-            const outerDrainWall2 = createSmoothCurvedRoadMesh(183.4, 184.6, -1.16, -0.45, 0, 22, 2.55, drainConcreteMat, 36);
-            parkGroup.add(outerDrainWall1, outerDrainBottom, outerDrainWall2);
-
-            // Segmen Bebendul Jalan Berbelang Hitam & Kuning di Tepi Longkang Parkir Kereta (Video saat 00:31 - 00:35)
-            for (let s = 0; s < 28; s++) {
-                const cAng = -1.14 + s * 0.024;
-                const rCurb = 179.2;
-                const curbSeg = new THREE.Mesh(
-                    new THREE.BoxGeometry(0.95, 0.65, 4.2),
-                    s % 2 === 0 ? yellowCurbMat : blackCurbMat
-                );
-                curbSeg.position.set(Math.sin(cAng) * rCurb, 2.32, 22 - Math.cos(cAng) * rCurb);
-                curbSeg.rotation.y = -cAng + Math.PI / 2;
-                parkGroup.add(curbSeg);
-            }
-
-            // 2. KAWASAN PARKIR MOTOSIKAL BERTINGKAT & LALUAN MASUKNYA (VIDEO BAHARU 00:13 - 00:17 & 00:27 - 00:37)
-            //    Terletak di sebelah luar longkang konkrit melengkung (antara longkang & pagar barat laut)
-            const motoParkGroup = new THREE.Group();
-            const motoAsphaltMat = new THREE.MeshStandardMaterial({ color: 0x78716c, roughness: 0.9, side: THREE.DoubleSide });
-            const mossyCurbMat = new THREE.MeshStandardMaterial({ color: 0x57534e, roughness: 0.92 });
-
-            // Platform Utama Parkir Motosikal & Laluan Masuk Melengkung di Sebelah Luar Longkang (Jejari 185 hingga 199, sudut -1.14 hingga -0.74)
-            const motoDeckMesh = createSmoothCurvedRoadMesh(184.8, 198.5, -1.14, -0.74, 0, 22, 2.68, motoAsphaltMat, 24);
-            motoParkGroup.add(motoDeckMesh);
-
-            // Dinding Tepi & Bebendul Konkrit Berlumut Mengelilingi Platform Parkir Motor (Video saat 00:27 - 00:34)
-            const motoInnerWall = createSmoothCurvedRoadMesh(184.4, 185.3, -1.14, -0.74, 0, 22, 2.85, mossyCurbMat, 24);
-            const motoOuterCurb = createSmoothCurvedRoadMesh(197.8, 199.0, -1.14, -0.74, 0, 22, 2.88, mossyCurbMat, 24);
-            motoParkGroup.add(motoInnerWall, motoOuterCurb);
-
-            // Longkang Konkrit Lurus di Hujung Utara Platform Parkir Motor (Kelihatan jelas dalam Video saat 00:16, 00:26 - 00:31!)
-            const endAng = -0.74;
-            const drainMidR = 191.8;
-            const dmX = Math.sin(endAng) * drainMidR;
-            const dmZ = 22 - Math.cos(endAng) * drainMidR;
-            const northMotoDrainWallL = new THREE.Mesh(new THREE.BoxGeometry(14.5, 1.3, 0.75), drainConcreteMat);
-            northMotoDrainWallL.position.set(dmX, 2.35, dmZ);
-            northMotoDrainWallL.rotation.y = -endAng;
-            const northMotoDrainWallR = new THREE.Mesh(new THREE.BoxGeometry(14.5, 1.3, 0.75), drainConcreteMat);
-            northMotoDrainWallR.position.set(dmX + Math.sin(endAng + Math.PI / 2) * 2.2, 2.35, dmZ - Math.cos(endAng + Math.PI / 2) * 2.2);
-            northMotoDrainWallR.rotation.y = -endAng;
-            const northMotoDrainBase = new THREE.Mesh(new THREE.BoxGeometry(14.5, 0.35, 2.2), drainDarkChannelMat);
-            northMotoDrainBase.position.set(dmX + Math.sin(endAng + Math.PI / 2) * 1.1, 1.85, dmZ - Math.cos(endAng + Math.PI / 2) * 1.1);
-            northMotoDrainBase.rotation.y = -endAng;
-            motoParkGroup.add(northMotoDrainWallL, northMotoDrainWallR, northMotoDrainBase);
-
-            // Titian Papan/Besi Kecil Merentasi Longkang di Tepi Parkir Motor (Video saat 00:12 - 00:14)
-            const plankBridge = new THREE.Mesh(
-                new THREE.BoxGeometry(3.6, 0.22, 1.4),
-                new THREE.MeshStandardMaterial({ color: 0x9a3412, roughness: 0.8 })
-            );
-            plankBridge.position.set(Math.sin(-0.96) * 182.2, 2.62, 22 - Math.cos(-0.96) * 182.2);
-            plankBridge.rotation.y = 0.96;
-            motoParkGroup.add(plankBridge);
-
-            parkGroup.add(motoParkGroup);
-
-            // 3. LANDSKAP PENJURU BARAT LAUT: TERES RUMPUT HIJAU, DERETAN RUMPUN SERAI & BATAS TANAH BUJUR (VIDEO BAHARU 00:16 - 00:28)
-            const nwGardenGroup = new THREE.Group();
-
-            // Hamparan Rumput Hijau di Penjuru Barat Laut (Antara Parkir Motor, Longkang Melengkung & Pagar Kuning-Hijau)
-            const nwCornerTurf1 = new THREE.Mesh(
-                new THREE.BoxGeometry(48, 0.85, 42),
-                new THREE.MeshStandardMaterial({ color: 0x4d7c0f, roughness: 0.92 })
-            );
-            nwCornerTurf1.position.set(-149, 1.95, -134);
-            nwCornerTurf1.receiveShadow = true;
-            const nwCornerTurf2 = new THREE.Mesh(
-                new THREE.BoxGeometry(48, 0.85, 24),
-                new THREE.MeshStandardMaterial({ color: 0x4d7c0f, roughness: 0.92 })
-            );
-            nwCornerTurf2.position.set(-104, 1.95, -143);
-            nwCornerTurf2.receiveShadow = true;
-            nwGardenGroup.add(nwCornerTurf1, nwCornerTurf2);
-
-            // Batas Tanah Coklat Bujur (Oval Cleared Soil Bed) & Pancang Kayu di Tepi Pintu Pagar Utama Biru (Video saat 00:22 - 00:26!)
-            const ovalSoilBed = new THREE.Mesh(
-                new THREE.CylinderGeometry(7.2, 7.6, 0.3, 20),
-                new THREE.MeshStandardMaterial({ color: 0x855832, roughness: 0.96 })
-            );
-            ovalSoilBed.scale.set(1.45, 1, 0.85);
-            ovalSoilBed.position.set(-106, 2.32, -138);
-            nwGardenGroup.add(ovalSoilBed);
-
-            // Pancang Kayu Kecil di Sekeliling Batas Tanah (Video saat 00:23 - 00:25)
-            const stakeMat = new THREE.MeshStandardMaterial({ color: 0x57534e, roughness: 0.9 });
-            [[-113, -141], [-105, -143], [-97, -140], [-108, -134]].forEach(([stx, stz]) => {
-                const stake = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.15, 5.2, 6), stakeMat);
-                stake.position.set(stx, 4.5, stz);
-                nwGardenGroup.add(stake);
-            });
-
-            // Deretan Rumpun Daun Serai (Lemongrass Clumps) & Pokok Renek di Sepanjang Penjuru Pagar Barat Laut (Video saat 00:16 - 00:28!)
-            const lemongrassMat = new THREE.MeshStandardMaterial({ color: 0x65a30d, roughness: 0.75 });
-            const darkShrubMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.8 });
-            const lemongrassCoords = [
-                [-166, -148], [-158, -149], [-150, -147], [-142, -149], [-134, -148], [-126, -149],
-                [-165, -138], [-156, -139], [-147, -137], [-138, -139], [-129, -137], [-121, -139],
-                [-164, -128], [-154, -129], [-144, -128], [-134, -127], [-124, -129], [-116, -131],
-                [-167, -116], [-161, -106], [-166, -96]
-            ];
-            lemongrassCoords.forEach(([lx, lz], idx) => {
-                const clump = new THREE.Group();
-                clump.position.set(lx, 2.35, lz);
-                // Tanah hitam di pangkal rumpun serai
-                const baseSoil = new THREE.Mesh(
-                    new THREE.CylinderGeometry(0.95, 1.1, 0.2, 8),
-                    new THREE.MeshStandardMaterial({ color: 0x292524, roughness: 0.95 })
-                );
-                clump.add(baseSoil);
-                // Helai-helai daun serai tirus mencapah ke atas
-                for (let b = 0; b < 7; b++) {
-                    const bladeAng = (b * Math.PI * 2) / 7 + (idx % 3) * 0.2;
-                    const blade = new THREE.Mesh(new THREE.ConeGeometry(0.32, 3.4 + (b % 2) * 0.6, 5), lemongrassMat);
-                    blade.position.set(Math.cos(bladeAng) * 0.35, 1.5, Math.sin(bladeAng) * 0.35);
-                    blade.rotation.z = -Math.cos(bladeAng) * 0.32;
-                    blade.rotation.x = Math.sin(bladeAng) * 0.32;
-                    clump.add(blade);
-                }
-                nwGardenGroup.add(clump);
-            });
-
-            // Pokok Renek Hijau Tua & Tiang Lampu Jalan di Tepi Pagar Barat Laut (Video saat 00:18 - 00:23)
-            const nwShrub = new THREE.Mesh(new THREE.DodecahedronGeometry(2.4, 1), darkShrubMat);
-            nwShrub.position.set(-136, 3.8, -151);
-            nwShrub.castShadow = true;
-            const nwLampPost = new THREE.Mesh(
-                new THREE.CylinderGeometry(0.2, 0.26, 17, 8),
-                new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.6 })
-            );
-            nwLampPost.position.set(-122, 10.2, -154.5);
-            nwGardenGroup.add(nwShrub, nwLampPost);
-
-            parkGroup.add(nwGardenGroup);
-
-            // 4. SUSUNAN KERETA DI KAWASAN PARKIR TIDAK BERATAP (100% MENGIKUT VIDEO BAHARU 00:00 - 00:12):
-            //    A) Barisan Luar (Menghadap Longkang Melengkung & Bebendul Hitam-Kuning):
-            //       Merangkumi Kereta Merah, Perak (Perodua Bezza), SUV Kelabu Gelap (Proton X50 VPE 5280),
-            //       SUV Hitam dengan Roof Box di atas bumbung (00:06-00:08), Kereta Coklat Tua, dan Myvi Perak/Merah Jambu.
-            const outerCarSpecs = [
-                { ang: -1.04, color: 0xdc2626, suv: false, roofBox: false }, // Sedan Merah (00:10-00:12)
-                { ang: -0.95, color: 0xb91c1c, suv: false, roofBox: false }, // Kereta Merah Kedua (00:10)
-                { ang: -0.86, color: 0xcbd5e1, suv: false, roofBox: false }, // Sedan Perak (00:09-00:11)
-                { ang: -0.77, color: 0x475569, suv: true,  roofBox: false }, // SUV Kelabu Gelap Proton X50 VPE 5280 (00:08-00:10)
-                { ang: -0.67, color: 0x111827, suv: true,  roofBox: true  }, // SUV Hitam dengan Roof Cargo Box Hitam Berkilat (00:05-00:08!)
-                { ang: -0.57, color: 0x451a03, suv: false, roofBox: false }, // Kereta Kompak Coklat Tua (00:03-00:06)
-                { ang: -0.47, color: 0xe2e8f0, suv: false, roofBox: false }, // Myvi Perak (00:00-00:04)
-                { ang: -0.37, color: 0xd8b4bc, suv: false, roofBox: false }  // Kereta Merah Jambu Pudar/Perak (00:00-00:02)
-            ];
-            const lineMat = new THREE.MeshBasicMaterial({ color: 0xcbd5e1 });
-
-            outerCarSpecs.forEach(spec => {
-                const rCar = 169;
-                const cx = Math.sin(spec.ang) * rCar;
-                const cz = 22 - Math.cos(spec.ang) * rCar;
-
-                const pLine = new THREE.Mesh(new THREE.BoxGeometry(0.8, 0.2, 13), lineMat);
-                pLine.position.set(Math.sin(spec.ang - 0.04) * rCar, 2.1, 22 - Math.cos(spec.ang - 0.04) * rCar);
-                pLine.rotation.y = -spec.ang + 0.35;
-                parkGroup.add(pLine);
-
-                const car = createDetailedCar3D(spec.color, spec.suv);
-                car.position.set(cx, 2.05, cz);
-                car.rotation.y = -spec.ang + 0.35;
-
-                // Kotak Kargo Bumbung Hitam (Roof Box) pada SUV Hitam seperti dalam Video saat 00:05 - 00:08!
-                if (spec.roofBox) {
-                    const rBox = new THREE.Mesh(
-                        new THREE.BoxGeometry(2.4, 0.85, 5.2),
-                        new THREE.MeshStandardMaterial({ color: 0x09090b, roughness: 0.15, metalness: 0.4 })
-                    );
-                    rBox.position.set(0, 4.95, -0.4);
-                    car.add(rBox);
-                }
-                parkGroup.add(car);
-            });
-
-            //    B) Barisan Dalam (Diparkir Rapat di Hadapan Dinding Bangunan Sayap Kanan seperti dalam Video saat 00:00 - 00:07!):
-            //       Merangkumi Kereta Kompak Hijau Limau (#65a30d), Sedan Perak (#cbd5e1), Sedan Biru (#0284c7), dan Kereta Hitam (#18181b)
-            const innerBuildingCars = [
-                { x: -66, z: -116, rot: -0.52, color: 0x65a30d, suv: false }, // Kereta Hijau Muda (00:01-00:05)
-                { x: -78, z: -104, rot: -0.62, color: 0xcbd5e1, suv: false }, // Sedan Perak (00:01-00:05)
-                { x: -91, z: -91,  rot: -0.72, color: 0x0284c7, suv: false }, // Kereta Biru (00:01-00:06)
-                { x: -104, z: -76, rot: -0.82, color: 0x111827, suv: true  }  // SUV Hitam di hujung sayap bangunan (00:05-00:08)
-            ];
-            innerBuildingCars.forEach(ibc => {
-                const bCar = createDetailedCar3D(ibc.color, ibc.suv);
-                bCar.position.set(ibc.x, 2.05, ibc.z);
-                bCar.rotation.y = ibc.rot;
-                parkGroup.add(bCar);
-            });
-
-            // Pokok Renek Berpasu di Kaki Lima Hadapan Bangunan Sayap Kanan (Video saat 00:01 - 00:06)
-            const shrubPotMat = new THREE.MeshStandardMaterial({ color: 0x7c2d12, roughness: 0.8 });
-            [[-58, -118], [-71, -106], [-84, -93]].forEach(([px, pz]) => {
-                const sPot = new THREE.Mesh(new THREE.CylinderGeometry(0.8, 0.6, 1.1, 10), shrubPotMat);
-                sPot.position.set(px, 2.5, pz);
-                const sPlant = new THREE.Mesh(
-                    new THREE.DodecahedronGeometry(1.4, 1),
-                    new THREE.MeshStandardMaterial({ color: 0x3f6212, roughness: 0.8 })
-                );
-                sPlant.position.set(px, 3.8, pz);
-                parkGroup.add(sPot, sPlant);
-            });
-
-            // Deretan Kereta SUV (Honda HR-V Kelabu Gelap, Sedan Putih & Hitam) yang Diparkir di Tepi Surau (Video 4 saat 00:02-00:05)
-            const surauSideCars = [
-                { x: -130, z: -48, rot: 0.45, color: 0x1e293b, suv: true },
-                { x: -127, z: -38, rot: 0.42, color: 0xf8fafc, suv: false },
-                { x: -125, z: -28, rot: 0.38, color: 0x4b5563, suv: true }
-            ];
-            surauSideCars.forEach(sc => {
-                const carMesh = createDetailedCar3D(sc.color, sc.suv);
-                carMesh.position.set(sc.x, 2.05, sc.z);
-                carMesh.rotation.y = sc.rot;
-                parkGroup.add(carMesh);
-            });
-
-            // Deretan Kereta yang Diparkir di Sepanjang Tembok Pagar Barat (Video 1, 2, 3 & 4)
-            const wallCarColors = [0x14b8a6, 0x991b1b, 0x334155, 0xb91c1c, 0x475569, 0x94a3b8, 0xf8fafc, 0xdc2626];
-            for (let i = 0; i < 8; i++) {
-                const wz = -10 + i * 14.5;
-                const wCar = createDetailedCar3D(wallCarColors[i % wallCarColors.length], i % 3 === 0);
-                wCar.position.set(-167.5, 2.05, wz);
-                wCar.rotation.y = 0;
-                parkGroup.add(wCar);
-            }
-
-            schoolGroup.add(parkGroup);
-            parkGroup.children.forEach(c => registerZoneMesh(c, 'parkir'));
-
-            // =========================================================================
-            // MUKA PINTU HADAPAN SEKOLAH, PINTU PAGAR UTAMA BIRU MUDA, BENTENG HIJAU,
-            // LALUAN MENUNGGU MURID WARNA PINK, PINTU KECIL MURID, PAGAR BELAKANG LALUAN
-            // & ZON DROP-OFF IBU BAPA (100% MENGIKUT VIDEO 1 HADAPAN SEKOLAH: 00:00 - 00:30)
+            // MUKA PINTU HADAPAN SEKOLAH, KHEMAH MERAH PARKIR GPK DI HADAPAN LOBI MENARA JAM,
+            // ATAP LALUAN MURID YANG TERPISAH, PARKIR MOTOR, PAGAR HIJAU-KUNING & TANGGA BIRU
+            // (100% MENGIKUT VIDEO `WhatsApp Video 2026-11-12 at 10.22.30 AM.mp4` SAAT 00:00 - 00:35)
             // =========================================================================
             const gateGroup = new THREE.Group();
             const limeWallMat = new THREE.MeshStandardMaterial({ color: 0x84cc16, roughness: 0.65 });
@@ -2630,53 +2160,143 @@
             const lightPinkMat = new THREE.MeshStandardMaterial({ color: 0xf472b6, roughness: 0.6 });
             const lightBlueGateMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, metalness: 0.45, roughness: 0.35 });
             const whiteRailingMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, metalness: 0.3, roughness: 0.4 });
-            const redCanopyMat = new THREE.MeshStandardMaterial({ color: 0x881d1d, roughness: 0.6, side: THREE.DoubleSide });
+            const redCanopyMat = new THREE.MeshStandardMaterial({
+                map: createRoofTileTexture('#8f1d1d', '#5c1111'),
+                roughness: 0.55,
+                side: THREE.DoubleSide
+            });
 
-            // 1. KANOPI KERETA BERBUMBUNG GENTING MERAH TERBUKA DI SEBELAH KIRI (TIMUR) ANJUNG LOBI
-            //    & PULAU TAMAN BUNGA MELENGKUNG BERBEBENDUL HITAM-KUNING DI SEBELAH KANAN (BARAT) ANJUNG LOBI
-            //    (100% Mengikut Gambar Sebenar Lobi `WhatsApp Image 2026-11-12 at 9.14.25 AM.jpeg`!)
+            // 0. HAMPARAN JALAN TAR DALAMAN (INTERNAL DRIVEWAY APRON) DARI PINTU PAGAR UTAMA TERUS KE LOBI, PARKIR GPK & PARKIR MOTOR
+            //    Supaya kereta dapat memandu masuk secara logik dari barat terus ke bawah Khemah Merah Parkir GPK di hadapan Lobi!
+            const frontInternalDriveway = new THREE.Mesh(
+                new THREE.BoxGeometry(108, 0.16, 36),
+                new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.86 })
+            );
+            frontInternalDriveway.position.set(-18, 2.02, -131);
+            frontInternalDriveway.receiveShadow = true;
+            gateGroup.add(frontInternalDriveway);
+
+            // Penutup Lurang Bulat Besi (Circular Manhole Cover) di Atas Jalan Tar di Hadapan Kereta GPK (Kelihatan jelas dalam Video saat 00:08 - 00:13!)
+            const gpkManhole = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.45, 1.45, 0.18, 16),
+                new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.5, roughness: 0.6 })
+            );
+            gpkManhole.position.set(-16.5, 2.06, -134.2);
+            gateGroup.add(gpkManhole);
+
+            // 1. KHEMAH MERAH PARKIR GPK / PENTADBIR ("PARKING GURU PENOLONG KANAN")
+            //    Terletak BETUL-BETUL DI HADAPAN Anjung Lobi di bawah Menara Jam (x = -3.0, z = -134.5),
+            //    mengunjur ke hadapan dari tiang bulat hijau limau lobi (z = -125) ke arah pagar hadapan (z = -144)!
+            //    TIDAK berada di sebelah kanan bangunan dan TIDAK bersambung dengan atap laluan murid!
             const canopyGroup = new THREE.Group();
-            // Diletakkan di sebelah kiri (timur: x = 18.5, z = -126) supaya bercantum di tepi kiri tiang bulat hijau limau (tidak menghalang muka depan lobi!)
-            canopyGroup.position.set(18.5, 0, -125.5);
+            canopyGroup.position.set(-3.0, 0, -134.5);
 
-            const postMat = new THREE.MeshStandardMaterial({ color: 0x27272a, metalness: 0.5, roughness: 0.4 });
+            const postMat = new THREE.MeshStandardMaterial({ color: 0x3f3f46, metalness: 0.6, roughness: 0.4 });
+            const trussMat = new THREE.MeshStandardMaterial({ color: 0x52525b, metalness: 0.5, roughness: 0.45 });
+            const canW = 17.5; // Lebar sepanjang X (dari x = -11.75 hingga x = +5.75)
+            const canD = 18.2; // Panjang sepanjang Z (dari tiang hijau lobi z = -125.4 ke tepi pagar z = -143.6)
+            const canH = 9.4;
+
+            // Tiang Besi Khemah Merah (Tiang hadapan kiri di tepi bebendul hitam-kuning, tiang belakang bercantum di tepi tiang hijau lobi)
             [
-                [-8.5, -7.2], [8.5, -7.2],
-                [-8.5,  7.2], [8.5,  7.2]
+                [-canW / 2 + 0.6, -canD / 2 + 0.8],
+                [ canW / 2 - 0.6, -canD / 2 + 0.8],
+                [-canW / 2 + 0.6,  canD / 2 - 0.8],
+                [ canW / 2 - 0.6,  canD / 2 - 0.8]
             ].forEach(([px, pz]) => {
-                const post = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 10.2, 10), postMat);
-                post.position.set(px, 5.1, pz);
+                const post = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, canH, 10), postMat);
+                post.position.set(px, canH / 2 + 1.8, pz);
                 post.castShadow = true;
                 canopyGroup.add(post);
             });
 
-            // Rasuk Besi Hitam & Plat Kuning Kecil pada Kanopi Kereta Merah
-            const canopyFrontBeam = new THREE.Mesh(new THREE.BoxGeometry(18.2, 0.45, 0.45), postMat);
-            canopyFrontBeam.position.set(0, 9.8, -7.2);
-            const canopyYellowTag = new THREE.Mesh(
-                new THREE.BoxGeometry(1.6, 0.85, 0.2),
-                new THREE.MeshBasicMaterial({ color: 0xfacc15 })
+            // Rangka Kekuda Besi (Metal Roof Trusses & Purlins) di Bawah Khemah Merah seperti dalam Video saat 00:11 - 00:19
+            const frontTrussBeam = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.45, canD), trussMat);
+            frontTrussBeam.position.set(-canW / 2 + 0.6, canH + 1.4, 0);
+            const backTrussBeam = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.45, canD), trussMat);
+            backTrussBeam.position.set(canW / 2 - 0.6, canH + 1.4, 0);
+            const northTrussBeam = new THREE.Mesh(new THREE.BoxGeometry(canW, 0.4, 0.35), trussMat);
+            northTrussBeam.position.set(0, canH + 1.4, -canD / 2 + 0.8);
+            const southTrussBeam = new THREE.Mesh(new THREE.BoxGeometry(canW, 0.4, 0.35), trussMat);
+            southTrussBeam.position.set(0, canH + 1.4, canD / 2 - 0.8);
+            canopyGroup.add(frontTrussBeam, backTrussBeam, northTrussBeam, southTrussBeam);
+
+            for (let pz = -canD / 2 + 2.5; pz <= canD / 2 - 2.5; pz += 3.2) {
+                const purlin = new THREE.Mesh(new THREE.BoxGeometry(canW + 1.2, 0.2, 0.2), trussMat);
+                purlin.position.set(0, canH + 1.75, pz);
+                canopyGroup.add(purlin);
+            }
+
+            // Bumbung Khemah Merah Berbibir Melengkung (Curved-Edge Red Metal/Tile Awning Roof seperti dalam Video saat 00:05 - 00:13!)
+            const gpkRoofTop = new THREE.Mesh(new THREE.BoxGeometry(canW + 2.2, 0.35, canD + 2.0), redCanopyMat);
+            gpkRoofTop.position.set(0, canH + 2.0, 0);
+            gpkRoofTop.castShadow = true;
+            gpkRoofTop.receiveShadow = true;
+            canopyGroup.add(gpkRoofTop);
+
+            // Bibir Melengkung ke Bawah (Curved Valance/Apron) di Sekeliling Tepi Bumbung Khemah Merah
+            const frontCurvedLip = new THREE.Mesh(new THREE.BoxGeometry(0.45, 1.15, canD + 2.2), redCanopyMat);
+            frontCurvedLip.position.set(-canW / 2 - 0.95, canH + 1.55, 0);
+            frontCurvedLip.rotation.z = 0.28;
+            const northCurvedLip = new THREE.Mesh(new THREE.BoxGeometry(canW + 2.2, 1.1, 0.45), redCanopyMat);
+            northCurvedLip.position.set(0, canH + 1.55, -canD / 2 - 0.85);
+            northCurvedLip.rotation.x = -0.28;
+            canopyGroup.add(frontCurvedLip, northCurvedLip);
+
+            // Papan Tanda Kuning "PARKING GURU PENOLONG KANAN" pada Palang Hadapan Khemah (Menghadap Barat -X ke arah kamera dalam Video saat 00:08 - 00:15!)
+            const gpkYellowSign = new THREE.Mesh(
+                new THREE.BoxGeometry(0.22, 1.15, 2.8),
+                new THREE.MeshStandardMaterial({
+                    map: createCustomLabelTexture('#facc15', '#0f172a', 'PARKING GURU', 'PENOLONG KANAN', 256, 128)
+                })
             );
-            canopyYellowTag.position.set(-2.5, 9.8, -7.45);
-            canopyGroup.add(canopyFrontBeam, canopyYellowTag);
+            gpkYellowSign.position.set(-canW / 2 + 0.4, canH + 1.35, 0);
+            canopyGroup.add(gpkYellowSign);
 
-            const canopyRoof = createTrueHipRoof(19.5, 16.5, 2.8, redCanopyMat, 1.4);
-            canopyRoof.position.y = 10.1;
-            canopyGroup.add(canopyRoof);
+            // DUA BUAH SUV DI BAWAH KHEMAH MERAH MENGHADAP JALAN MASUK BARAT (-X) SEPERTI DALAM VIDEO (00:06 - 00:16):
+            // - Kereta Kiri (Sebelah Utara / Pagar, z = -4.3): Honda HR-V Merah Hati ("VEG 9357")
+            // - Kereta Kanan (Sebelah Selatan / Rapat ke Tiang Bulat Hijau Lobi, z = +4.3): Honda HR-V Perak ("SYD 3875")
+            const maroonHRV = createDetailedCar3D(0x7f1d1d, true);
+            maroonHRV.position.set(-0.5, 2.05, -4.3);
+            maroonHRV.rotation.y = Math.PI / 2; // Bahagian hadapan kereta menghadap Barat (-X) ke arah kamera!
 
-            // Kereta SUV Perak (Honda HR-V "SYD 3875") & Kereta Merah di Bawah Kanopi Merah (Seperti dalam Gambar Lobi!)
             const silverHRV = createDetailedCar3D(0x94a3b8, true);
-            silverHRV.position.set(-3.2, 2.05, 0);
-            const redSideCar = createDetailedCar3D(0x991b1b, false);
-            redSideCar.position.set(4.8, 2.05, 0.5);
-            canopyGroup.add(silverHRV, redSideCar);
+            silverHRV.position.set(-0.5, 2.05, 4.3);
+            silverHRV.rotation.y = Math.PI / 2; // Bahagian hadapan kereta menghadap Barat (-X) ke arah kamera!
+            canopyGroup.add(maroonHRV, silverHRV);
 
             gateGroup.add(canopyGroup);
 
-            // PULAU TAMAN BUNGA MELENGKUNG (POKOK JEJARUM / IXORA MERAH-HIJAU) DENGAN BEBENDUL BELANG HITAM-KUNING & LONGKANG
-            // Terletak tepat di sebelah kanan (barat) hadapan lobi seperti dalam Gambar Sebenar Lobi!
+            // 1B. GARISAN KUNING PETAK PARKIR & 3 TIANG BENDERA DI HADAPAN SEBELAH PONDOK PENGAWAL
+            //     (100% Mengikut Gambar Tengah `Screenshot 2026-11-12 214914.png`:
+            //      - TIADA pagar kedua di bahagian dalam & TIADA rumah kecil berwarna pink!
+            //      - Hanya ada SATU pagar di tepi jalan hadapan.
+            //      - Lengkap dengan 3 Tiang Bendera di ruang hadapan antara Pondok Pengawal & Khemah Merah!)
+            const frontFlagAndLineGroup = new THREE.Group();
+
+            // Garisan Kuning di Atas Jalan Tar Hadapan Khemah Merah
+            const yellowParkLine = new THREE.Mesh(
+                new THREE.BoxGeometry(16, 0.08, 0.35),
+                new THREE.MeshBasicMaterial({ color: 0xfacc15 })
+            );
+            yellowParkLine.position.set(-18.5, 2.12, -135.5);
+            frontFlagAndLineGroup.add(yellowParkLine);
+
+            // 3 Batang Tiang Bendera (Metallic Grey/Silver Flagpoles) seperti dalam `Screenshot 2026-11-12 214914.png`
+            const frontFlagPoleMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.65, roughness: 0.3 });
+            [-25.5, -23.0, -20.5].forEach(fpx => {
+                const poleMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.28, 22, 12), frontFlagPoleMat);
+                poleMesh.position.set(fpx, 12.5, -148.5);
+                poleMesh.castShadow = true;
+                frontFlagAndLineGroup.add(poleMesh);
+            });
+
+            gateGroup.add(frontFlagAndLineGroup);
+
+            // 1C. PULAU TAMAN BUNGA MELENGKUNG (POKOK JEJARUM / IXORA MERAH-HIJAU) DENGAN BEBENDUL BELANG HITAM-KUNING & LONGKANG
+            //     Terletak di sebelah kanan (selatan) jalan masuk lobi seperti dalam Video saat 00:00 - 00:05!
             const lobbyPlanterIsland = new THREE.Group();
-            lobbyPlanterIsland.position.set(-26, 0, -118);
+            lobbyPlanterIsland.position.set(-26, 0, -116.5);
 
             const planterYellowMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.55 });
             const planterBlackMat = new THREE.MeshStandardMaterial({ color: 0x18181b, roughness: 0.65 });
@@ -2685,23 +2305,20 @@
             const ixoraLimeMat = new THREE.MeshStandardMaterial({ color: 0x84cc16, roughness: 0.65 });
             const ixoraRedFlowerMat = new THREE.MeshStandardMaterial({ color: 0xef4444, roughness: 0.5 });
 
-            // Tapak Tanah & Rumput Pulau Taman Bunga
             const islandSoilBase = new THREE.Mesh(
-                new THREE.CylinderGeometry(11.5, 12.0, 1.1, 24),
+                new THREE.CylinderGeometry(11.0, 11.5, 1.1, 24),
                 new THREE.MeshStandardMaterial({ color: 0x3f6212, roughness: 0.9 })
             );
-            islandSoilBase.scale.set(1.35, 1, 0.82);
+            islandSoilBase.scale.set(1.3, 1, 0.78);
             islandSoilBase.position.set(-4, 2.35, 2);
             lobbyPlanterIsland.add(islandSoilBase);
 
-            // Bebendul Melengkung Berbelang Hitam & Kuning + Longkang Konkrit Dalam di Sekeliling Pulau Taman (Kelihatan sangat jelas di kanan bawah Gambar Lobi!)
             for (let seg = 0; seg < 18; seg++) {
                 const ang = -1.35 + (seg / 17) * 2.15;
-                const rCurb = 14.2;
-                const cx = -4 + Math.cos(ang) * rCurb * 1.25;
-                const cz = 2 + Math.sin(ang) * rCurb * 0.82;
+                const rCurb = 13.5;
+                const cx = -4 + Math.cos(ang) * rCurb * 1.22;
+                const cz = 2 + Math.sin(ang) * rCurb * 0.78;
 
-                // Bebendul Luar Belang Hitam-Kuning
                 const curbBlock = new THREE.Mesh(
                     new THREE.BoxGeometry(1.15, 0.72, 2.1),
                     seg % 2 === 0 ? planterYellowMat : planterBlackMat
@@ -2710,35 +2327,32 @@
                 curbBlock.rotation.y = -ang;
                 lobbyPlanterIsland.add(curbBlock);
 
-                // Dinding Dalam Longkang Konkrit
                 const innerWall = new THREE.Mesh(
                     new THREE.BoxGeometry(0.65, 0.78, 1.9),
                     planterConcreteMat
                 );
                 innerWall.position.set(
-                    -4 + Math.cos(ang) * (rCurb - 1.5) * 1.25,
+                    -4 + Math.cos(ang) * (rCurb - 1.5) * 1.22,
                     2.42,
-                    2 + Math.sin(ang) * (rCurb - 1.5) * 0.82
+                    2 + Math.sin(ang) * (rCurb - 1.5) * 0.78
                 );
                 innerWall.rotation.y = -ang;
                 lobbyPlanterIsland.add(innerWall);
             }
 
-            // Rimbunan Pokok Bunga Jejarum (Ixora) Hijau Kekuningan dengan Bintik Bunga Merah & Pokok Palma Kecil
             const bushCoords = [
                 [-12, -2], [-9, 1], [-6, 4], [-3, 5], [1, 4], [4, 2],
                 [-10, -5], [-6, -2], [-2, 1], [2, 0], [-5, 2], [-14, 1]
             ];
             bushCoords.forEach(([bx, bz], idx) => {
                 const bush = new THREE.Mesh(
-                    new THREE.DodecahedronGeometry(2.1 + (idx % 2) * 0.4, 1),
+                    new THREE.DodecahedronGeometry(2.0 + (idx % 2) * 0.4, 1),
                     idx % 2 === 0 ? ixoraLimeMat : ixoraGreenMat
                 );
                 bush.position.set(bx, 3.6, bz);
                 bush.castShadow = true;
                 lobbyPlanterIsland.add(bush);
 
-                // Kuntuman Bunga Jejarum Merah Terang
                 for (let fl = 0; fl < 3; fl++) {
                     const flower = new THREE.Mesh(new THREE.SphereGeometry(0.32, 6, 6), ixoraRedFlowerMat);
                     flower.position.set(bx + (fl - 1) * 0.75, 4.6 + (fl % 2) * 0.35, bz - 0.8 + fl * 0.4);
@@ -2746,19 +2360,9 @@
                 }
             });
 
-            // Pokok Palma Renek di Tengah Pulau Taman Bunga
             const islandPalm = new THREE.Mesh(new THREE.ConeGeometry(3.2, 4.8, 7), ixoraGreenMat);
             islandPalm.position.set(-2, 4.8, -2);
             lobbyPlanterIsland.add(islandPalm);
-
-            // Garisan Kuning Pudar di Atas Jalan Tar di Hadapan Lobi (Seperti dalam Gambar Lobi!)
-            const fadedYellowLine = new THREE.Mesh(
-                new THREE.BoxGeometry(0.45, 0.12, 22),
-                new THREE.MeshBasicMaterial({ color: 0xca8a04 })
-            );
-            fadedYellowLine.position.set(16, 2.08, -12);
-            fadedYellowLine.rotation.y = -0.28;
-            lobbyPlanterIsland.add(fadedYellowLine);
 
             gateGroup.add(lobbyPlanterIsland);
 
@@ -2806,10 +2410,16 @@
             }
             gateGroup.add(mainBlueGateGroup);
 
-            // 3. PINTU KECIL MURID ("SELAMAT DATANG"), LALUAN MENUNGGU MURID WARNA PINK & BENTENG BELAKANG
+            // =========================================================================================
+            // 3. ATAP LALUAN MURID YANG TIDAK BERSAMBUNG DENGAN PARKIR KERETA GPK + TANGGA BESI BIRU +
+            //    DINDING MERAH JAMBU ("MELENTUR BULUH BIARLAH DARI REBUNGNYA") & KAWASAN PARKIR MOTOSIKAL
+            //    (100% Mengikut Video saat 00:16 - 00:35!)
+            // =========================================================================================
             const welcomeWalkway = new THREE.Group();
+
+            // A) Pintu Kecil Murid ("SELAMAT DATANG") di Tepi Jalan Hadapan (x = 27, z = -163)
             const archGroup = new THREE.Group();
-            archGroup.position.set(34, 0, -163);
+            archGroup.position.set(27, 0, -163);
 
             const archPillarL = new THREE.Mesh(new THREE.BoxGeometry(1.8, 8.5, 1.8), pinkWallMat);
             archPillarL.position.set(-4.8, 4.25, 0);
@@ -2818,15 +2428,6 @@
 
             const smallGateLeaf = new THREE.Mesh(new THREE.BoxGeometry(3.2, 5.2, 0.35), lightBlueGateMat);
             smallGateLeaf.position.set(-2.8, 3.2, -0.2);
-
-            for (let st = 0; st < 4; st++) {
-                const stepMesh = new THREE.Mesh(
-                    new THREE.BoxGeometry(6.8, 0.55, 1.6),
-                    new THREE.MeshStandardMaterial({ color: st % 2 === 0 ? 0xf472b6 : 0xcbd5e1 })
-                );
-                stepMesh.position.set(0, 1.8 + st * 0.55, 1.2 + st * 1.5);
-                archGroup.add(stepMesh);
-            }
 
             const archSign = new THREE.Mesh(
                 new THREE.BoxGeometry(11.4, 4.4, 1.0),
@@ -2840,41 +2441,215 @@
             archGroup.add(archPillarL, archPillarR, smallGateLeaf, archSign, archRoof);
             welcomeWalkway.add(archGroup);
 
-            // B) Laluan Berbumbung dari Pintu Kecil Murid terus masuk ke Bangunan Sekolah (dengan Pagar & Benteng di sebelahnya)
-            const walkLen = 34;
-            const walkAng = -0.48;
-            const walkMidX = 25;
-            const walkMidZ = -146;
+            // B) Laluan Murid Beratap Genting Lurus Utara-Selatan (x = 27, dari Pintu Kecil z = -160 ke Koridor Bangunan z = -112)
+            //    TERPISAH SEPENUHNYA daripada Khemah Merah Parkir GPK (di x = -3.0) dengan jarak ruang terbuka 17 unit!
+            const walkX = 27.0;
+            const walkLen = 48.0; // Merentang lurus dari z = -160 hingga z = -112 (bersambung ke koridor bangunan utama!)
+            const walkMidZ = -136.0;
 
-            const walkRoof = createTrueHipRoof(9.5, walkLen, 3.2, roofDarkMat, 1.2);
-            walkRoof.position.set(walkMidX, 10.0, walkMidZ);
-            walkRoof.rotation.y = walkAng;
+            const walkRoof = createTrueHipRoof(10.5, walkLen, 3.4, roofDarkMat, 1.6);
+            walkRoof.position.set(walkX, 9.2, walkMidZ);
             welcomeWalkway.add(walkRoof);
 
-            // Benteng/Lantai Bertingkat & Pagar Keselamatan di Sepanjang Laluan Masuk ke Bangunan Sekolah
-            const walkRampBase = new THREE.Mesh(new THREE.BoxGeometry(8.2, 3.2, walkLen), darkGreenWallMat);
-            walkRampBase.position.set(walkMidX, 2.2, walkMidZ);
-            walkRampBase.rotation.y = walkAng;
-            welcomeWalkway.add(walkRampBase);
+            // Lantai Laluan Murid & Benteng Hijau di Tepi Laluan Murid (Mengikut `Screenshot 2026-11-12 214914.png`)
+            const walkFloor = new THREE.Mesh(
+                new THREE.BoxGeometry(9.2, 0.6, walkLen),
+                new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.8 })
+            );
+            walkFloor.position.set(walkX, 2.05, walkMidZ);
+            welcomeWalkway.add(walkFloor);
 
-            [-12, -4, 4, 12].forEach(offsetZ => {
-                const px = walkMidX + Math.sin(walkAng) * offsetZ;
-                const pz = walkMidZ + Math.cos(walkAng) * offsetZ;
-                [-3.4, 3.4].forEach(sideX => {
-                    const p = new THREE.Mesh(new THREE.BoxGeometry(1.1, 9.8, 1.1), pinkWallMat);
-                    p.position.set(px + sideX, 5.0, pz);
-                    welcomeWalkway.add(p);
+            // Benteng/Dinding Rendah Hijau Tua di Sepanjang Bawah Tiang Merah Jambu Laluan Murid (seperti dalam `Screenshot 2026-11-12 214914.png`)
+            const walkGreenCurbWall = new THREE.Mesh(
+                new THREE.BoxGeometry(10.2, 2.4, walkLen - 4),
+                darkGreenWallMat
+            );
+            walkGreenCurbWall.position.set(walkX - 0.5, 3.0, walkMidZ);
+            walkGreenCurbWall.castShadow = true;
+            walkGreenCurbWall.receiveShadow = true;
+            welcomeWalkway.add(walkGreenCurbWall);
+
+            // Tangga Besi Biru Muda (Blue Metal Staircase & Handrails) di Bahagian Utara Laluan Murid (z = -157 hingga -146)
+            const blueStairMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, metalness: 0.4, roughness: 0.35 });
+            for (let st = 0; st < 5; st++) {
+                const step = new THREE.Mesh(
+                    new THREE.BoxGeometry(6.8, 0.45, 1.8),
+                    new THREE.MeshStandardMaterial({ color: st % 2 === 0 ? 0xcbd5e1 : 0x94a3b8 })
+                );
+                step.position.set(walkX, 2.1 + st * 0.35, -158 + st * 2.0);
+                welcomeWalkway.add(step);
+            }
+            [-3.2, 0, 3.2].forEach(rx => {
+                const blueRailSlope = new THREE.Mesh(new THREE.BoxGeometry(0.25, 2.4, 11.5), blueStairMat);
+                blueRailSlope.position.set(walkX + rx, 3.8, -152.5);
+                blueRailSlope.rotation.x = 0.16;
+                welcomeWalkway.add(blueRailSlope);
+            });
+
+            // Tiang-Tiang Penyokong Laluan Murid Berwarna Pink/Merah Jambu (Mengikut `Screenshot 2026-11-12 214914.png`)
+            [-156, -148, -140, -132].forEach(pz => {
+                [-3.8, 3.8].forEach(px => {
+                    const col = new THREE.Mesh(
+                        new THREE.BoxGeometry(1.25, 7.2, 1.25),
+                        pinkWallMat
+                    );
+                    col.position.set(walkX + px, 5.6, pz);
+                    col.castShadow = true;
+                    welcomeWalkway.add(col);
                 });
             });
 
-            // C) Deretan Pondok / Laluan Menunggu Murid Berwarna Pink di Sebelah Kiri Pintu Kecil (Video 1 saat 00:00 - 00:14)
-            //    Lengkap dengan tiang pink, dinding bawah pink, sepanduk warna-warni, pagar besi putih di tepi jalan,
-            //    serta BENTENG & PAGAR di belakang laluan tersebut!
+            // C) Dinding & Tiang Merah Jambu ("MELENTUR BULUH BIARLAH DARI REBUNGNYA") di Hujung Selatan Laluan Murid
+            //    Tempat Laluan Murid Bersambung ke Bangunan Utama & Belakang Parkir Motor (Video saat 00:18 - 00:29!)
+            const pinkJunctionGroup = new THREE.Group();
+            pinkJunctionGroup.position.set(24.5, 0, -124.0);
+
+            // Tiang-tiang Merah Jambu & Dinding Mural
+            [[-3.5, -8.5], [-3.5, 0], [-3.5, 8.5], [3.8, -8.5], [3.8, 0], [3.8, 8.5]].forEach(([px, pz]) => {
+                const pCol = new THREE.Mesh(new THREE.BoxGeometry(1.45, 7.2, 1.45), pinkWallMat);
+                pCol.position.set(px, 5.6, pz);
+                pCol.castShadow = true;
+                pinkJunctionGroup.add(pCol);
+            });
+
+            const pinkMuralWall = new THREE.Mesh(new THREE.BoxGeometry(1.1, 7.0, 18.5), lightPinkMat);
+            pinkMuralWall.position.set(1.5, 5.5, 0);
+            pinkJunctionGroup.add(pinkMuralWall);
+
+            // Papan Mural Putih/Merah Jambu "MELENTUR BULUH BIARLAH DARI REBUNGNYA" & Poster Info (Video saat 00:19 - 00:28!)
+            const melenturSign = new THREE.Mesh(
+                new THREE.BoxGeometry(0.25, 2.8, 8.2),
+                new THREE.MeshStandardMaterial({
+                    map: createCustomLabelTexture('#fce7f3', '#831843', 'MELENTUR BULUH', 'DARI REBUNGNYA', 256, 128)
+                })
+            );
+            melenturSign.position.set(0.85, 6.4, -3.5);
+            const posterBoard1 = new THREE.Mesh(
+                new THREE.BoxGeometry(0.25, 3.2, 2.4),
+                new THREE.MeshStandardMaterial({
+                    map: createCustomLabelTexture('#f8fafc', '#15803d', 'INFO', 'MURID', 128, 192)
+                })
+            );
+            posterBoard1.position.set(-4.28, 5.6, 0);
+            const posterBoard2 = new THREE.Mesh(
+                new THREE.BoxGeometry(0.25, 2.8, 3.2),
+                new THREE.MeshStandardMaterial({
+                    map: createCustomLabelTexture('#fef2f2', '#991b1b', 'NOTIS', 'SEKOLAH', 160, 160)
+                })
+            );
+            posterBoard2.position.set(0.85, 5.8, 4.8);
+            pinkJunctionGroup.add(melenturSign, posterBoard1, posterBoard2);
+
+            // Pasu Bunga di Tepi Koridor Laluan Murid ke Lobi (Video saat 00:22 - 00:26)
+            const junctionPot = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.85, 0.6, 1.2, 10),
+                new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.7 })
+            );
+            junctionPot.position.set(-4.2, 2.6, -4.5);
+            const junctionPlant = new THREE.Mesh(
+                new THREE.DodecahedronGeometry(1.3, 1),
+                new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.75 })
+            );
+            junctionPlant.position.set(-4.2, 3.9, -4.5);
+            pinkJunctionGroup.add(junctionPot, junctionPlant);
+
+            welcomeWalkway.add(pinkJunctionGroup);
+
+            // D) KAWASAN PARKIR MOTOSIKAL DI HADAPAN LALUAN MURID (TERPISAH DARIPADA KHEMAH KERETA GPK)
+            //    Mengikut Video saat 00:18 - 00:30:
+            //    - Motosikal `WPV 4649` dengan Topi Keledar Putih di atas cermin sisi, diparkir di tepi tiang pagar kuning-hijau (`x = 14.5, z = -142.5`).
+            //    - Barisan motosikal guru/staf di hadapan dinding merah jambu Laluan Murid (`x = 18.5, z = -133` hingga `-121`),
+            //      termasuk kapcai kuning-hitam `VAK 5596`, motosikal hitam `BSD 9090` & `VCH 3630`, serta motosikal dengan KOTAK PENGHANTARAN JINGGA!
+            const lobbyMotoGroup = new THREE.Group();
+
+            function createDetailedMotorcycle(frameHex, hasOrangeBox = false, hasWhiteHelmet = false) {
+                const mGroup = new THREE.Group();
+                const tireMat = new THREE.MeshStandardMaterial({ color: 0x111827, roughness: 0.85 });
+                const bodyMat = new THREE.MeshStandardMaterial({ color: frameHex, roughness: 0.35, metalness: 0.25 });
+                const seatMat = new THREE.MeshStandardMaterial({ color: 0x18181b, roughness: 0.7 });
+                const chromeMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.8, roughness: 0.2 });
+
+                // Tayar Depan & Belakang
+                [-1.35, 1.35].forEach(wz => {
+                    const wheel = new THREE.Mesh(new THREE.CylinderGeometry(0.68, 0.68, 0.32, 12), tireMat);
+                    wheel.rotation.z = Math.PI / 2;
+                    wheel.position.set(0, 0.68, wz);
+                    mGroup.add(wheel);
+                });
+
+                // Badan & Tempat Duduk Motosikal
+                const chassis = new THREE.Mesh(new THREE.BoxGeometry(0.68, 0.95, 2.6), bodyMat);
+                chassis.position.set(0, 1.25, 0);
+                chassis.castShadow = true;
+                const seat = new THREE.Mesh(new THREE.BoxGeometry(0.72, 0.32, 1.45), seatMat);
+                seat.position.set(0, 1.78, -0.25);
+                const handleBar = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 1.5, 8), chromeMat);
+                handleBar.rotation.z = Math.PI / 2;
+                handleBar.position.set(0, 2.25, 0.95);
+                const plate = new THREE.Mesh(
+                    new THREE.BoxGeometry(0.55, 0.42, 0.08),
+                    new THREE.MeshBasicMaterial({ color: 0x0f172a })
+                );
+                plate.position.set(0, 1.35, -1.35);
+                mGroup.add(chassis, seat, handleBar, plate);
+
+                // Kotak Penghantaran Jingga (Orange Delivery Box) seperti dalam Video saat 00:21 - 00:29!
+                if (hasOrangeBox) {
+                    const orangeBox = new THREE.Mesh(
+                        new THREE.BoxGeometry(1.35, 1.45, 1.35),
+                        new THREE.MeshStandardMaterial({ color: 0xea580c, roughness: 0.35 })
+                    );
+                    orangeBox.position.set(0, 2.55, -0.95);
+                    orangeBox.castShadow = true;
+                    const whiteStripe = new THREE.Mesh(
+                        new THREE.BoxGeometry(1.38, 0.25, 1.38),
+                        new THREE.MeshBasicMaterial({ color: 0xf8fafc })
+                    );
+                    whiteStripe.position.set(0, 2.15, -0.95);
+                    mGroup.add(orangeBox, whiteStripe);
+                }
+
+                // Topi Keledar Putih (White Helmet) di atas pemegang motosikal seperti dalam Video saat 00:18 - 00:21 & 00:30!
+                if (hasWhiteHelmet) {
+                    const helmet = new THREE.Mesh(
+                        new THREE.SphereGeometry(0.42, 10, 10),
+                        new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.2 })
+                    );
+                    helmet.position.set(0.35, 2.65, 0.85);
+                    mGroup.add(helmet);
+                }
+
+                return mGroup;
+            }
+
+            // 1) Motosikal Merah-Hitam `WPV 4649` dengan Topi Keledar Putih di Tepi Tiang Pagar Kuning-Hijau (Video saat 00:18 - 00:21 & 00:30)
+            const fenceBike = createDetailedMotorcycle(0x991b1b, false, true);
+            fenceBike.position.set(13.8, 2.05, -142.2);
+            fenceBike.rotation.y = Math.PI / 2 - 0.18;
+            lobbyMotoGroup.add(fenceBike);
+
+            // 2) Deretan Motosikal di Hadapan Laluan Murid (Menghadap Timur ke arah Laluan Murid, membelakangi Khemah GPK seperti dalam Video saat 00:21 - 00:29!)
+            const walkwayBikes = [
+                { x: 18.2, z: -135.2, rot: Math.PI / 4, color: 0xeab308, orangeBox: false, helmet: true  }, // Kapcai Kuning-Hitam VAK 5596
+                { x: 18.5, z: -131.6, rot: Math.PI / 4, color: 0x18181b, orangeBox: false, helmet: false }, // Motosikal Hitam BSD 9090
+                { x: 18.8, z: -128.0, rot: Math.PI / 4, color: 0x1e293b, orangeBox: false, helmet: false }, // Motosikal Hitam VCH 3630
+                { x: 19.2, z: -124.2, rot: Math.PI / 4, color: 0x0f172a, orangeBox: true,  helmet: false }, // Motosikal dengan Kotak Jingga!
+                { x: 19.6, z: -120.2, rot: Math.PI / 4, color: 0x111827, orangeBox: false, helmet: false }  // Motosikal Hitam di tepi pasu
+            ];
+            walkwayBikes.forEach(mb => {
+                const mMesh = createDetailedMotorcycle(mb.color, mb.orangeBox, mb.helmet);
+                mMesh.position.set(mb.x, 2.05, mb.z);
+                mMesh.rotation.y = mb.rot;
+                lobbyMotoGroup.add(mMesh);
+            });
+
+            welcomeWalkway.add(lobbyMotoGroup);
+
+            // E) Deretan Pondok / Laluan Menunggu Murid Berwarna Pink di Sebelah Kiri Pintu Kecil (x = 68, z = -163)
             const pinkWaitingCorridor = new THREE.Group();
             pinkWaitingCorridor.position.set(68, 0, -163);
 
-            const pwLen = 56; // Merentang dari x = 40 hingga x = 96
-            // Lantai Koridor Menunggu Murid
+            const pwLen = 56;
             const pwFloor = new THREE.Mesh(
                 new THREE.BoxGeometry(pwLen, 1.4, 9.5),
                 new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.8 })
@@ -2882,7 +2657,6 @@
             pwFloor.position.set(0, 1.8, 0);
             pinkWaitingCorridor.add(pwFloor);
 
-            // Deretan Tiang Pink & Dinding Rendah Pink + Sepanduk Banner di Atas
             for (let px = -pwLen / 2 + 2; px <= pwLen / 2 - 2; px += 9.0) {
                 const fCol = new THREE.Mesh(new THREE.BoxGeometry(1.3, 8.2, 1.3), pinkWallMat);
                 fCol.position.set(px, 5.2, -4.0);
@@ -2891,12 +2665,10 @@
                 pinkWaitingCorridor.add(fCol, bCol);
             }
 
-            // Dinding Bawah Pink di Dalam Laluan Menunggu
             const pinkLowWall = new THREE.Mesh(new THREE.BoxGeometry(pwLen - 4, 3.2, 0.8), lightPinkMat);
             pinkLowWall.position.set(0, 3.4, 1.2);
             pinkWaitingCorridor.add(pinkLowWall);
 
-            // Papan Tanda / Banner Warna-Warni di Bawah Bibir Bumbung Laluan Menunggu (Video 1 saat 00:03-00:10)
             [-18, -6, 6, 18].forEach((bx, idx) => {
                 const bannerColors = [0xec4899, 0x38bdf8, 0xfacc15, 0x4ade80];
                 const banner = new THREE.Mesh(
@@ -2907,7 +2679,6 @@
                 pinkWaitingCorridor.add(banner);
             });
 
-            // PAGAR BESI PUTIH (White Metal Pedestrian Guardrail) di Tepi Jalan Hadapan Laluan Menunggu Pink (Video 1 saat 00:02-00:12!)
             const whiteRailTop = new THREE.Mesh(new THREE.BoxGeometry(pwLen - 2, 0.35, 0.35), whiteRailingMat);
             whiteRailTop.position.set(0, 4.4, -5.2);
             const whiteRailMid = new THREE.Mesh(new THREE.BoxGeometry(pwLen - 2, 0.25, 0.35), whiteRailingMat);
@@ -2920,12 +2691,10 @@
                 pinkWaitingCorridor.add(rBar);
             }
 
-            // Bumbung Limas Coklat di Atas Laluan Menunggu Murid Pink
             const pwRoof = createTrueHipRoof(pwLen, 10.5, 3.6, roofDarkMat, 1.5);
             pwRoof.position.set(0, 9.2, 0);
             pinkWaitingCorridor.add(pwRoof);
 
-            // BENTENG (EMBANKMENT) & PAGAR DI BELAKANG LALUAN MENUNGGU MURID (Seperti yang diminta: "di belakang laluan tersebut ada pagar. Buatkan juga pagar tu ada benteng")
             const rearBenteng = new THREE.Mesh(
                 new THREE.BoxGeometry(pwLen + 14, 5.2, 4.5),
                 darkGreenWallMat
@@ -2935,7 +2704,6 @@
             rearBenteng.receiveShadow = true;
             pinkWaitingCorridor.add(rearBenteng);
 
-            // Pagar Besi & Tiang Kuning di Atas Benteng Belakang Laluan
             const rearFenceRail = new THREE.Mesh(
                 new THREE.BoxGeometry(pwLen + 12, 3.4, 0.45),
                 new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.5, roughness: 0.4 })
@@ -2952,36 +2720,27 @@
             welcomeWalkway.add(pinkWaitingCorridor);
             gateGroup.add(welcomeWalkway);
 
-            // 4. BENTENG PENAHAN HIJAU TUA, PAGAR KUNING, TIANG BENDERA & PAPAN KENYATAAN TEPI JALAN (Video 1 saat 00:08 - 00:18)
+            // 4. BENTENG PENAHAN HIJAU TUA, PAGAR KUNING & PAPAN KENYATAAN TEPI JALAN HADAPAN (z = -163)
             const retainWall = new THREE.Mesh(new THREE.BoxGeometry(58, 4.8, 3.5), darkGreenWallMat);
-            retainWall.position.set(0, 2.4, -163);
+            retainWall.position.set(-5, 2.4, -163);
             retainWall.castShadow = true;
             gateGroup.add(retainWall);
 
-            for (let fx = -26; fx <= 26; fx += 8.5) {
+            for (let fx = -31; fx <= 21; fx += 8.5) {
                 const fPost = new THREE.Mesh(new THREE.BoxGeometry(1.5, 4.2, 1.5), yellowWallMat);
                 fPost.position.set(fx, 6.4, -163);
                 gateGroup.add(fPost);
             }
             const fenceRail = new THREE.Mesh(new THREE.BoxGeometry(54, 2.2, 0.8), limeWallMat);
-            fenceRail.position.set(0, 5.8, -163);
+            fenceRail.position.set(-5, 5.8, -163);
             gateGroup.add(fenceRail);
 
-            // Struktur Papan Kenyataan / Tembok Bata Coklat di Tepi Jalan Hadapan Benteng Hijau (Video 1 saat 00:15-00:22)
             const roadSignBollard = new THREE.Mesh(
                 new THREE.BoxGeometry(9.5, 4.5, 1.8),
                 new THREE.MeshStandardMaterial({ color: 0x451a03, roughness: 0.8 })
             );
             roadSignBollard.position.set(-18, 3.5, -168.5);
             gateGroup.add(roadSignBollard);
-
-            // 3 Tiang Bendera di Sebelah Kanan Kanopi
-            const poleMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, metalness: 0.6 });
-            [-16, -20, -24].forEach(px => {
-                const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.35, 22, 8), poleMat);
-                pole.position.set(px, 11, -148);
-                gateGroup.add(pole);
-            });
 
             // 5. ZON IBU BAPA MENURUNKAN MURID (PARENT DROP-OFF ZONE: VAN SEKOLAH PUTIH, KERETA BUKA BONET, MOTOSIKAL & MURID BAJU PINK)
             //    Mengikut Video 1 (saat 00:00 - 00:30):
@@ -3072,6 +2831,338 @@
 
             schoolGroup.add(gateGroup);
             registerZoneMesh(gateGroup, 'pintu');
+
+            // =========================================================================
+            // ZON PARKIR KERETA TIDAK BERATAP, LONGKANG MELENGKUNG, PARKIR MOTOSIKAL,
+            // LANDSKAP RUMPUN SERAI & PAGAR SEMPADAN BARAT LAUT / BARAT / BELAKANG
+            // (100% MENGIKUT GAMBAR RUJUKAN `image_5dd85b.jpg`)
+            // =========================================================================
+            const parkGroup = new THREE.Group();
+            const asphaltMat = new THREE.MeshStandardMaterial({ color: 0x475569, roughness: 0.85 });
+
+            // Jalan Melengkung Licin Barat Laut & Laluan Barat (Dilaraskan supaya tidak terkeluar dari pagar sempadan)
+            const curvedDriveway = createSmoothCurvedRoadMesh(118, 165, -1.28, -0.18, 0, 22, 2.0, asphaltMat, 48);
+            parkGroup.add(curvedDriveway);
+
+            const westDriveway = new THREE.Mesh(new THREE.BoxGeometry(34, 0.5, 225), asphaltMat);
+            westDriveway.position.set(-149, 1.75, 65);
+            westDriveway.receiveShadow = true;
+            parkGroup.add(westDriveway);
+
+            // Jalan Tar Belakang Sekolah (Merentang di hadapan TNB/Loji Air/Rumah Sampah terus ke belakang Kantin & Padang Mini)
+            const backDriveway = new THREE.Mesh(new THREE.BoxGeometry(278, 0.5, 24), asphaltMat);
+            backDriveway.position.set(-12, 1.75, 166);
+            backDriveway.receiveShadow = true;
+            parkGroup.add(backDriveway);
+
+            // Platform Parkir Motosikal, Longkang Konkrit Melengkung & Landskap Rumpun Serai di Penjuru Barat Laut
+            const nwMotoAndFenceGroup = new THREE.Group();
+            const nwDrainWallMat = new THREE.MeshStandardMaterial({ color: 0xcbd5e1, roughness: 0.8 });
+            const nwDrainChannelMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.9 });
+            const nwCurbYellowMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.6 });
+            const nwCurbBlackMat = new THREE.MeshStandardMaterial({ color: 0x18181b, roughness: 0.7 });
+
+            // 1. Tapak Rumput Hijau Terang di Penjuru Pagar Barat Laut (Seperti dalam `image_5dd85b.jpg`)
+            const cornerGreenLawn = new THREE.Mesh(
+                new THREE.BoxGeometry(86, 0.22, 74),
+                new THREE.MeshStandardMaterial({ color: 0x4d9c22, roughness: 0.88 })
+            );
+            cornerGreenLawn.position.set(-124, 1.62, -120);
+            cornerGreenLawn.receiveShadow = true;
+            nwMotoAndFenceGroup.add(cornerGreenLawn);
+
+            // 2. Bebendul Jalan Melengkung Belang Hitam-Kuning & Longkang Konkrit di Tepi Luar Petak Parkir
+            for (let i = 0; i < 28; i++) {
+                const a1 = -1.18 + (i / 28) * 0.88;
+                const rDrain = 165.0;
+                const dx = Math.sin(a1) * rDrain;
+                const dz = 22 - Math.cos(a1) * rDrain;
+
+                const curbSeg = new THREE.Mesh(
+                    new THREE.BoxGeometry(1.15, 0.78, 4.6),
+                    i % 2 === 0 ? nwCurbYellowMat : nwCurbBlackMat
+                );
+                curbSeg.position.set(dx, 2.28, dz);
+                curbSeg.rotation.y = -a1 + Math.PI / 2;
+                nwMotoAndFenceGroup.add(curbSeg);
+
+                const drainBox = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.62, 4.8), nwDrainWallMat);
+                drainBox.position.set(Math.sin(a1) * (rDrain + 1.8), 1.92, 22 - Math.cos(a1) * (rDrain + 1.8));
+                drainBox.rotation.y = -a1 + Math.PI / 2;
+                const drainVoid = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.68, 4.6), nwDrainChannelMat);
+                drainVoid.position.set(Math.sin(a1) * (rDrain + 1.8), 1.96, 22 - Math.cos(a1) * (rDrain + 1.8));
+                drainVoid.rotation.y = -a1 + Math.PI / 2;
+                nwMotoAndFenceGroup.add(drainBox, drainVoid);
+            }
+
+            // 3. Garisan Putih Pembahagi Petak Parkir Kereta Serong (White Parking Bay Lines seperti dalam `image_5dd85b.jpg`)
+            const whiteBayLineMat = new THREE.MeshBasicMaterial({ color: 0xe2e8f0 });
+            [-0.31, -0.40, -0.50, -0.60, -0.70, -0.80, -0.91].forEach(bayAng => {
+                const lineRadius = 157.0;
+                const bayLine = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.12, 13.5), whiteBayLineMat);
+                bayLine.position.set(Math.sin(bayAng) * lineRadius, 2.22, 22 - Math.cos(bayAng) * lineRadius);
+                bayLine.rotation.y = -bayAng + 0.18;
+                nwMotoAndFenceGroup.add(bayLine);
+            });
+
+            // 4. Platform Konkrit/Kelabu Parkir Motosikal + Longkang Petak Putih di Kiri & Papan Titian Jingga di Kanan (`image_5dd85b.jpg`)
+            //    Diletakkan kemas di dalam pagar supaya tiada bucu yang terkeluar dari pagar sempadan!
+            const motoPlatformGroup = new THREE.Group();
+            motoPlatformGroup.position.set(-129, 0, -104);
+            motoPlatformGroup.rotation.y = 0.76;
+
+            const motoSlab = new THREE.Mesh(
+                new THREE.BoxGeometry(13.5, 1.15, 42),
+                new THREE.MeshStandardMaterial({ color: 0xa8a29e, roughness: 0.82 })
+            );
+            motoSlab.position.set(0, 2.15, 0);
+            motoSlab.receiveShadow = true;
+            const motoTopAsphalt = new THREE.Mesh(
+                new THREE.BoxGeometry(12.2, 0.16, 40.6),
+                new THREE.MeshStandardMaterial({ color: 0x9ca3af, roughness: 0.85 })
+            );
+            motoTopAsphalt.position.set(0, 2.78, 0);
+            motoTopAsphalt.receiveShadow = true;
+
+            // Saluran Longkang Konkrit Putih di Hujung Kiri Platform Parkir Motor (Kelihatan jelas dalam `image_5dd85b.jpg`)
+            const leftDrainExtension = new THREE.Mesh(
+                new THREE.BoxGeometry(2.2, 1.05, 12.0),
+                new THREE.MeshStandardMaterial({ color: 0xcbd5e1, roughness: 0.75 })
+            );
+            leftDrainExtension.position.set(-4.2, 2.12, 24.5);
+            const leftDrainTrough = new THREE.Mesh(
+                new THREE.BoxGeometry(1.1, 1.12, 11.4),
+                nwDrainChannelMat
+            );
+            leftDrainTrough.position.set(-4.2, 2.16, 24.5);
+
+            // Papan Titian Kecil Berwarna Jingga-Coklat Merentangi Longkang di Bahagian Kanan Platform (`image_5dd85b.jpg`)
+            const orangeRampPlank = new THREE.Mesh(
+                new THREE.BoxGeometry(3.2, 0.25, 1.8),
+                new THREE.MeshStandardMaterial({ color: 0xea580c, roughness: 0.6 })
+            );
+            orangeRampPlank.position.set(7.6, 2.38, -8.5);
+            orangeRampPlank.rotation.z = -0.12;
+
+            motoPlatformGroup.add(motoSlab, motoTopAsphalt, leftDrainExtension, leftDrainTrough, orangeRampPlank);
+            nwMotoAndFenceGroup.add(motoPlatformGroup);
+
+            // 5. Rumpun Serai (Lemongrass Tufts), Batas Tanah Bujur Berpancang 2 Kayu, Pokok Renek & Tiang Lampu Hitam (`image_5dd85b.jpg`)
+            const lemongrassBladeMat = new THREE.MeshStandardMaterial({ color: 0x3f6212, roughness: 0.7 });
+            const soilMoundMat = new THREE.MeshStandardMaterial({ color: 0x3b2f2f, roughness: 0.95 });
+            [
+                [-148, -148], [-138, -145], [-128, -142], [-118, -138], [-108, -134],
+                [-144, -136], [-134, -132], [-124, -128], [-114, -124], [-102, -126],
+                [-138, -122], [-128, -118], [-118, -115], [-148, -126], [-154, -138]
+            ].forEach(([lx, lz]) => {
+                const tuftGroup = new THREE.Group();
+                tuftGroup.position.set(lx, 1.75, lz);
+
+                const mound = new THREE.Mesh(new THREE.CylinderGeometry(0.95, 1.25, 0.35, 8), soilMoundMat);
+                mound.position.y = 0.15;
+                tuftGroup.add(mound);
+
+                for (let b = 0; b < 6; b++) {
+                    const blade = new THREE.Mesh(new THREE.ConeGeometry(0.28, 3.4, 5), lemongrassBladeMat);
+                    const bAng = (b / 6) * Math.PI * 2;
+                    blade.position.set(Math.cos(bAng) * 0.35, 1.6, Math.sin(bAng) * 0.35);
+                    blade.rotation.z = Math.cos(bAng) * 0.28;
+                    blade.rotation.x = Math.sin(bAng) * 0.28;
+                    tuftGroup.add(blade);
+                }
+                nwMotoAndFenceGroup.add(tuftGroup);
+            });
+
+            // Pokok Renek Bulat Hijau di Tepi Pagar Hadapan Kanan (`image_5dd85b.jpg`)
+            const cornerBush = new THREE.Mesh(
+                new THREE.SphereGeometry(2.6, 12, 10),
+                new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.8 })
+            );
+            cornerBush.position.set(-122, 3.2, -153);
+            nwMotoAndFenceGroup.add(cornerBush);
+
+            // Batas Tanah Bujur Coklat dengan 2 Kayu Pancang Tegak & Tiang Lampu Hitam (`image_5dd85b.jpg`)
+            const ovalSoilBed = new THREE.Mesh(
+                new THREE.CylinderGeometry(6.8, 7.2, 0.38, 20),
+                new THREE.MeshStandardMaterial({ color: 0x9a6b3b, roughness: 0.92 })
+            );
+            ovalSoilBed.scale.set(1.35, 1, 0.88);
+            ovalSoilBed.position.set(-99, 1.82, -142);
+            nwMotoAndFenceGroup.add(ovalSoilBed);
+
+            // 2 Kayu Pancang / Anak Pokok di Atas Batas Tanah Bujur (`image_5dd85b.jpg`)
+            const stakeMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.85 });
+            [[-102.5, -143], [-95.5, -141]].forEach(([sx, sz]) => {
+                const stake = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.2, 7.5, 6), stakeMat);
+                stake.position.set(sx, 5.4, sz);
+                nwMotoAndFenceGroup.add(stake);
+            });
+
+            // Tiang Lampu Hitam Tinggi di Tepi Pagar Sebelah Batas Tanah (`image_5dd85b.jpg`)
+            const nwLampPole = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.28, 0.35, 18.5, 10),
+                new THREE.MeshStandardMaterial({ color: 0x18181b, metalness: 0.6, roughness: 0.4 })
+            );
+            nwLampPole.position.set(-106, 10.5, -154.5);
+            nwMotoAndFenceGroup.add(nwLampPole);
+
+            // 6. Pagar Sempadan Sebelah Kanan/Barat Laut & Barat (Tembok Kuning-Hijau, Tiang Bertopi Putih & Jeriji Besi Hitam - `image_5dd85b.jpg`)
+            const nwYellowGreenWallMat = new THREE.MeshStandardMaterial({ color: 0xd4e117, roughness: 0.68 });
+            const nwGreenPillarMat = new THREE.MeshStandardMaterial({ color: 0x84a918, roughness: 0.65 });
+            const nwWhiteCapMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.5 });
+            const nwBlackGrilleMat = new THREE.MeshStandardMaterial({ color: 0x111827, metalness: 0.5, roughness: 0.45 });
+
+            // Jajaran Pagar Hadapan Kanan (Dari Pintu Pagar Utama Biru x = -76.5 ke Penjuru Barat Laut x = -168.5 pada z = -158)
+            const nwNorthFenceLen = 92;
+            const nwNorthLowWall = new THREE.Mesh(new THREE.BoxGeometry(nwNorthFenceLen, 4.2, 1.3), nwYellowGreenWallMat);
+            nwNorthLowWall.position.set(-122.5, 3.7, -158);
+            const nwNorthGrille = new THREE.Mesh(new THREE.BoxGeometry(nwNorthFenceLen - 2, 3.2, 0.35), nwBlackGrilleMat);
+            nwNorthGrille.position.set(-122.5, 7.2, -158);
+            nwMotoAndFenceGroup.add(nwNorthLowWall, nwNorthGrille);
+
+            for (let fpx = -78; fpx >= -168.5; fpx -= 11.25) {
+                const fPillar = new THREE.Mesh(new THREE.BoxGeometry(2.1, 8.2, 2.1), nwGreenPillarMat);
+                fPillar.position.set(fpx, 5.6, -158);
+                fPillar.castShadow = true;
+                const fCap = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.75, 2.5), nwWhiteCapMat);
+                fCap.position.set(fpx, 9.9, -158);
+                nwMotoAndFenceGroup.add(fPillar, fCap);
+            }
+
+            // Jajaran Pagar Sempadan Barat (Dari Penjuru Barat Laut z = -158 hingga Penjuru Barat Daya z = 188.5 pada x = -168.5)
+            const westFenceLen = 346.5;
+            const westFenceMidZ = (-158 + 188.5) / 2;
+            const westLowWall = new THREE.Mesh(new THREE.BoxGeometry(1.3, 4.2, westFenceLen), nwYellowGreenWallMat);
+            westLowWall.position.set(-168.5, 3.7, westFenceMidZ);
+            const westGrille = new THREE.Mesh(new THREE.BoxGeometry(0.35, 3.2, westFenceLen - 2), nwBlackGrilleMat);
+            westGrille.position.set(-168.5, 7.2, westFenceMidZ);
+            nwMotoAndFenceGroup.add(westLowWall, westGrille);
+
+            for (let wpz = -158; wpz <= 188.5; wpz += 12.8) {
+                const wPillar = new THREE.Mesh(new THREE.BoxGeometry(2.1, 8.2, 2.1), nwGreenPillarMat);
+                wPillar.position.set(-168.5, 5.6, wpz);
+                wPillar.castShadow = true;
+                const wCap = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.75, 2.5), nwWhiteCapMat);
+                wCap.position.set(-168.5, 9.9, wpz);
+                nwMotoAndFenceGroup.add(wPillar, wCap);
+            }
+
+            // Tembok Pagar Belakang yang Berbelok dari Pintu Pagar Belakang Biru ke Sudut Kantin & Lurus Bersambung dengan Pagar Padang Mini
+            const rearCornerWallMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.85 });
+            const rearPillarYellowMat = new THREE.MeshStandardMaterial({ color: 0xd9a05b, roughness: 0.75 });
+
+            const swUtilFence = new THREE.Mesh(new THREE.BoxGeometry(82, 7.2, 1.3), rearCornerWallMat);
+            swUtilFence.position.set(-127.5, 5.2, 188.5);
+            nwMotoAndFenceGroup.add(swUtilFence);
+
+            const angledWallLen = 21.5;
+            const angledWall = new THREE.Mesh(new THREE.BoxGeometry(angledWallLen, 6.8, 1.3), rearCornerWallMat);
+            angledWall.position.set(-60.8, 5.0, 183.0);
+            angledWall.rotation.y = 0.56;
+            nwMotoAndFenceGroup.add(angledWall);
+
+            // Pagar Hujung Jalan Kantin (z = 177.5) Dipanjangkan Sehingga x = 162 supaya BERSAMBUNG TERUS dengan Pagar Padang Mini!
+            const straightCanteenFenceLen = 214; // Dari x = -52 sehingga x = +162
+            const straightCanteenMidX = (-52 + 162) / 2; // +55
+            const straightCanteenWall = new THREE.Mesh(new THREE.BoxGeometry(straightCanteenFenceLen, 4.2, 1.3), rearCornerWallMat);
+            straightCanteenWall.position.set(straightCanteenMidX, 3.7, 177.5);
+            const straightCanteenGrille = new THREE.Mesh(new THREE.BoxGeometry(straightCanteenFenceLen - 2, 3.2, 0.35), nwBlackGrilleMat);
+            straightCanteenGrille.position.set(straightCanteenMidX, 7.2, 177.5);
+            nwMotoAndFenceGroup.add(straightCanteenWall, straightCanteenGrille);
+
+            for (let rpx = -52; rpx <= 162; rpx += 13.375) {
+                const rPillar = new THREE.Mesh(new THREE.BoxGeometry(1.9, 8.2, 1.9), rearPillarYellowMat);
+                rPillar.position.set(rpx, 5.6, 177.5);
+                nwMotoAndFenceGroup.add(rPillar);
+            }
+
+            // Petak Rumput Hijau Berbebendul Putih di Hujung Jalan Mati Kantin (Seperti dalam `Screenshot 2026-11-12 215245.png`)
+            const deadEndCurbFrame = new THREE.Mesh(
+                new THREE.BoxGeometry(24, 0.75, 16),
+                new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.8 })
+            );
+            deadEndCurbFrame.position.set(147, 2.02, 168.5);
+            const deadEndGrassPatch = new THREE.Mesh(
+                new THREE.BoxGeometry(21.6, 0.82, 13.6),
+                new THREE.MeshStandardMaterial({ color: 0x4d7c0f, roughness: 0.85 })
+            );
+            deadEndGrassPatch.position.set(147, 2.05, 168.5);
+            nwMotoAndFenceGroup.add(deadEndCurbFrame, deadEndGrassPatch);
+
+            // PAGAR SEMPADAN TIMUR (PADANG MINI & TAMAN PERMAINAN) YANG BERSAMBUNG PENUH DARI HUJUNG JALAN KANTIN (z = 177.5) KE PAGAR HADAPAN (z = -161.5)
+            // (100% Mengikut `Screenshot 2026-11-12 215245.png`)
+            const eastFenceLen = 339; // Merentang penuh dari z = -161.5 hingga z = 177.5 pada x = 162
+            const eastFenceMidZ = (-161.5 + 177.5) / 2; // +8.0
+            const eastLowWall = new THREE.Mesh(new THREE.BoxGeometry(1.3, 4.2, eastFenceLen), rearCornerWallMat);
+            eastLowWall.position.set(162, 3.7, eastFenceMidZ);
+            eastLowWall.castShadow = true;
+            eastLowWall.receiveShadow = true;
+            const eastGrille = new THREE.Mesh(new THREE.BoxGeometry(0.35, 3.2, eastFenceLen - 2), nwBlackGrilleMat);
+            eastGrille.position.set(162, 7.2, eastFenceMidZ);
+            nwMotoAndFenceGroup.add(eastLowWall, eastGrille);
+
+            for (let epz = -161.5; epz <= 177.5; epz += 13.0) {
+                const ePillar = new THREE.Mesh(new THREE.BoxGeometry(1.9, 8.2, 1.9), rearPillarYellowMat);
+                ePillar.position.set(162, 5.6, epz);
+                ePillar.castShadow = true;
+                nwMotoAndFenceGroup.add(ePillar);
+            }
+
+            parkGroup.add(nwMotoAndFenceGroup);
+
+            // =========================================================================
+            // 7. SUSUNAN KERETA DI KAWASAN PARKIR TIDAK BERATAP (100% MENGIKUT `image_5dd85b.jpg`!)
+            //    - TIADA LAGI KERETA YANG MASUK ATAU MELANGGAR DINDING BANGUNAN!
+            //    - Barisan Luar (8 buah kereta di petak parkir bergarisan putih sepanjang bebendul hitam-kuning)
+            //    - Barisan Dalam (4 buah kereta: Hijau Muda, Perak, Biru & Hitam di luar dinding bangunan)
+            //    - 3 buah kereta (Hitam, Putih, Hitam) di hadapan blok krim-jingga di belakang tempat berkumpul murid
+            //    - Barisan kereta di sepanjang tepi pagar barat (sebelah kanan gambar)
+            // =========================================================================
+            const nwOpenCars = [
+                // A) Barisan Luar di Petak Parkir Berbelang Putih (Dari Kiri ke Kanan mengikut `image_5dd85b.jpg`):
+                { x: -42.5,  z: -131.0, rot: 0.32,  color: 0xfda4af, suv: false, roofBox: false }, // 1. Kereta Merah Jambu (Pink) di kiri sekali
+                { x: -55.0,  z: -126.5, rot: 0.36,  color: 0xf8fafc, suv: false, roofBox: false }, // 2. Kereta Putih (Petak 1)
+                { x: -68.5,  z: -120.5, rot: 0.45,  color: 0x451a03, suv: false, roofBox: false }, // 3. Kereta Coklat Gelap (Petak 2)
+                { x: -82.5,  z: -112.5, rot: 0.55,  color: 0x111827, suv: true,  roofBox: true  }, // 4. SUV Hitam dengan Roof Box (Petak 3)
+                { x: -96.0,  z: -103.0, rot: 0.65,  color: 0x334155, suv: true,  roofBox: false }, // 5. SUV Kelabu Gelap (Petak 4)
+                { x: -108.5, z: -92.0,  rot: 0.75,  color: 0xf8fafc, suv: false, roofBox: false }, // 6. Kereta Putih (Petak 5)
+                { x: -120.0, z: -79.5,  rot: 0.88,  color: 0xdc2626, suv: false, roofBox: false }, // 7. Kereta Merah (Petak 6)
+                { x: -131.0, z: -66.0,  rot: 1.15,  color: 0xdc2626, suv: false, roofBox: false }, // 8. Kereta Merah di hadapan barisan murid
+
+                // B) Barisan Dalam di Hadapan Dinding Bangunan (BERADA DI LUAR DINDING SEPENUHNYA, TIDAK MASUK BANGUNAN!):
+                { x: -57.5,  z: -115.0, rot: 1.18,  color: 0x65a30d, suv: false, roofBox: false }, // 1. Kereta Hijau Muda (Di hadapan sayap gable jingga-putih)
+                { x: -70.5,  z: -102.0, rot: 1.05,  color: 0xe2e8f0, suv: false, roofBox: false }, // 2. Kereta Perak/Putih (Di luar bucu dinding hijau)
+                { x: -83.5,  z: -91.5,  rot: 0.94,  color: 0x0284c7, suv: false, roofBox: false }, // 3. Kereta Biru (Di sepanjang dinding melengkung hijau)
+                { x: -96.5,  z: -80.0,  rot: 0.84,  color: 0x18181b, suv: false, roofBox: false }, // 4. Kereta Hitam (Di sepanjang dinding melengkung hijau)
+
+                // C) 3 Buah Kereta (Hitam, Putih, Hitam) di Hadapan Blok Krim-Jingga di Belakang Tempat Kumpul Murid (`image_5dd85b.jpg`):
+                { x: -123.5, z: -43.5,  rot: 0.25,  color: 0x18181b, suv: false, roofBox: false },
+                { x: -126.5, z: -37.5,  rot: 0.25,  color: 0xf8fafc, suv: false, roofBox: false },
+                { x: -129.5, z: -31.5,  rot: 0.25,  color: 0x1e293b, suv: false, roofBox: false },
+
+                // D) Barisan Kereta di Sepanjang Tepi Pagar Barat (Sebelah Kanan `image_5dd85b.jpg`):
+                { x: -159.0, z: -56.0,  rot: 0,     color: 0x14b8a6, suv: false, roofBox: false },
+                { x: -159.0, z: -43.0,  rot: 0,     color: 0x18181b, suv: false, roofBox: false },
+                { x: -159.0, z: -30.0,  rot: 0,     color: 0xdc2626, suv: false, roofBox: false },
+                { x: -159.0, z: -17.0,  rot: 0,     color: 0x111827, suv: false, roofBox: false }
+            ];
+            nwOpenCars.forEach(cd => {
+                const car = createDetailedCar3D(cd.color, cd.suv);
+                if (cd.roofBox) {
+                    const rBox = new THREE.Mesh(
+                        new THREE.BoxGeometry(2.6, 0.75, 4.8),
+                        new THREE.MeshStandardMaterial({ color: 0x09090b, roughness: 0.25, metalness: 0.4 })
+                    );
+                    rBox.position.set(0, 5.05, -0.4);
+                    car.add(rBox);
+                }
+                car.position.set(cd.x, 2.05, cd.z);
+                car.rotation.y = cd.rot;
+                parkGroup.add(car);
+            });
+
+            schoolGroup.add(parkGroup);
+            registerZoneMesh(parkGroup, 'parkir');
         }
 
         function buildCurvedNorthBlocks() {
@@ -7047,25 +7138,39 @@
             });
         }
 
-        // Fungsi Butang Zum Masuk (-) / Zum Keluar (+) & Slider Zum
-        function zoomCamera(direction) {
+        // Fungsi Kawalan Zum Masuk (-1) & Zum Keluar (+1) untuk 3D & 2D
+        function zoomCamera(dir) {
             if (currentMode === '2d') {
-                zoom2DScale = Math.max(0.5, Math.min(2.6, zoom2DScale - direction * 0.2));
-                syncUIControls();
-                return;
-            }
-            if (isCourtyard360Mode) {
-                if (direction > 0 && desiredCameraFov360 >= 58) {
-                    // Keluar dari mod berdiri 360° kepada mod Orbit 3D apabila zum keluar lebih jauh
-                    isCourtyard360Mode = false;
-                    desiredCameraFov360 = 40;
-                    desiredCameraRadius = 135;
-                    currentPitch = 35;
-                } else {
-                    desiredCameraFov360 = Math.max(20, Math.min(64, desiredCameraFov360 + direction * 7));
-                }
+                zoom2DScale = Math.max(0.5, Math.min(2.6, zoom2DScale - dir * 0.15));
+            } else if (isCourtyard360Mode) {
+                desiredCameraFov360 = Math.max(20, Math.min(64, desiredCameraFov360 + dir * 5));
             } else {
-                desiredCameraRadius = Math.max(28, Math.min(520, desiredCameraRadius + direction * 32));
+                desiredCameraRadius = Math.max(28, Math.min(520, desiredCameraRadius + dir * 24));
+            }
+            syncUIControls();
+        }
+
+        // Fungsi Kamera Khas: Parkir Kereta Tidak Beratap, Longkang Melengkung, Parkir Motor, Landskap Serai & Pagar Kanan (100% Mengikut Sudut Pandangan `image_5dd85b.jpg`)
+        function setNorthwestMotoAndOpenParkView(mode = 'video_pov') {
+            isCourtyard360Mode = false;
+            desiredCameraFov360 = 40;
+            if (currentMode !== '3d') switchMode('3d');
+            if (isAutoOrbit) toggleAutoOrbit(false);
+
+            selectZone('parkir', false);
+            highlightActiveLocationChip('parkir_motor');
+
+            if (mode === 'video_pov') {
+                // Sudut pandangan tepat seperti dalam gambar `image_5dd85b.jpg`
+                currentAzimuth = 322;
+                currentPitch = 16;
+                desiredCameraRadius = 152;
+                desiredLookAtTarget.set(-88, 8.0, -78);
+            } else {
+                currentAzimuth = 142;
+                currentPitch = 12;
+                desiredCameraRadius = 56;
+                desiredLookAtTarget.set(-116, 6.5, -100);
             }
             syncUIControls();
         }
@@ -7319,9 +7424,9 @@
             syncUIControls();
         }
 
-        // Fungsi Kamera Khas Gambar Sebenar Lobi Depan (`WhatsApp Image 2026-11-12 at 9.14.25 AM.jpeg`):
-        // Menunjukkan Tiang Bulat Hijau Limau, Rasuk Hijau Tua, Tangga Biru Dalam Lobi, Papan Tanda "I" & "T",
-        // Kanopi Kereta Merah dengan SUV Perak SYD 3875 di kiri, serta Pulau Taman Bunga Berbebendul Hitam-Kuning di kanan!
+        // Fungsi Kamera Khas Video Lobi Depan, Khemah Merah Parkir GPK & Laluan Murid Terpisah (`WhatsApp Video 2026-11-12 at 10.22.30 AM.mp4`):
+        // Kamera berada di laluan masuk sebelah barat memandang ke arah Anjung Lobi, Khemah Merah Parkir GPK (dengan 2 SUV HR-V),
+        // Parkir Motosikal, dan Atap Laluan Murid yang terpisah di belakangnya!
         function setFrontLobbyRealPhotoView() {
             isCourtyard360Mode = false;
             desiredCameraFov360 = 40;
@@ -7330,10 +7435,10 @@
 
             selectZone('melengkung_luar', false);
             highlightActiveLocationChip('lobi_depan');
-            currentAzimuth = 336;
+            currentAzimuth = 274;
             currentPitch = 8;
-            desiredCameraRadius = 52;
-            desiredLookAtTarget.set(-3, 7.5, -115);
+            desiredCameraRadius = 42;
+            desiredLookAtTarget.set(4, 6.2, -130);
             syncUIControls();
         }
 
@@ -7366,30 +7471,6 @@
             currentPitch = 11;
             desiredCameraRadius = 68;
             desiredLookAtTarget.set(-88, 6.0, 168);
-            syncUIControls();
-        }
-
-        // Fungsi Kamera Khas Video Baharu: Parkir Kereta Tidak Beratap, Longkang Melengkung, Parkir Motor, Landskap Serai & Pagar Kanan (00:00 - 00:37)
-        function setNorthwestMotoAndOpenParkView(mode = 'video_pov') {
-            isCourtyard360Mode = false;
-            desiredCameraFov360 = 40;
-            if (currentMode !== '3d') switchMode('3d');
-            if (isAutoOrbit) toggleAutoOrbit(false);
-
-            selectZone('parkir', false);
-            highlightActiveLocationChip('parkir_motor');
-
-            if (mode === 'video_pov') {
-                currentAzimuth = 142;
-                currentPitch = 12;
-                desiredCameraRadius = 56;
-                desiredLookAtTarget.set(-116, 6.5, -100);
-            } else {
-                currentAzimuth = 328;
-                currentPitch = 15;
-                desiredCameraRadius = 125;
-                desiredLookAtTarget.set(-105, 8.0, -95);
-            }
             syncUIControls();
         }
 
@@ -7681,11 +7762,11 @@
             renderer.render(scene, camera);
         }
 
-        // Initialize on Window Load - Terus masuk ke Mod POV Titik Biru Tengah Gelanggang 360° seperti Video Rujukan!
+        // Initialize on Window Load - Terus fokus ke bahagian hadapan sebelah kanan (Parkir Terbuka, Parkir Motor, Landskap Serai & Pagar Kanan) seperti gambar rujukan
         window.onload = function () {
             initThreeJS();
-            setCourtyard360POV(0);
-            toggleAutoOrbit(true);
+            setNorthwestMotoAndOpenParkView('video_pov');
+            toggleAutoOrbit(false);
         };
     </script>
 </body>
